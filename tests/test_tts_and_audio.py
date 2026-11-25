@@ -98,12 +98,12 @@ def test_speech_service_history_navigation_and_no_pollution() -> None:
     # Shift + Comma -> first
     service.history_first()
     assert service.history_cursor == 0
-    assert backend.spoken[-1] == ("Primer mensaje. Uno", True)
+    assert backend.spoken[-1] == ("Uno", True)
 
     # Boundary at start
     service.history_prev()
     assert service.history_cursor == 0
-    assert backend.spoken[-1] == ("Inicio del historial. Uno", True)
+    assert backend.spoken[-1] == ("Uno", True)
 
     # Period -> next
     service.history_next()
@@ -113,12 +113,12 @@ def test_speech_service_history_navigation_and_no_pollution() -> None:
     # Shift + Period -> last
     service.history_last()
     assert service.history_cursor == 2
-    assert backend.spoken[-1] == ("Último mensaje. Tres", True)
+    assert backend.spoken[-1] == ("Tres", True)
 
     # Boundary at end
     service.history_next()
     assert service.history_cursor == 2
-    assert backend.spoken[-1] == ("Fin del historial. Tres", True)
+    assert backend.spoken[-1] == ("Tres", True)
 
     # Navigation never pollutes history
     assert service.history == ["Uno", "Dos", "Tres"]
@@ -128,6 +128,23 @@ def test_speech_service_history_navigation_and_no_pollution() -> None:
     service.speak("Cuatro")
     assert service.history == ["Uno", "Dos", "Tres", "Cuatro"]
     assert service.history_cursor == 3
+
+
+def test_menu_speech_keeps_braille_repeat_and_the_full_history_capacity() -> None:
+    backend = NullSpeechBackend()
+    service = SpeechService([backend], history_size=2)
+    service.speak("Gol")
+    service.speak("Descanso")
+    for index in range(40):
+        service.speak(f"Opción {index}", record=False)
+    assert service.history == ["Gol", "Descanso"]
+    assert backend.brailled[-1] == "Opción 39"
+    assert service.repeat_last() is True
+    assert backend.spoken[-1] == ("Opción 39", True)
+    service.history_prev()
+    assert backend.spoken[-1] == ("Descanso", True)
+    service.history_prev()
+    assert backend.spoken[-1] == ("Gol", True)
 
 
 def test_audio_engine_indexes_all_normalized_events() -> None:

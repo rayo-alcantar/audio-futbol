@@ -172,8 +172,6 @@ TACTIC_MENTALITY: dict[str, int] = {v: k for k, v in MENTALITY_TACTIC.items()}
 
 DEFAULT_ROLE_BY_GROUP: dict[str, str] = {"POR": "POR", "DEF": "CE", "MED": "MC", "DEL": "DC"}
 
-PUESTO_CSV: dict[str, str] = {}  # Explicit concrete roles loaded from CSVs
-
 _KNOWN_BY_ROLE: dict[str, list[str]] = {
     "LD": ["Achraf Hakimi", "Aaron Wan-Bissaka", "Dani Carvajal", "Denzel Dumfries", "Diogo Dalot",
            "Kyle Walker", "Trent Alexander-Arnold", "Reece James", "Jeremie Frimpong", "Nahuel Molina",
@@ -283,11 +281,6 @@ def puesto_from_text(text: str) -> str | None:
     return None
 
 
-def register_csv_puesto(player_name: str, code: str) -> None:
-    """Register an explicit CSV concrete role for `player_name`."""
-    PUESTO_CSV[normalize_text(player_name).strip()] = code
-
-
 def group_of(code: str) -> str:
     """Return the base position line (POR, DEF, MED, DEL) for a role code."""
     return ROLES[code][1]
@@ -319,7 +312,7 @@ def preferred_role(player: Player) -> str:
     if code in ROLES and ROLES[code][1] == player.position:
         return code
     key = normalize_text(player.name).strip()
-    found = PUESTO_CSV.get(key) or KNOWN_PUESTOS.get(key)
+    found = KNOWN_PUESTOS.get(key)
     if found is not None and ROLES[found][1] != player.position:
         found = None
     if found is None:

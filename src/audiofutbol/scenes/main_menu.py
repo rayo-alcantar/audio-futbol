@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from audiofutbol.domain.competitions.factory import CLUB_COMPETITIONS
 from audiofutbol.scenes.base import GameContext, Scene
 from audiofutbol.scenes.friendly import run_friendly_match
 from audiofutbol.scenes.league_hub import (
@@ -14,6 +15,15 @@ from audiofutbol.scenes.options import run_options_menu
 from audiofutbol.scenes.updater_scene import check_updates_on_startup_if_ready
 from audiofutbol.scenes.world_cup_hub import continue_world_cup, start_new_world_cup
 from audiofutbol.version import APP_NAME, VERSION
+
+
+def _start_brasileirao(ctx: GameContext) -> None:
+    divisions = [CLUB_COMPETITIONS[key] for key in ("brasileirao_a", "brasileirao_b")]
+    choice = ctx.ui.menu(
+        "Brasileirão. Elige la división", [spec.menu_label for spec in divisions] + ["Volver"]
+    )
+    if choice is not None and choice < len(divisions):
+        start_new_club_competition(ctx, divisions[choice].key)
 
 
 class MainMenuScene:
@@ -39,6 +49,7 @@ class MainMenuScene:
             ("Premier League", lambda: start_new_club_competition(ctx, "premier")),
             ("Liga 1 de Perú", lambda: start_new_club_competition(ctx, "liga1")),
             ("Liga Profesional Argentina", lambda: start_new_club_competition(ctx, "liga_argentina")),
+            ("Brasileirão", lambda: _start_brasileirao(ctx)),
             ("Copa de clubes personalizada", lambda: start_custom_cup(ctx)),
             ("Partido amistoso", lambda: run_friendly_match(ctx)),
         ]

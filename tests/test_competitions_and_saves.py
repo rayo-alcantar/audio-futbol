@@ -1,4 +1,4 @@
-"""End-to-end simulation and JSON save/load roundtrip tests for all 10 competitions."""
+"""End-to-end simulation and JSON save/load roundtrip tests for competitions."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from audiofutbol.data.competition_loader import StadiumDirectory, load_competiti
 from audiofutbol.data.csv_loader import create_generic_team, load_national_teams
 from audiofutbol.data.save_manager import SaveManager
 from audiofutbol.domain.competitions.attendance import calculate_attendance
+from audiofutbol.domain.competitions.brasileirao import BrasileiraoA, BrasileiraoB
 from audiofutbol.domain.competitions.club_tournaments import (
     ChampionsLeague,
     CopaInteramericana,
@@ -91,6 +92,8 @@ def test_all_club_competitions_simulate_and_serialize(tmp_path: Path) -> None:
         ("premier_league_2026_27.json", PremierLeague),
         ("liga1_peru_2026.json", Liga1Peru),
         ("liga_argentina_2025.json", LigaArgentina),
+        ("brasileirao_a_2026.json", BrasileiraoA),
+        ("brasileirao_b_2026.json", BrasileiraoB),
     ]
     for json_file, cls in cases:
         data, eqs = load_competition_data(paths, json_file)

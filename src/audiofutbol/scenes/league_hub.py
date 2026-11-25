@@ -44,6 +44,9 @@ def _finish_league(ctx: GameContext, tournament: NationsLeague) -> None:
         ctx.ui.speak(
             f"{tournament.user_team.name} termina como subcampeón de la {tournament.TITLE}."
         )
+    outcomes = tournament.final_summary_lines()
+    for line in outcomes:
+        ctx.ui.speak(line)
     ctx.saves.delete(tournament.KEY)
     ctx.ui.reader(
         f"Resumen final de la {tournament.TITLE}",
@@ -51,6 +54,7 @@ def _finish_league(ctx: GameContext, tournament: NationsLeague) -> None:
             f"Campeón: {tournament.champion.name}",
             f"Subcampeón: {tournament.runner_up.name}",
         ]
+        + outcomes
         + tournament.top_scorers(10),
     )
     ctx.audio.play_menu_music()

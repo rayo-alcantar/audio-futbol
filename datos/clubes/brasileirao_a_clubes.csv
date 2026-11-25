@@ -1,0 +1,127 @@
+equipo,numero,jugador,posicion,calidad,puesto
+Santos,1,João Paulo,POR,75,POR
+Santos,12,Gabriel Brazão,POR,73,POR
+Santos,2,João Basso,DEF,73,CE
+Santos,3,Gil,DEF,74,CE
+Santos,4,Luan Peres,DEF,74,CE
+Santos,6,Gonzalo Escobar,DEF,72,LI
+Santos,13,Aderlan,DEF,71,LD
+Santos,29,JP Chermont,DEF,72,LD
+Santos,5,João Schmidt,MED,75,MCD
+Santos,8,Diego Pituca,MED,75,MC
+Santos,10,Neymar Jr,MED,82,MP
+Santos,14,Tomás Rincón,MED,72,MCD
+Santos,20,Giuliano,MED,74,MP
+Santos,21,Rómulo Otero,MED,73,MP
+Santos,7,Yeferson Soteldo,DEL,77,EI
+Santos,9,Tiquinho Soares,DEL,76,DC
+Santos,11,Guilherme,DEL,74,EI
+Santos,19,Wendel Silva,DEL,72,DC
+Athletico Paranaense,1,Mycael,POR,74,POR
+Athletico Paranaense,24,Léo Linck,POR,72,POR
+Athletico Paranaense,3,Kaíque Rocha,DEF,73,CE
+Athletico Paranaense,4,Mateo Gamarra,DEF,74,CE
+Athletico Paranaense,6,Fernando,DEF,72,LI
+Athletico Paranaense,22,Madson,DEF,71,LD
+Athletico Paranaense,37,Lucas Esquivel,DEF,75,LI
+Athletico Paranaense,44,Thiago Heleno,DEF,73,CE
+Athletico Paranaense,5,Fernandinho,MED,76,MCD
+Athletico Paranaense,8,Gabriel,MED,73,MCD
+Athletico Paranaense,10,Bruno Zapelli,MED,75,MP
+Athletico Paranaense,11,Nikão,MED,73,MP
+Athletico Paranaense,14,Agustín Canobbio,MED,76,VD
+Athletico Paranaense,88,Christian,MED,74,MC
+Athletico Paranaense,7,Tomás Cuello,DEL,74,EI
+Athletico Paranaense,9,Gonzalo Mastriani,DEL,75,DC
+Athletico Paranaense,17,Julimar,DEL,72,ED
+Athletico Paranaense,92,Pablo,DEL,73,DC
+Red Bull Bragantino,1,Cleiton,POR,76,POR
+Red Bull Bragantino,40,Lucão,POR,72,POR
+Red Bull Bragantino,3,Léo Realpe,DEF,72,CE
+Red Bull Bragantino,4,Pedro Henrique,DEF,74,CE
+Red Bull Bragantino,6,Juninho Capixaba,DEF,76,LI
+Red Bull Bragantino,14,Eduardo Santos,DEF,73,CE
+Red Bull Bragantino,29,Guilherme Lopes,DEF,71,LI
+Red Bull Bragantino,34,Hurtado,DEF,73,LD
+Red Bull Bragantino,5,Jadsom,MED,74,MCD
+Red Bull Bragantino,7,Eric Ramires,MED,75,MC
+Red Bull Bragantino,8,Lucas Evangelista,MED,76,MC
+Red Bull Bragantino,10,Lincoln,MED,75,MP
+Red Bull Bragantino,23,Raul,MED,73,MCD
+Red Bull Bragantino,35,Matheus Fernandes,MED,74,MC
+Red Bull Bragantino,9,Eduardo Sasha,DEL,75,DC
+Red Bull Bragantino,11,Helinho,DEL,76,ED
+Red Bull Bragantino,18,Thiago Borbas,DEL,74,DC
+Red Bull Bragantino,33,Vitinho,DEL,74,EI
+Vitória,1,Lucas Arcanjo,POR,74,POR
+Vitória,12,Muriel,POR,70,POR
+Vitória,2,Raúl Cáceres,DEF,71,LD
+Vitória,3,Wagner Leonardo,DEF,75,CE
+Vitória,4,Camutanga,DEF,71,CE
+Vitória,13,Lucas Esteves,DEF,73,LI
+Vitória,16,Patric Calmon,DEF,70,LI
+Vitória,27,Willean Lepo,DEF,71,LD
+Vitória,5,Willian Oliveira,MED,73,MCD
+Vitória,8,Luan,MED,72,MCD
+Vitória,10,Jean Mota,MED,72,MC
+Vitória,17,Filipe Machado,MED,72,MC
+Vitória,28,Ricardo Ryller,MED,71,MC
+Vitória,30,Matheuzinho,MED,76,MP
+Vitória,7,Osvaldo,DEL,72,EI
+Vitória,9,Alerrandro,DEL,75,DC
+Vitória,11,Everaldo,DEL,71,ED
+Vitória,21,Janderson,DEL,72,DC
+Coritiba,1,Pedro Morisco,POR,73,POR
+Coritiba,12,Gabriel Vasconcelos,POR,72,POR
+Coritiba,2,Natanael,DEF,73,LD
+Coritiba,3,Maurício Antônio,DEF,71,CE
+Coritiba,4,Marcelo Benevenuto,DEF,72,CE
+Coritiba,6,Rodrigo Gelado,DEF,71,LI
+Coritiba,13,Bruno Melo,DEF,72,CE
+Coritiba,16,Jamerson,DEF,71,LI
+Coritiba,5,Sebastián Gómez,MED,74,MC
+Coritiba,8,Morelli,MED,72,MCD
+Coritiba,10,Matheus Frizzo,MED,74,MP
+Coritiba,14,Vini Paulista,MED,71,MC
+Coritiba,18,Josué,MED,73,MP
+Coritiba,25,Zé Gabriel,MED,71,MCD
+Coritiba,7,Alef Manga,DEL,73,EI
+Coritiba,9,Júnior Brumado,DEL,72,DC
+Coritiba,11,Lucas Ronier,DEL,74,ED
+Coritiba,19,Robson,DEL,72,DC
+Remo,1,Marcelo Rangel,POR,71,POR
+Remo,12,Léo Lang,POR,68,POR
+Remo,2,Vidal,DEF,69,LD
+Remo,3,Rafael Castro,DEF,70,CE
+Remo,4,Bruno Bispo,DEF,70,CE
+Remo,6,Raimar,DEF,69,LI
+Remo,13,Ligger,DEF,70,CE
+Remo,14,Sávio,DEF,68,LI
+Remo,5,Paulinho Curuá,MED,70,MCD
+Remo,8,Giovanni Pavani,MED,71,MC
+Remo,10,Jaderson,MED,72,MP
+Remo,15,Bruno Silva,MED,69,MCD
+Remo,18,Matheus Anjos,MED,70,MP
+Remo,20,Marco Antônio,MED,70,MC
+Remo,7,Kelvin,DEL,70,ED
+Remo,9,Ytalo,DEL,71,DC
+Remo,11,Pedro Vitor,DEL,70,EI
+Remo,19,Ribamar,DEL,70,DC
+Chapecoense,1,Matheus Cavichioli,POR,71,POR
+Chapecoense,12,Léo Vieira,POR,69,POR
+Chapecoense,2,Marcelinho,DEF,69,LD
+Chapecoense,3,Bruno Leonardo,DEF,70,CE
+Chapecoense,4,Eduardo Doma,DEF,70,CE
+Chapecoense,6,Mancha,DEF,69,LI
+Chapecoense,13,Habraão,DEF,69,CE
+Chapecoense,16,Kelvyn,DEF,68,LI
+Chapecoense,5,Tárik,MED,70,MCD
+Chapecoense,8,Foguinho,MED,70,MC
+Chapecoense,10,Giovanni Augusto,MED,71,MP
+Chapecoense,14,Marlone,MED,70,MP
+Chapecoense,15,Auremir,MED,69,MCD
+Chapecoense,20,Rafael Carvalheira,MED,70,MC
+Chapecoense,7,Marcinho,DEL,70,ED
+Chapecoense,9,Mário Sérgio,DEL,71,DC
+Chapecoense,11,Ítalo,DEL,70,EI
+Chapecoense,19,Perotti,DEL,71,DC

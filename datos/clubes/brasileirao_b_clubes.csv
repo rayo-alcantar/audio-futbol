@@ -1,0 +1,361 @@
+equipo,numero,jugador,posicion,calidad,puesto
+Sport Recife,1,Caíque França,POR,72,POR
+Sport Recife,22,Thiago Couto,POR,69,POR
+Sport Recife,4,Rafael Thyere,DEF,72,CE
+Sport Recife,13,Luciano Castán,DEF,71,CE
+Sport Recife,16,Igor Cariús,DEF,70,LI
+Sport Recife,29,Dalbert,DEF,71,LI
+Sport Recife,33,Chico,DEF,70,CE
+Sport Recife,44,Leonel Di Plácido,DEF,70,LD
+Sport Recife,5,Felipe,MED,71,MCD
+Sport Recife,8,Fabricio Domínguez,MED,72,MC
+Sport Recife,10,Lucas Lima,MED,73,MP
+Sport Recife,19,Titi Ortíz,MED,72,MP
+Sport Recife,25,Julián Fernández,MED,71,MCD
+Sport Recife,30,Pedro Vilhena,MED,70,MC
+Sport Recife,7,Chrystian Barletta,DEL,72,ED
+Sport Recife,9,Gustavo Coutinho,DEL,72,DC
+Sport Recife,11,Romarinho,DEL,71,EI
+Sport Recife,99,Zé Roberto,DEL,71,DC
+Ceará,1,Richard,POR,72,POR
+Ceará,12,Bruno Ferreira,POR,70,POR
+Ceará,3,Ramon Menezes,DEF,70,CE
+Ceará,4,David Ricardo,DEF,71,CE
+Ceará,6,Matheus Bahia,DEF,71,LI
+Ceará,13,Rafael Ramos,DEF,70,LD
+Ceará,15,Matheus Felipe,DEF,70,CE
+Ceará,22,Raí Ramos,DEF,70,LD
+Ceará,5,Richardson,MED,71,MCD
+Ceará,8,Patrick de Lucca,MED,70,MCD
+Ceará,10,Lucas Mugni,MED,72,MP
+Ceará,19,Lourenço,MED,71,MC
+Ceará,26,Jean Irmer,MED,70,MCD
+Ceará,97,Recalde,MED,72,MP
+Ceará,7,Saulo Mineiro,DEL,72,EI
+Ceará,9,Aylon,DEL,72,DC
+Ceará,11,Erick Pulga,DEL,74,EI
+Ceará,77,Facundo Barceló,DEL,71,DC
+Fortaleza,1,João Ricardo,POR,76,POR
+Fortaleza,12,Santos,POR,73,POR
+Fortaleza,2,Tinga,DEF,73,LD
+Fortaleza,4,Titi,DEF,73,CE
+Fortaleza,6,Bruno Pacheco,DEF,73,LI
+Fortaleza,13,Benjamín Kuscevic,DEF,74,CE
+Fortaleza,14,Eros Mancuso,DEF,73,LD
+Fortaleza,19,Emanuel Brítez,DEF,74,CE
+Fortaleza,5,Matheus Rossetto,MED,73,MC
+Fortaleza,7,Tomás Pochettino,MED,75,MP
+Fortaleza,8,Emmanuel Martínez,MED,74,MC
+Fortaleza,10,Calebe,MED,74,MP
+Fortaleza,17,Zé Welison,MED,73,MCD
+Fortaleza,88,Pedro Augusto,MED,72,MCD
+Fortaleza,9,Juan Martín Lucero,DEL,76,DC
+Fortaleza,11,Marinho,DEL,74,ED
+Fortaleza,21,Moisés,DEL,75,EI
+Fortaleza,79,Renato Kayzer,DEL,73,DC
+Juventude,1,Gabriel,POR,73,POR
+Juventude,12,Mateus Claus,POR,69,POR
+Juventude,3,Zé Marcos,DEF,71,CE
+Juventude,4,Danilo Boza,DEF,72,CE
+Juventude,6,Alan Ruschel,DEF,70,LI
+Juventude,14,Rodrigo Sam,DEF,71,CE
+Juventude,22,João Lucas,DEF,72,LD
+Juventude,28,Lucas Freitas,DEF,70,CE
+Juventude,5,Ronaldo,MED,71,MCD
+Juventude,8,Jádson,MED,72,MCD
+Juventude,10,Nenê,MED,73,MP
+Juventude,16,Mandaca,MED,71,MC
+Juventude,20,Jean Carlos,MED,72,MP
+Juventude,44,Luis Oyama,MED,71,MC
+Juventude,7,Marcelinho,DEL,71,EI
+Juventude,9,Gilberto,DEL,72,DC
+Juventude,11,Edson Carioca,DEL,71,EI
+Juventude,27,Lucas Barbosa,DEL,73,ED
+Goiás,1,Tadeu,POR,74,POR
+Goiás,23,Ezequiel,POR,68,POR
+Goiás,2,Diego,DEF,71,LD
+Goiás,3,Lucas Ribeiro,DEF,71,CE
+Goiás,4,Messias,DEF,71,CE
+Goiás,6,Sander,DEF,70,LI
+Goiás,13,Douglas Borel,DEF,69,LD
+Goiás,14,Reynaldo,DEF,70,CE
+Goiás,5,Marcão,MED,71,MCD
+Goiás,8,Juninho,MED,71,MC
+Goiás,10,Régis,MED,71,MP
+Goiás,15,Nathan Melo,MED,69,MCD
+Goiás,20,Rafael Gava,MED,71,MC
+Goiás,25,Edson,MED,70,MCD
+Goiás,7,Paulo Baya,DEL,73,EI
+Goiás,9,Thiago Galhardo,DEL,72,DC
+Goiás,11,Welliton,DEL,71,ED
+Goiás,19,Breno Herculano,DEL,70,DC
+Novorizontino,1,Jordi,POR,72,POR
+Novorizontino,12,Airton,POR,69,POR
+Novorizontino,2,Rodrigo Soares,DEF,71,LD
+Novorizontino,3,Rafael Donato,DEF,71,CE
+Novorizontino,4,Patrick,DEF,70,CE
+Novorizontino,6,Reverson,DEF,70,LI
+Novorizontino,13,Luisão,DEF,71,CE
+Novorizontino,25,Danilo Barcelos,DEF,70,LI
+Novorizontino,5,Geovane,MED,71,MCD
+Novorizontino,8,Willian Farias,MED,71,MCD
+Novorizontino,10,Eduardo,MED,71,MP
+Novorizontino,15,Marlon,MED,71,MC
+Novorizontino,20,Dudu,MED,70,MC
+Novorizontino,28,Igor Formiga,MED,70,VD
+Novorizontino,7,Waguininho,DEL,71,EI
+Novorizontino,9,Neto Pessoa,DEL,71,DC
+Novorizontino,11,Lucca,DEL,71,EI
+Novorizontino,19,Rodolfo,DEL,71,DC
+Criciúma,1,Gustavo,POR,73,POR
+Criciúma,12,Alisson,POR,69,POR
+Criciúma,2,Claudinho,DEF,71,LD
+Criciúma,3,Rodrigo,DEF,71,CE
+Criciúma,4,Wilker Ángel,DEF,71,CE
+Criciúma,6,Marcelo Hermes,DEF,72,LI
+Criciúma,13,Tobias Figueiredo,DEF,71,CE
+Criciúma,22,Miguel Trauco,DEF,71,LI
+Criciúma,5,Barreto,MED,71,MCD
+Criciúma,8,Newton,MED,71,MCD
+Criciúma,10,Fellipe Mateus,MED,73,MP
+Criciúma,14,Higor Meritão,MED,71,MC
+Criciúma,20,Matheusinho,MED,71,MP
+Criciúma,25,Ronald,MED,70,MC
+Criciúma,7,Allano,DEL,71,ED
+Criciúma,9,Arthur Caíke,DEL,71,DC
+Criciúma,11,Bolasie,DEL,73,EI
+Criciúma,19,Felipe Vizeu,DEL,71,DC
+Atlético Goianiense,1,Ronaldo,POR,72,POR
+Atlético Goianiense,12,Pedro Rangel,POR,69,POR
+Atlético Goianiense,2,Maguinho,DEF,70,LD
+Atlético Goianiense,3,Luiz Felipe,DEF,71,CE
+Atlético Goianiense,4,Alix Vinicius,DEF,71,CE
+Atlético Goianiense,6,Guilherme Romão,DEF,71,LI
+Atlético Goianiense,13,Adriano Martins,DEF,70,CE
+Atlético Goianiense,22,Bruno Tubarão,DEF,70,LD
+Atlético Goianiense,5,Roni,MED,71,MCD
+Atlético Goianiense,8,Gabriel Baralhas,MED,72,MC
+Atlético Goianiense,10,Shaylon,MED,73,MP
+Atlético Goianiense,15,Rhaldney,MED,71,MCD
+Atlético Goianiense,20,Jorginho,MED,71,MP
+Atlético Goianiense,25,Gonzalo Freitas,MED,70,MCD
+Atlético Goianiense,7,Alejo Cruz,DEL,71,EI
+Atlético Goianiense,9,Derek,DEL,71,DC
+Atlético Goianiense,11,Luiz Fernando,DEL,73,ED
+Atlético Goianiense,19,Jan Hurtado,DEL,71,DC
+Cuiabá,1,Walter,POR,73,POR
+Cuiabá,12,Mateus Pasinato,POR,70,POR
+Cuiabá,2,Matheus Alexandre,DEF,71,LD
+Cuiabá,3,Marllon,DEF,72,CE
+Cuiabá,4,Alan Empereur,DEF,72,CE
+Cuiabá,6,Ramon,DEF,71,LI
+Cuiabá,13,Bruno Alves,DEF,71,CE
+Cuiabá,22,Railan,DEF,70,LD
+Cuiabá,5,Filipe Augusto,MED,71,MCD
+Cuiabá,8,Fernando Sobral,MED,72,MC
+Cuiabá,10,Max,MED,71,MP
+Cuiabá,14,Lucas Fernandes,MED,72,MP
+Cuiabá,27,Denilson,MED,71,MC
+Cuiabá,30,Lucas Mineiro,MED,71,MCD
+Cuiabá,7,Jonathan Cafú,DEL,71,ED
+Cuiabá,9,Isidro Pitta,DEL,74,DC
+Cuiabá,11,Clayson,DEL,71,EI
+Cuiabá,17,Derik Lacerda,DEL,71,DC
+América Mineiro,1,Elias,POR,71,POR
+América Mineiro,12,Dalberson,POR,69,POR
+América Mineiro,2,Mateus Henrique,DEF,70,LD
+América Mineiro,3,Éder,DEF,71,CE
+América Mineiro,4,Ricardo Silva,DEF,71,CE
+América Mineiro,6,Marlon,DEF,71,LI
+América Mineiro,13,Lucão,DEF,70,CE
+América Mineiro,16,Daniel Borges,DEF,70,LD
+América Mineiro,5,Alê,MED,71,MC
+América Mineiro,8,Juninho,MED,72,MC
+América Mineiro,10,Benítez,MED,72,MP
+América Mineiro,15,Wallisson,MED,70,MCD
+América Mineiro,20,Moisés,MED,71,MP
+América Mineiro,25,Felipe Amaral,MED,70,MCD
+América Mineiro,7,Fabinho,DEL,71,ED
+América Mineiro,9,Brenner,DEL,71,DC
+América Mineiro,11,Adyson,DEL,70,EI
+América Mineiro,19,Renato Marques,DEL,71,DC
+Avaí,1,César Augusto,POR,71,POR
+Avaí,12,Igor Bohn,POR,68,POR
+Avaí,2,Marcos Vinícius,DEF,70,LD
+Avaí,3,Tiago Pagnussat,DEF,71,CE
+Avaí,4,Jonathan Costa,DEF,70,CE
+Avaí,6,Mário Sérgio,DEF,70,LI
+Avaí,13,Gustavo Vilar,DEF,69,CE
+Avaí,16,Natanael,DEF,69,LI
+Avaí,5,Zé Ricardo,MED,70,MCD
+Avaí,8,Giovanni,MED,71,MP
+Avaí,10,Andrey,MED,70,MC
+Avaí,14,Pedro Castro,MED,70,MC
+Avaí,18,Judson,MED,70,MCD
+Avaí,20,João Paulo,MED,70,MP
+Avaí,7,Hygor,DEL,71,DC
+Avaí,9,Vagner Love,DEL,71,DC
+Avaí,11,Maurício Garcez,DEL,71,EI
+Avaí,19,William Pottker,DEL,70,ED
+Vila Nova,1,Dênis Júnior,POR,71,POR
+Vila Nova,12,Halls,POR,68,POR
+Vila Nova,2,Elias,DEF,70,LD
+Vila Nova,3,Jemmes,DEF,70,CE
+Vila Nova,4,Dankler,DEF,70,CE
+Vila Nova,6,Rhuan,DEF,69,LI
+Vila Nova,13,Quintero,DEF,70,CE
+Vila Nova,16,Eric Davis,DEF,69,LI
+Vila Nova,5,Ralf,MED,70,MCD
+Vila Nova,8,Cristiano,MED,70,MC
+Vila Nova,10,Igor Henrique,MED,71,MP
+Vila Nova,14,Arilson,MED,70,MCD
+Vila Nova,18,João Lucas,MED,70,MC
+Vila Nova,20,Geovane,MED,70,MP
+Vila Nova,7,Alesson,DEL,72,EI
+Vila Nova,9,Henrique Almeida,DEL,70,DC
+Vila Nova,11,Júnior Todinho,DEL,71,ED
+Vila Nova,19,Emerson Urso,DEL,70,DC
+CRB,1,Matheus Albino,POR,71,POR
+CRB,12,Vitor Caetano,POR,68,POR
+CRB,2,Hereda,DEF,71,LD
+CRB,3,Saimon,DEF,70,CE
+CRB,4,Fábio Alemão,DEF,70,CE
+CRB,6,Willian Formiga,DEF,69,LI
+CRB,13,Gustavo Henrique,DEF,69,CE
+CRB,16,Ryan,DEF,69,LI
+CRB,5,Falcão,MED,70,MCD
+CRB,8,João Pedro,MED,70,MC
+CRB,10,Gegê,MED,72,MP
+CRB,14,Rômulo,MED,70,MC
+CRB,18,Marco Antônio,MED,70,MP
+CRB,25,Chay,MED,70,MP
+CRB,7,Mike,DEL,70,ED
+CRB,9,Anselmo Ramon,DEL,72,DC
+CRB,11,Léo Pereira,DEL,71,EI
+CRB,19,Getúlio,DEL,70,DC
+Operário Ferroviário,1,Rafael Santos,POR,70,POR
+Operário Ferroviário,12,Gabriel Mesquita,POR,68,POR
+Operário Ferroviário,2,Sávio,DEF,69,LD
+Operário Ferroviário,3,Joseph,DEF,70,CE
+Operário Ferroviário,4,Willian Machado,DEF,71,CE
+Operário Ferroviário,6,Pará,DEF,69,LI
+Operário Ferroviário,13,Alemão,DEF,69,CE
+Operário Ferroviário,16,Gabriel Feliciano,DEF,68,LI
+Operário Ferroviário,5,Índio,MED,70,MCD
+Operário Ferroviário,8,Jacy,MED,70,MCD
+Operário Ferroviário,10,Boschilia,MED,71,MP
+Operário Ferroviário,14,Neto Paraíba,MED,69,MC
+Operário Ferroviário,18,Pedro Lucas,MED,69,MP
+Operário Ferroviário,20,Vinícius Diniz,MED,69,MC
+Operário Ferroviário,7,Rodrigo Rodrigues,DEL,70,ED
+Operário Ferroviário,9,Daniel Lima,DEL,70,DC
+Operário Ferroviário,11,Maxwell,DEL,71,EI
+Operário Ferroviário,19,Ronaldo,DEL,70,DC
+Botafogo-SP,1,João Carlos,POR,69,POR
+Botafogo-SP,12,Victor Souza,POR,68,POR
+Botafogo-SP,2,Wallison,DEF,68,LD
+Botafogo-SP,3,Lucas Dias,DEF,69,CE
+Botafogo-SP,4,Fábio Sanches,DEF,69,CE
+Botafogo-SP,6,Patrick Brey,DEF,69,LI
+Botafogo-SP,13,Bernardo Schappo,DEF,69,CE
+Botafogo-SP,16,Jean Victor,DEF,68,LI
+Botafogo-SP,5,Carlos Manuel,MED,69,MCD
+Botafogo-SP,8,Gustavo Bochecha,MED,69,MC
+Botafogo-SP,10,Douglas Baggio,MED,70,MP
+Botafogo-SP,14,João Costa,MED,68,MC
+Botafogo-SP,18,Sabit Abdulai,MED,68,MCD
+Botafogo-SP,20,Leandro Maciel,MED,69,MC
+Botafogo-SP,7,Emerson Negueba,DEL,69,ED
+Botafogo-SP,9,Alex Sandro,DEL,70,DC
+Botafogo-SP,11,Toró,DEL,69,EI
+Botafogo-SP,19,Bruno Marques,DEL,69,DC
+Athletic Club-MG,1,Jefferson,POR,69,POR
+Athletic Club-MG,12,Glauco,POR,67,POR
+Athletic Club-MG,2,Douglas Pelé,DEF,68,LD
+Athletic Club-MG,3,Edson,DEF,69,CE
+Athletic Club-MG,4,Sidimar,DEF,69,CE
+Athletic Club-MG,6,Yuri,DEF,68,LI
+Athletic Club-MG,13,Danilo Cardoso,DEF,68,CE
+Athletic Club-MG,16,Alyson,DEF,68,LI
+Athletic Club-MG,5,Diego Fumaça,MED,69,MCD
+Athletic Club-MG,8,Wallisson,MED,69,MC
+Athletic Club-MG,10,David Braga,MED,70,MP
+Athletic Club-MG,14,Welinton Torrão,MED,69,MP
+Athletic Club-MG,18,Geovane,MED,68,MCD
+Athletic Club-MG,20,Alason Carioca,MED,68,MC
+Athletic Club-MG,7,Paul Villero,DEL,69,ED
+Athletic Club-MG,9,Jonathas,DEL,70,DC
+Athletic Club-MG,11,Neto Costa,DEL,69,EI
+Athletic Club-MG,19,Rafael Conceição,DEL,68,DC
+Ponte Preta,1,Pedro Rocha,POR,70,POR
+Ponte Preta,12,Luan Ribeiro,POR,68,POR
+Ponte Preta,2,Igor Inocêncio,DEF,69,LD
+Ponte Preta,3,Mateus Silva,DEF,70,CE
+Ponte Preta,4,Sérgio Raphael,DEF,69,CE
+Ponte Preta,6,Gabriel Risso,DEF,69,LI
+Ponte Preta,13,Joilson,DEF,69,CE
+Ponte Preta,16,Heitor Roca,DEF,68,LI
+Ponte Preta,5,Emerson Santos,MED,69,MCD
+Ponte Preta,8,Castro,MED,69,MC
+Ponte Preta,10,Elvis,MED,72,MP
+Ponte Preta,14,Ramon Carvalho,MED,69,MCD
+Ponte Preta,18,Dodô,MED,70,MP
+Ponte Preta,20,Lucas Buchecha,MED,69,MC
+Ponte Preta,7,Iago Dias,DEL,69,ED
+Ponte Preta,9,Jeh,DEL,71,DC
+Ponte Preta,11,Renato,DEL,69,EI
+Ponte Preta,19,Gabriel Novaes,DEL,70,DC
+Náutico,1,Deivity,POR,69,POR
+Náutico,12,Jefferson Romário,POR,67,POR
+Náutico,2,Arnaldo,DEF,68,LD
+Náutico,3,Iran,DEF,69,CE
+Náutico,4,Islan,DEF,69,CE
+Náutico,6,Luiz Paulo,DEF,68,LI
+Náutico,13,Joécio,DEF,68,CE
+Náutico,16,Diego Matos,DEF,68,LI
+Náutico,5,Sousa,MED,69,MCD
+Náutico,8,Marco Antônio,MED,69,MC
+Náutico,10,Patrick Allan,MED,70,MP
+Náutico,14,Renato Alves,MED,68,MCD
+Náutico,18,Andrey,MED,68,MP
+Náutico,20,Wendel Lessa,MED,68,MC
+Náutico,7,Gustavo Maia,DEL,69,EI
+Náutico,9,Paulo Sérgio,DEL,71,DC
+Náutico,11,Bruno Mezenga,DEL,69,DC
+Náutico,19,Thalissinho,DEL,68,ED
+São Bernardo,1,Alex Alves,POR,70,POR
+São Bernardo,12,Júnior Oliveira,POR,67,POR
+São Bernardo,2,Vitor Ricardo,DEF,68,LD
+São Bernardo,3,Helder,DEF,69,CE
+São Bernardo,4,Alan Santos,DEF,69,CE
+São Bernardo,6,Arthur Henrique,DEF,69,LI
+São Bernardo,13,Rafael Forster,DEF,69,CE
+São Bernardo,16,Davi Gabriel,DEF,68,LI
+São Bernardo,5,Rodrigo Souza,MED,69,MCD
+São Bernardo,8,Lucas Lima,MED,69,MC
+São Bernardo,10,Vitinho,MED,70,MP
+São Bernardo,14,Wesley Dias,MED,68,MCD
+São Bernardo,18,Romisson,MED,69,MC
+São Bernardo,20,Breno,MED,68,MP
+São Bernardo,7,Silvinho,DEL,69,EI
+São Bernardo,9,Kayke,DEL,70,DC
+São Bernardo,11,Lucas Tocantins,DEL,69,ED
+São Bernardo,19,João Carlos,DEL,69,DC
+Londrina,1,Gabriel Félix,POR,69,POR
+Londrina,12,Arthur,POR,67,POR
+Londrina,2,Thiago Ennes,DEF,68,LD
+Londrina,3,João Maistro,DEF,69,CE
+Londrina,4,Rayn,DEF,68,CE
+Londrina,6,Geferson,DEF,68,LI
+Londrina,13,Davi,DEF,68,CE
+Londrina,16,Maurício,DEF,68,LI
+Londrina,5,Tauã,MED,69,MCD
+Londrina,8,Kadi,MED,69,MC
+Londrina,10,Rafael Longuine,MED,70,MP
+Londrina,14,Pedro Cacho,MED,68,MCD
+Londrina,18,Gustavo França,MED,69,MP
+Londrina,20,Marthã,MED,68,MC
+Londrina,7,Henrique,DEL,69,ED
+Londrina,9,Daniel Amorim,DEL,70,DC
+Londrina,11,Iago Teles,DEL,70,EI
+Londrina,19,Everton Moraes,DEL,68,DC

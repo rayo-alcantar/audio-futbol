@@ -83,6 +83,9 @@ class AudioUI:
     def speak(self, text: str, interrupt: bool = False) -> None:
         self.speech.speak(text, interrupt=interrupt)
 
+    def _speak_focus(self, text: str, interrupt: bool = False) -> None:
+        self.speech.speak(text, interrupt=interrupt, record=False)
+
     def play_jingle(self, name: str, ms: int, volume: float = 1.0) -> None:
         if not self.audio.config.musica or not self.audio.ok:
             return
@@ -108,7 +111,7 @@ class AudioUI:
         idx = max(0, min(initial_index, total - 1))
 
         self.window.set_view(title, items=items, selected_index=idx)
-        self.speech.speak(f"{title}. {items[idx]}, {idx + 1} de {total}")
+        self._speak_focus(f"{title}. {items[idx]}, {idx + 1} de {total}")
 
         while True:
             key, ch = self.window.wait_key()
@@ -129,7 +132,7 @@ class AudioUI:
                 if updated:
                     items[idx] = updated
                     self.window.set_view(title, items=items, selected_index=idx)
-                    self.speech.speak(updated, interrupt=True)
+                    self._speak_focus(updated, interrupt=True)
                 continue
             elif key in (pygame.K_RETURN, pygame.K_KP_ENTER):
                 self.audio.play_sfx("aceptar")
@@ -144,7 +147,7 @@ class AudioUI:
                 res = shortcuts[key]()
                 if res == "releer":
                     self.window.set_view(title, items=items, selected_index=idx)
-                    self.speech.speak(
+                    self._speak_focus(
                         f"{title}. {items[idx]}, {idx + 1} de {total}", interrupt=True
                     )
                 continue
@@ -162,7 +165,7 @@ class AudioUI:
 
             self.audio.play_sfx("mover")
             self.window.set_view(title, items=items, selected_index=idx)
-            self.speech.speak(f"{items[idx]}, {idx + 1} de {total}", interrupt=True)
+            self._speak_focus(f"{items[idx]}, {idx + 1} de {total}", interrupt=True)
 
     def formation_board(
         self,
@@ -216,7 +219,7 @@ class AudioUI:
                 total_slots = len(row.slots)
                 occ = sum(1 for s in row.slots if s.occupied)
                 occ_txt = f", {occ} ocupadas" if occ < total_slots else ""
-                self.speech.speak(
+                self._speak_focus(
                     f"{prefix}{row.name}, {total_slots} posiciones{occ_txt}",
                     interrupt=not is_initial,
                 )
@@ -226,7 +229,7 @@ class AudioUI:
             if row.is_action_row:
                 if not is_initial:
                     self.audio.play_sfx("mover")
-                self.speech.speak(f"{prefix}{slot.label}", interrupt=not is_initial)
+                self._speak_focus(f"{prefix}{slot.label}", interrupt=not is_initial)
                 return
 
             is_line_end = len(row.slots) > 1 and col_idx == len(row.slots) - 1
@@ -239,7 +242,7 @@ class AudioUI:
                 msg = f"{prefix}{row.name}. {slot.label}"
             else:
                 msg = slot.label
-            self.speech.speak(msg, interrupt=not is_initial)
+            self._speak_focus(msg, interrupt=not is_initial)
 
         announce(is_initial=True)
 
@@ -253,7 +256,7 @@ class AudioUI:
                     announce()
                 else:
                     self.audio.play_board_edge(0.0)
-                    self.speech.speak("Fin del esquema.", interrupt=True)
+                    self._speak_focus("Fin del esquema.", interrupt=True)
             elif key == pygame.K_UP:
                 if row_idx > 0:
                     row_idx -= 1
@@ -261,11 +264,11 @@ class AudioUI:
                     announce()
                 else:
                     self.audio.play_board_edge(0.0)
-                    self.speech.speak("Inicio del esquema.", interrupt=True)
+                    self._speak_focus("Inicio del esquema.", interrupt=True)
             elif key == pygame.K_RIGHT:
                 if len(row.slots) == 1:
                     self.audio.play_board_edge(0.0)
-                    self.speech.speak(
+                    self._speak_focus(
                         f"Única posición en {row.name}. {row.slots[0].label}",
                         interrupt=True,
                     )
@@ -277,11 +280,11 @@ class AudioUI:
                     announce()
                 else:
                     self.audio.play_board_edge(1.0)
-                    self.speech.speak(f"Fin de {row.name.lower()}.", interrupt=True)
+                    self._speak_focus(f"Fin de {row.name.lower()}.", interrupt=True)
             elif key == pygame.K_LEFT:
                 if len(row.slots) == 1:
                     self.audio.play_board_edge(0.0)
-                    self.speech.speak(
+                    self._speak_focus(
                         f"Única posición en {row.name}. {row.slots[0].label}",
                         interrupt=True,
                     )
@@ -293,7 +296,7 @@ class AudioUI:
                     announce()
                 else:
                     self.audio.play_board_edge(-1.0)
-                    self.speech.speak(f"Inicio de {row.name.lower()}.", interrupt=True)
+                    self._speak_focus(f"Inicio de {row.name.lower()}.", interrupt=True)
             elif key == pygame.K_HOME and len(row.slots) > 1:
                 col_idx = 0
                 announce()

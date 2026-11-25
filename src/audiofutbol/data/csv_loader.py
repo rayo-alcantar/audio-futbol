@@ -8,7 +8,7 @@ import io
 from pathlib import Path
 import random
 
-from audiofutbol.domain.formations import puesto_from_text, register_csv_puesto
+from audiofutbol.domain.formations import puesto_from_text
 from audiofutbol.domain.models import Player, Team
 from audiofutbol.domain.text import normalize_text, tokenize
 from audiofutbol.engine.paths import AppPaths
@@ -127,6 +127,11 @@ def _compute_overall(pos: str, atk: float, dfn: float, pas: float, gk: float) ->
 
 def read_squad_csv(path: Path) -> list[tuple[str, str, str, int, int]]:
     """Read a CSV/TSV file and return tuples of (team, player, position, overall, number)."""
+    return [(team, p.name, p.position, p.overall, p.number) for team, p in _read_players(path)]
+
+
+def _read_players(path: Path) -> list[tuple[str, Player]]:
+    """Keep the concrete role attached to its row, not shared by player name."""
     text: str | None = None
     for encoding in ("utf-8-sig", "latin-1"):
         try:
@@ -168,7 +173,7 @@ def read_squad_csv(path: Path) -> list[tuple[str, str, str, int, int]]:
         return []
 
     default_team = path.stem.replace("_", " ")
-    rows: list[tuple[str, str, str, int, int]] = []
+    rows: list[tuple[str, Player]] = []
     for row in reader:
         player_name = (row.get(c_nom) or "").strip()
         if not player_name:
@@ -193,13 +198,11 @@ def read_squad_csv(path: Path) -> list[tuple[str, str, str, int, int]]:
         concrete = puesto_from_text(row.get(c_pue) or "") if c_pue else None
         if not concrete and c_pos:
             concrete = puesto_from_text(row.get(c_pos) or "")
-        if concrete:
-            register_csv_puesto(player_name, concrete)
         try:
             shirt = int(float(row.get(c_num) or 0)) if c_num else 0
         except ValueError:
             shirt = 0
-        rows.append((team_name, player_name, pos, overall, shirt))
+        rows.append((team_name, Player(player_name, pos, overall, shirt, puesto=concrete or "")))
     return rows
 
 
@@ -234,8 +237,8 @@ def load_national_teams(paths: AppPaths) -> tuple[list[Team], bool]:
         for entry in sorted(paths.data_dir.iterdir()):
             if entry.is_file() and entry.suffix.lower() in (".csv", ".tsv"):
                 try:
-                    for eq, nom, pos, ovr, num in read_squad_csv(entry):
-                        grouped.setdefault(eq, {})[nom] = Player(nom, pos, ovr, num)
+                    for eq, player in _read_players(entry):
+                        grouped.setdefault(eq, {})[player.name] = player
                 except Exception:
                     continue
 
@@ -261,8 +264,8 @@ def load_extra_national_teams(paths: AppPaths) -> list[Team]:
         for entry in sorted(paths.extra_nations_dir.iterdir()):
             if entry.is_file() and entry.suffix.lower() in (".csv", ".tsv"):
                 try:
-                    for eq, nom, pos, ovr, num in read_squad_csv(entry):
-                        grouped.setdefault(eq, {})[nom] = Player(nom, pos, ovr, num)
+                    for eq, player in _read_players(entry):
+                        grouped.setdefault(eq, {})[player.name] = player
                 except Exception:
                     continue
     teams: list[Team] = []
@@ -280,10 +283,8 @@ def load_club_players(paths: AppPaths) -> dict[str, dict[str, Player]]:
         for entry in sorted(paths.clubs_dir.iterdir()):
             if entry.is_file() and entry.suffix.lower() in (".csv", ".tsv"):
                 try:
-                    for eq, nom, pos, ovr, num in read_squad_csv(entry):
-                        clubs.setdefault(normalize_text(eq).strip(), {})[nom] = Player(
-                            nom, pos, ovr, num
-                        )
+                    for eq, player in _read_players(entry):
+                        clubs.setdefault(normalize_text(eq).strip(), {})[player.name] = player
                 except Exception:
                     continue
     return clubs

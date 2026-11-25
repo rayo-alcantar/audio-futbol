@@ -1,0 +1,188 @@
+{
+  "id": "brasileirao_b_2026",
+  "nombre": "Brasileirão Série B 2026",
+  "version_datos": "2026-11-23",
+  "nota": "Segunda división de Brasil: 20 clubes, 38 jornadas y repechaje de ascenso del 3.º al 6.º.",
+  "equipos": [
+    {
+      "id": "sport_recife",
+      "nombre": "Sport Recife",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 72,
+      "estadio": "Ilha do Retiro",
+      "ciudad": "Recife"
+    },
+    {
+      "id": "ceara",
+      "nombre": "Ceará",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 72,
+      "estadio": "Arena Castelão",
+      "ciudad": "Fortaleza"
+    },
+    {
+      "id": "fortaleza",
+      "nombre": "Fortaleza",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 74,
+      "estadio": "Arena Castelão",
+      "ciudad": "Fortaleza"
+    },
+    {
+      "id": "juventude",
+      "nombre": "Juventude",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 72,
+      "estadio": "Alfredo Jaconi",
+      "ciudad": "Caxias do Sul"
+    },
+    {
+      "id": "goias",
+      "nombre": "Goiás",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 71,
+      "estadio": "Estádio da Serrinha",
+      "ciudad": "Goiânia"
+    },
+    {
+      "id": "novorizontino",
+      "nombre": "Novorizontino",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 71,
+      "estadio": "Estádio Jorge Ismael de Biasi",
+      "ciudad": "Novo Horizonte"
+    },
+    {
+      "id": "criciuma",
+      "nombre": "Criciúma",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 71,
+      "estadio": "Estádio Heriberto Hülse",
+      "ciudad": "Criciúma"
+    },
+    {
+      "id": "atletico_goianiense",
+      "nombre": "Atlético Goianiense",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 71,
+      "estadio": "Estádio Antônio Accioly",
+      "ciudad": "Goiânia"
+    },
+    {
+      "id": "cuiaba",
+      "nombre": "Cuiabá",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 71,
+      "estadio": "Arena Pantanal",
+      "ciudad": "Cuiabá"
+    },
+    {
+      "id": "america_mineiro",
+      "nombre": "América Mineiro",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 71,
+      "estadio": "Arena Independência",
+      "ciudad": "Belo Horizonte"
+    },
+    {
+      "id": "avai",
+      "nombre": "Avaí",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 70,
+      "estadio": "Estádio da Ressacada",
+      "ciudad": "Florianópolis"
+    },
+    {
+      "id": "vila_nova",
+      "nombre": "Vila Nova",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 70,
+      "estadio": "Estádio Onésio Brasileiro Alvarenga",
+      "ciudad": "Goiânia"
+    },
+    {
+      "id": "crb",
+      "nombre": "CRB",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 70,
+      "estadio": "Estádio Rei Pelé",
+      "ciudad": "Maceió"
+    },
+    {
+      "id": "operario_ferroviario",
+      "nombre": "Operário Ferroviário",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 69,
+      "estadio": "Estádio Germano Krüger",
+      "ciudad": "Ponta Grossa"
+    },
+    {
+      "id": "botafogo_sp",
+      "nombre": "Botafogo-SP",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 68,
+      "estadio": "Estádio Santa Cruz",
+      "ciudad": "Ribeirão Preto"
+    },
+    {
+      "id": "athletic_club_mg",
+      "nombre": "Athletic Club-MG",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 68,
+      "estadio": "Arena Sicredi",
+      "ciudad": "São João del-Rei"
+    },
+    {
+      "id": "ponte_preta",
+      "nombre": "Ponte Preta",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 69,
+      "estadio": "Estádio Moisés Lucarelli",
+      "ciudad": "Campinas"
+    },
+    {
+      "id": "nautico",
+      "nombre": "Náutico",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 68,
+      "estadio": "Estádio dos Aflitos",
+      "ciudad": "Recife"
+    },
+    {
+      "id": "sao_bernardo",
+      "nombre": "São Bernardo",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 68,
+      "estadio": "Estádio Primeiro de Maio",
+      "ciudad": "São Bernardo do Campo"
+    },
+    {
+      "id": "londrina",
+      "nombre": "Londrina",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 68,
+      "estadio": "Estádio do Café",
+      "ciudad": "Londrina"
+    }
+  ]
+}

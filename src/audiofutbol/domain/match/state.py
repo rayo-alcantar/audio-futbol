@@ -226,9 +226,11 @@ class MatchState:
         table_advantage: int | None = None,
         attendance: tuple[str, float] | None = None,
         rng: random.Random | None = None,
+        yellow_card_limit: int = 2,
     ) -> None:
         self.rng = rng or random.Random()
         self.settings = settings
+        self.yellow_card_limit = yellow_card_limit
         self.teams: list[Team] = [user_team, rival_team]
         self.attendance = attendance
         self.table_advantage = table_advantage
@@ -316,6 +318,7 @@ class MatchState:
 
         self.goals: list[int] = [0, 0]
         self.red_cards: list[int] = [0, 0]
+        self.yellow_cards: list[int] = [0, 0]
         self.gk_penalty: list[int] = [0, 0]
         self.shots: list[int] = [0, 0]
         self.shots_on_target: list[int] = [0, 0]
@@ -1278,4 +1281,6 @@ class MatchState:
             scorers=[(self.teams[i], p, m) for i, p, m in self.scorers],
             assists=[(self.teams[i], p, m) for i, p, m in self.assist_log],
             highlights=list(self.highlights),
+            red_cards=(self.red_cards[0], self.red_cards[1]),
+            yellow_cards=(self.yellow_cards[0], self.yellow_cards[1]),
         )

@@ -52,10 +52,14 @@ También puedes iniciar desde terminal con `python -m audiofutbol`.
 | Liga MX | 18 clubes | 17 jornadas y liguilla de 8 equipos a ida y vuelta (desempata mejor posición hasta semifinales) |
 | Premier League | 20 clubes | 38 jornadas a ida y vuelta sin playoffs; zonas europeas y descenso |
 | Liga 1 de Perú | 18 clubes | Apertura y Clausura (17 fechas cada uno con localías invertidas), tabla acumulada y playoffs por el título |
-| Copa de clubes personalizada | 8, 16, 32 o 64 clubes libres | Selección libre desde el pool global de 183 clubes (170 con plantilla real), grupos y eliminatorias |
+| Brasileirão Série A 2026 | 20 clubes | 38 jornadas de ida y vuelta; campeón por puntos, zonas continentales y cuatro descensos |
+| Brasileirão Série B 2026 | 20 clubes | 38 jornadas de ida y vuelta; dos ascensos directos, dos por repechaje y cuatro descensos |
+| Copa de clubes personalizada | 8, 16, 32 o 64 clubes libres | Selección libre desde el catálogo global de clubes, grupos y eliminatorias |
 | Partido amistoso | 50 selecciones (48 del Mundial y 2 adicionales) | Partido único en formato amistoso o eliminatoria con tiempo extra y penales |
 
-En las competiciones oficiales de clubes puedes activar **Personalizar participantes** antes de iniciar para intercambiar cualquier club conservando el calendario oficial. Para agregar equipos, selecciones o torneos nuevos, consulta la [Guía para colaboradores](COLABORAR.md).
+En las competiciones de clubes puedes activar **Personalizar participantes** antes de iniciar para intercambiar cualquier club conservando el formato del torneo. Para agregar equipos, selecciones o torneos nuevos, consulta la [Guía para colaboradores](COLABORAR.md).
+
+Para jugar en Brasil, elige **Nuevo juego > Brasileirão** y selecciona la división. Las dos se guardan por separado y tienen plantillas de la base de datos para todos sus clubes, sin sincronización con los fichajes. El juego genera el calendario; no reproduce las fechas de la CBF ni cambia automáticamente los participantes de la temporada siguiente. Las reglas de cada formato se basan en los reglamentos de la CBF de [Série A](https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/REC_Brasileiro_SA_rie_A_2026_v15_12_2025_final_02692c1077.pdf) y [Série B](https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/REC_Brasileiro_Serie_B_2026_85d55b9f72.pdf).
 
 ## Controles y atajos
 
@@ -71,6 +75,8 @@ Disponibles en todas las pantallas del juego:
 | `.` (punto) | Leer el mensaje siguiente del historial de voz |
 | `Shift + ,` | Saltar al primer mensaje guardado en el historial |
 | `Shift + .` | Saltar al último mensaje guardado en el historial |
+
+El historial no guarda las opciones al recorrer menús o el tablero táctico. Puedes repetir la opción enfocada con `F2`; al saltar al inicio o al final del historial solo se lee el mensaje.
 
 ### Navegación en menús y lectores
 

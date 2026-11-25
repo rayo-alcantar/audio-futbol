@@ -39,11 +39,13 @@ def test_audio_menu_navigation_and_selection() -> None:
     keys = iter([(pygame.K_DOWN, ""), (pygame.K_RETURN, "\r")])
     window.wait_key = lambda: next(keys)  # type: ignore[method-assign]
 
+    speech.speak("Última jugada")
     selected = ui.menu("Menú de prueba", ["Uno", "Dos", "Tres"])
     assert selected == 1
     assert any("Menú de prueba" in msg for msg, _ in backend.spoken)
     assert any("Dos, 2 de 3" in msg for msg, _ in backend.spoken)
     assert window.hud.selected_index == 1
+    assert speech.history == ["Última jugada"]
 
 
 def test_audio_reader_navigation_and_escape() -> None:
@@ -78,13 +80,13 @@ def test_global_history_shortcuts_in_game_window() -> None:
     assert backend.spoken[-1] == ("Mensaje 2", True)
 
     assert window._handle_global_keydown(ev_first) is True
-    assert backend.spoken[-1] == ("Primer mensaje. Mensaje 1", True)
+    assert backend.spoken[-1] == ("Mensaje 1", True)
 
     assert window._handle_global_keydown(ev_next) is True
     assert backend.spoken[-1] == ("Mensaje 2", True)
 
     assert window._handle_global_keydown(ev_last) is True
-    assert backend.spoken[-1] == ("Último mensaje. Mensaje 3", True)
+    assert backend.spoken[-1] == ("Mensaje 3", True)
 
 
 def test_recap_space_skips_between_sections_and_always_opens_menu() -> None:
@@ -219,5 +221,6 @@ def test_formation_board_navigation_audio_cues_and_boundaries() -> None:
     spoken_msgs = [msg for msg, _ in backend.spoken]
     assert any("Zona defensiva, 4 posiciones" in m for m in spoken_msgs)
     assert any("Fin de zona defensiva." in m for m in spoken_msgs)
+    assert speech.history == []
 
 

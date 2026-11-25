@@ -2,6 +2,10 @@
 
 ## v0.17.0
 
+- **Historial de voz más limpio**: las opciones de los menús y del tablero táctico se anuncian sin guardarse en el historial. Al saltar al primero o al último se lee directamente el mensaje.
+- **Comentarios del partido**: 206 frases revisadas en español, seleccionadas para el inicio, el descanso, el final y jugadas concretas. Los comentarios en vivo se espacian y solo celebran los goles que no anula el VAR.
+- **Brasileirão Série A y Série B 2026**: dos modos con partidas guardadas independientes y 20 clubes por división con plantillas de la base de datos. La Série B incluye el repechaje de ascenso del tercero al sexto, a ida y vuelta.
+- **Puestos de jugadores**: el juego conserva el puesto táctico de cada fila del CSV al cargar y guardar una plantilla, aunque otro jugador o equipo use el mismo nombre de jugador.
 - **Sistema táctico completo con nueve esquemas y puestos concretos (aporte de Asuma-Sarutovi)**:
   - **Nueve esquemas disponibles**: `4-3-3`, `4-4-2`, `4-2-3-1`, `4-5-1`, `4-1-4-1`, `3-5-2`, `3-4-3`, `5-3-2` y `5-4-1`, con puestos específicos (laterales, carrileros, centrales, pivote, interiores, volantes, mediapuntas, extremos y delanteros). Cada jugador posee un puesto natural (columna opcional `puesto` en los CSV, lista de jugadores conocidos o estimación estable) y rinde un poco menos fuera de él.
   - **Preparación previa al partido**: antes de cada partido que juegas puedes elegir esquema, modificar el once titular y consultar el banquillo, intercambiar posiciones, invertir bandas de laterales/carrileros y extremos/volantes, fijar cobradores de penales, tiros libres y córners, elegir mentalidad en cinco niveles (de muy defensiva a muy ofensiva), revisar rendimiento, ataques por banda y el esquema/once del rival. Lo que ajustas antes del partido se guarda con tu partida.

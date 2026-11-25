@@ -21,6 +21,8 @@ El juego lee todos los archivos `.csv` de `datos/clubes/` y los une por nombre d
 
 Cada club debe existir en un solo archivo `.csv` dentro de `datos/clubes/`. Si un club ya está en `premier_clubes.csv`, no lo repitas en `champions_clubes.csv`, porque se mezclarían jugadores viejos con nuevos.
 
+Puedes reutilizar su plantilla en varias competiciones: usa el mismo nombre e identificador en sus JSON. Si dos clubes tienen el mismo nombre, distingue uno de forma consistente en el CSV y el JSON; por ejemplo, `Athletic Club-MG` para Brasil y `Athletic Club` para Bilbao.
+
 ### Formato del archivo CSV
 
 La primera línea debe ser el encabezado (la columna `puesto` es opcional pero recomendada para indicar el rol táctico exacto):
@@ -51,7 +53,7 @@ Universitario,17,José Rivera,DEL,68,ED
 
 ### Requisitos de cada plantilla de club
 
-- Mínimo obligatorio para que el juego la tome como plantilla real: 11 jugadores.
+- Mínimo para que el juego la tome como plantilla real: 11 jugadores con nombres distintos dentro del club. Si el JSON no encuentra una plantilla suficiente por nombre o identificador, genera una de ejemplo.
 - Cantidad recomendada por club: entre 18 y 26 jugadores (máximo leído: 30).
 - Distribución mínima recomendada por posición para que el once titular (1-4-3-3) y el banco funcionen bien:
   - `POR` (porteros): al menos 2.

@@ -147,6 +147,7 @@ class VarSystem:
         self,
         attacking_team: int,
         on_penalty: Callable[[int], None],
+        on_confirmed: Callable[[], None] | None = None,
     ) -> None:
         defending_team = 1 - attacking_team
         self._begin_review(
@@ -157,6 +158,8 @@ class VarSystem:
             self._finish_review(
                 f"El VAR detecta mano en el área. ¡Penal para {self.state.team_name(attacking_team)}!"
             )
+            if on_confirmed is not None:
+                on_confirmed()
             on_penalty(attacking_team)
         else:
             self._finish_review("El VAR no encuentra infracción. Sigue el juego.")

@@ -1,4 +1,4 @@
-"""Club competitions: Champions League, Libertadores, Sudamericana, Interamericana, Liga MX, Premier League, Liga 1 de Perú, and Custom Club Cup."""
+"""Club tournaments and shared league and cup formats."""
 
 from __future__ import annotations
 
@@ -61,7 +61,7 @@ class ClubTournament(NationsLeague):
     def table_lines(self) -> list[str]:
         assert self.groups is not None
         out: list[str] = []
-        finished = self.step_type() != "liga"
+        finished = self.step_type() != "liga" or self.champion is not None
         for grp in self.groups:
             if len(self.groups) > 1 and grp[0].group:
                 out.append(f"Grupo {grp[0].group}.")
@@ -657,11 +657,9 @@ class LigaMX(ClubTournament):
         return inst
 
 
-class PremierLeague(LigaMX):
-    """Premier League 2026-27: 20 clubs, double round-robin (38 matchdays), no playoffs."""
+class DoubleRoundRobin(LigaMX):
+    """Shared league schedule with a return match for every pairing."""
 
-    KEY = "premier"
-    TITLE = "Premier League"
     LEAGUE_PHASE_LABEL = "la temporada"
     ROUND_NAMES: dict[Any, str] = {}
 
@@ -684,18 +682,10 @@ class PremierLeague(LigaMX):
             self._prepare_step()
 
     def phase_name(self) -> str:
-        _, data = self.steps[self.step_idx]
+        kind, data = self.steps[self.step_idx]
+        if kind != "liga":
+            return super().phase_name()
         return f"Jornada {data + 1} de {self.rounds_count}"
-
-    def zone_label(self, rank: int, finished: bool) -> str:
-        n = len(self.teams)
-        if rank <= 5:
-            return "Zona de Liga de Campeones"
-        if rank <= 7:
-            return "Zona de Liga Europa y Conference"
-        if rank > n - 3:
-            return "Zona de descenso"
-        return ""
 
     def position_text(self) -> str:
         rank, row = self.user_position()
@@ -723,7 +713,23 @@ class PremierLeague(LigaMX):
         return ""
 
 
-class LigaArgentina(PremierLeague):
+class PremierLeague(DoubleRoundRobin):
+    """Premier League 2026-27: 20 clubs, 38 matchdays, no playoffs."""
+
+    KEY = "premier"
+    TITLE = "Premier League"
+
+    def zone_label(self, rank: int, finished: bool) -> str:
+        if rank <= 5:
+            return "Zona de Liga de Campeones"
+        if rank <= 7:
+            return "Zona de Liga Europa y Conference"
+        if rank > len(self.teams) - 3:
+            return "Zona de descenso"
+        return ""
+
+
+class LigaArgentina(DoubleRoundRobin):
     """Liga Profesional Argentina: 20 clubs, double round-robin (38 matchdays), no playoffs."""
 
     KEY = "liga_argentina"

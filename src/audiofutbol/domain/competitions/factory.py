@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+from audiofutbol.domain.competitions.brasileirao import BrasileiraoA, BrasileiraoB
 from audiofutbol.domain.competitions.club_tournaments import (
     ChampionsLeague,
     CopaInteramericana,
@@ -128,6 +129,32 @@ CLUB_COMPETITIONS: dict[str, ClubCompetitionSpec] = {
             "Sudamericana y los dos últimos descienden."
         ),
     ),
+    BrasileiraoA.KEY: ClubCompetitionSpec(
+        key=BrasileiraoA.KEY,
+        title=BrasileiraoA.TITLE,
+        menu_label="Brasileirão Série A 2026",
+        json_filename="brasileirao_a_2026.json",
+        cls=BrasileiraoA,
+        intro_text=(
+            "Brasileirão Série A 2026 con 20 clubes, 38 jornadas de ida y vuelta y un "
+            "calendario generado por el juego. El primero es campeón y los cuatro últimos "
+            "descienden. La tabla indica las zonas base de Libertadores y Sudamericana."
+        ),
+    ),
+    BrasileiraoB.KEY: ClubCompetitionSpec(
+        key=BrasileiraoB.KEY,
+        title=BrasileiraoB.TITLE,
+        menu_label="Brasileirão Série B 2026",
+        json_filename="brasileirao_b_2026.json",
+        cls=BrasileiraoB,
+        intro_text=(
+            "Brasileirão Série B 2026 con 20 clubes y un calendario generado de 38 jornadas. "
+            "El primero es campeón. Los dos primeros ascienden directamente. "
+            "El tercero juega contra el sexto, y el cuarto contra el quinto, a ida y vuelta. "
+            "Si el global se empata, asciende el mejor ubicado en la tabla. "
+            "Los cuatro últimos descienden."
+        ),
+    ),
 }
 
 SAVE_SLOTS: tuple[tuple[str, str], ...] = (
@@ -141,6 +168,8 @@ SAVE_SLOTS: tuple[tuple[str, str], ...] = (
     ("premier", "Premier League"),
     ("liga1", "Liga 1 de Perú"),
     ("liga_argentina", "Liga Profesional Argentina"),
+    (BrasileiraoA.KEY, CLUB_COMPETITIONS[BrasileiraoA.KEY].menu_label),
+    (BrasileiraoB.KEY, CLUB_COMPETITIONS[BrasileiraoB.KEY].menu_label),
     ("copa_personalizada", "Copa personalizada"),
 )
 
@@ -155,6 +184,8 @@ _CLASS_BY_TYPE: dict[str, type[Any]] = {
     "premier": PremierLeague,
     "liga1": Liga1Peru,
     "liga_argentina": LigaArgentina,
+    BrasileiraoA.KEY: BrasileiraoA,
+    BrasileiraoB.KEY: BrasileiraoB,
     "copa_personalizada": CopaPersonalizada,
 }
 

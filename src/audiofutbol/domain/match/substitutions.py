@@ -104,7 +104,8 @@ class SubstitutionManager:
         if id(player) in self.state.injured:
             text += ", lesionado"
         text += yellow_card_badge(
-            player, self.state.match_yellows.get(id(player), 0), in_match=True
+            player, self.state.match_yellows.get(id(player), 0), in_match=True,
+            limit=self.state.yellow_card_limit,
         )
         return text
 
@@ -247,7 +248,8 @@ class SubstitutionManager:
             idx_in = self.io.choose(
                 f"Sale {out_player.name}. ¿Quién entra?",
                 [
-                    f"{p.name}, {preferred_role_text(p)}, calidad {p.overall}{yellow_card_badge(p, in_match=False)}"
+                    f"{p.name}, {preferred_role_text(p)}, calidad {p.overall}"
+                    f"{yellow_card_badge(p, limit=self.state.yellow_card_limit)}"
                     for p in candidates
                 ],
             )

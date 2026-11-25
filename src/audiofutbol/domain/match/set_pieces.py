@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Callable
 
 from audiofutbol.domain.formations import stable_hash
+from audiofutbol.domain.match.commentary import MatchCommentary
 from audiofutbol.domain.match.ports import MatchIO
 from audiofutbol.domain.match.state import PENALTY_DIRECTIONS, ZONES_OWN, MatchState
 from audiofutbol.domain.match.var import VarSystem
@@ -26,12 +27,14 @@ class SetPieceResolver:
         var: VarSystem,
         choose_fn: Callable[..., int],
         crowd_react: Callable[[str, float], None],
+        commentary: MatchCommentary | None = None,
     ) -> None:
         self.state = state
         self.io = io
         self.var = var
         self._choose = choose_fn
         self._crowd_react = crowd_react
+        self.commentary = commentary
         self.on_goalkeeper_sent_off: Callable[[int], None] | None = None
         self.on_stoppage: Callable[[str | None], bool] | None = None
 
@@ -493,6 +496,8 @@ class SetPieceResolver:
             spill_prob = (0.20 if header else 0.17) * self.state.weather.gk_spill_mod
             if zone >= 2 and depth < 2 and self.state.roll(spill_prob):
                 self._speak("¡El portero no logra retener el balón!")
+                if gk is not None and self.commentary is not None:
+                    self.commentary.handling_error(gk)
                 self.rebound(att_idx, depth, from_corner, min(zone, 3))
             elif self.state.roll(0.22) and allow_corner:
                 self.corner(att_idx, consecutive=from_corner)
@@ -529,6 +534,8 @@ class SetPieceResolver:
             else:
                 self._speak("El disparo se va fuera.")
             self._announce_shots(att_idx)
+            if zone == 3 and self.commentary is not None:
+                self.commentary.missed_chance(taker, high=q < 0.45, open_goal=gk is None)
             self.goal_kick(def_idx)
         else:
             self.state.shots_blocked[att_idx] += 1
@@ -546,7 +553,11 @@ class SetPieceResolver:
                 and self.state.settings.var_enabled
                 and self.state.roll(0.035)
             ):
-                self.var.review_missed_handball(att_idx, self.penalty)
+                self.var.review_missed_handball(
+                    att_idx,
+                    self.penalty,
+                    on_confirmed=self.commentary.missed_handball if self.commentary else None,
+                )
             elif zone >= 2 and depth < 2 and self.state.roll(0.18):
                 self._speak("El balón queda suelto tras el bloqueo.")
                 self.rebound(att_idx, depth, from_corner, min(zone, 3))
@@ -565,6 +576,7 @@ class SetPieceResolver:
     ) -> None:
         self.state.lost_seconds += 30
         self.state.goals[team_idx] += 1
+        goal_count = self.state.goals[team_idx]
         scorer.goals += 1
         self.state.scorers.append((team_idx, scorer, self.state.minute()))
         self.state.note(scorer, 3)
@@ -623,6 +635,11 @@ class SetPieceResolver:
             and self.state.roll(0.12)
         ):
             self.var.review_goal(team_idx, scorer, goal_type=goal_type)
+        if self.commentary is not None:
+            if self.state.goals[team_idx] == goal_count:
+                self.commentary.goal(team_idx, scorer, goal_type, wonder_goal)
+            else:
+                self.commentary.overturned_goal()
         self._notify_stoppage("la reanudación tras el gol")
 
     # ------------------------------------------------------- Cross, Corner, Restarts
@@ -1049,9 +1066,13 @@ class SetPieceResolver:
             if self.state.roll(0.35):
                 self._sfx("poste")
                 self._speak("¡El balón da en el poste!")
+                if taker is not None and self.commentary is not None:
+                    self.commentary.penalty_miss(taker, "poste")
                 return "poste"
             self._sfx("casi")
             self._speak("El penal se va fuera.")
+            if taker is not None and self.commentary is not None:
+                self.commentary.penalty_miss(taker, "fuera")
             return "fuera"
         if dive_dir == shot_dir and self.state.roll(
             0.60 + (self.state.rating(def_idx, "gk") - 70) / 100.0 * 0.4
@@ -1060,6 +1081,8 @@ class SetPieceResolver:
             self._speak(
                 f"¡El portero adivina y detiene el penal {PENALTY_DIRECTIONS[shot_dir + 1]}!"
             )
+            if taker is not None and self.commentary is not None:
+                self.commentary.penalty_miss(taker, "parada")
             return "parada"
         return "gol"
 
@@ -1283,6 +1306,7 @@ class SetPieceResolver:
 
         offender_club = self.state.team_name(offender_team)
         aggr = self.state.aggression_level()
+        hard_contact = foul_type == "barrida"
         if foul_type == "mano":
             phrase = self.state.rng.choice(
                 [
@@ -1302,6 +1326,7 @@ class SetPieceResolver:
         elif foul_type == "tactica":
             self._speak(f"{offender.name}, de {offender_club}, corta la jugada con una falta táctica.")
         elif aggr >= 0.50 and self.state.roll(0.55):
+            hard_contact = True
             hard_phrase = self.state.rng.choice(
                 [
                     "¡Entrada muy fuerte de %s, de %s! El partido se pone áspero.",
@@ -1326,14 +1351,18 @@ class SetPieceResolver:
             prob_r = min(0.14, prob_r + max(0.0, aggr - 0.35) * 0.055)
 
         roll = self.state.rng.random()
+        card = None
         if roll < prob_r:
-            self.give_card(
-                offender_team,
-                offender,
-                self.var.review_red_card(offender_team, offender),
-            )
+            card = self.var.review_red_card(offender_team, offender)
         elif roll < prob_r + prob_y:
-            self.give_card(offender_team, offender, "amarilla")
+            card = "amarilla"
+        if card:
+            self.give_card(offender_team, offender, card)
+        if hard_contact and self.commentary is not None:
+            if card:
+                self.commentary.card(offender, yellow=card == "amarilla")
+            else:
+                self.commentary.uncarded_contact()
 
         # When match is heated, players can square up / push each other after a foul
         if (
@@ -1379,6 +1408,7 @@ class SetPieceResolver:
         club = self.state.team_name(team_idx)
         suffix = f" {reason}" if reason else ""
         if level == "amarilla":
+            self.state.yellow_cards[team_idx] += 1
             count = self.state.match_yellows.get(id(player), 0) + 1
             self.state.match_yellows[id(player)] = count
             if count >= 2:
@@ -1404,10 +1434,11 @@ class SetPieceResolver:
             )
             self._speak(f"Tarjeta amarilla para {player.name}, de {club}{suffix}.")
             player.yellow_cards += 1
-            if player.yellow_cards >= 2:
+            if player.yellow_cards >= self.state.yellow_card_limit:
                 player.yellow_cards = 0
                 player.suspended_matches += 1
-                self._speak("Acumula dos amarillas y se perderá el próximo partido.")
+                limit = "dos" if self.state.yellow_card_limit == 2 else "tres"
+                self._speak(f"Acumula {limit} amarillas y se perderá el próximo partido.")
         else:
             self.state.fair_play[team_idx] += 4
             self.state.cards_log.append(

@@ -61,23 +61,21 @@ def format_quality(value: float) -> str:
 
 
 def yellow_card_badge(
-    player: Player, match_yellows: int = 0, in_match: bool = False
+    player: Player, match_yellows: int = 0, in_match: bool = False, *, limit: int = 2
 ) -> str:
     """Return Spanish yellow-card status suffix for prematch or live menus."""
     if in_match:
         if match_yellows > 0:
             suffix = ", sancionado para el próximo partido" if player.suspended_matches > 0 else ""
             return f", con amarilla en el partido{suffix}"
-        if player.yellow_cards == 1:
-            return ", 1 amarilla acumulada (a una de sanción)"
-        if player.yellow_cards > 1:
-            return f", {player.yellow_cards} amarillas acumuladas"
+    count = player.yellow_cards
+    if not count:
         return ""
-    if player.yellow_cards == 1:
-        return ", 1 amarilla (a una de sanción)"
-    if player.yellow_cards > 1:
-        return f", {player.yellow_cards} amarillas"
-    return ""
+    label = "amarilla" if count == 1 else "amarillas"
+    if in_match:
+        label += " acumulada" if count == 1 else " acumuladas"
+    warning = " (a una de sanción)" if count == limit - 1 else ""
+    return f", {count} {label}{warning}"
 
 
 def build_prematch_board_rows(
@@ -109,7 +107,7 @@ def build_prematch_board_rows(
             pan = slot_pan(col, count)
             role_lbl = role_text(code).capitalize()
             if player is not None:
-                badge = yellow_card_badge(player, in_match=False)
+                badge = yellow_card_badge(player, limit=state.yellow_card_limit)
                 fit_val = state.slot_fit(player)
                 fit_note = ", fuera de puesto" if fit_val < 0.7 else ""
                 swap_note = (
@@ -277,7 +275,8 @@ def build_live_board_rows(
                 if id(player) in state.injured:
                     fatigue_txt += ", lesionado"
             badge = yellow_card_badge(
-                player, state.match_yellows.get(id(player), 0), in_match=True
+                player, state.match_yellows.get(id(player), 0), in_match=True,
+                limit=state.yellow_card_limit,
             )
             swap_note = (
                 ", seleccionado para intercambiar"

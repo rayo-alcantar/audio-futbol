@@ -5,7 +5,10 @@ from __future__ import annotations
 from typing import Any, Callable
 
 from audiofutbol.domain.competitions.attendance import calculate_attendance
+from audiofutbol.domain.competitions.nations_league import NationsLeague
+from audiofutbol.domain.competitions.world_cup import WorldCup
 from audiofutbol.domain.match.board import FormationRowView
+from audiofutbol.domain.match.commentary import CommentaryContext
 from audiofutbol.domain.match.engine import MatchEngine
 from audiofutbol.domain.models import format_result_text
 from audiofutbol.scenes.base import GameContext
@@ -96,6 +99,40 @@ class PygameMatchIO:
         self.ctx.window.update_status(status_line)
 
 
+def _commentary_context(ctx: GameContext, tournament: Any, idx: int) -> CommentaryContext:
+    if isinstance(tournament, WorldCup):
+        group_stage = tournament.phases[tournament.phase_idx][1] == "g"
+        return CommentaryContext(home_index=None, for_points=group_stage)
+    if not isinstance(tournament, NationsLeague):
+        return CommentaryContext(home_index=None)
+
+    home, _ = tournament.pairs[idx]
+    home_index = 0 if home is tournament.user_team else 1
+    stadium, city = tournament.venue(idx, ctx.stadiums.venue_for) or ("", "")
+    stage = tournament.step_type()
+    if stage == "unico":
+        return CommentaryContext(home_index=None, stadium=stadium, city=city)
+
+    recent: list[int] = []
+    for _, a, b, ga, gb, _ in reversed(tournament.history):
+        if a is home or b is home:
+            recent.append(ga - gb if a is home else gb - ga)
+            if len(recent) == 3:
+                break
+    ordered = tournament.standings() if stage == "liga" else []
+    group = next((g for g in tournament.groups or [] if home in g), None)
+    leader = next((t for t in ordered if group is None or t in group), None)
+    return CommentaryContext(
+        home_index=home_index,
+        stadium=stadium,
+        city=city,
+        for_points=stage == "liga",
+        home_leading=leader is home and tournament.table[home.name]["pj"] > 0,
+        home_unbeaten=len(recent) == 3 and min(recent) >= 0 and sum(g > 0 for g in recent) >= 2,
+        home_winning=len(recent) == 3 and min(recent) > 0,
+    )
+
+
 def run_tournament_match(ctx: GameContext, tournament: Any, simulate: bool) -> None:
     """Play or simulate the user's current match in any competition and register it."""
     idx = tournament.user_match_index()
@@ -126,6 +163,7 @@ def run_tournament_match(ctx: GameContext, tournament: Any, simulate: bool) -> N
         max_substitutions=5,
         stadium=venue,
         attendance=attendance,
+        commentary_context=None if simulate else _commentary_context(ctx, tournament, idx),
         **extra,
     )
     if simulate:

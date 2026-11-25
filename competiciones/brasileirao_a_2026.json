@@ -1,0 +1,188 @@
+{
+  "id": "brasileirao_a_2026",
+  "nombre": "Brasileirão Série A 2026",
+  "version_datos": "2026-11-23",
+  "nota": "Liga de 20 clubes de Brasil. Todos contra todos a ida y vuelta (38 jornadas).",
+  "equipos": [
+    {
+      "id": "flamengo",
+      "nombre": "Flamengo",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 82,
+      "estadio": "Maracanã",
+      "ciudad": "Río de Janeiro"
+    },
+    {
+      "id": "palmeiras",
+      "nombre": "Palmeiras",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 81,
+      "estadio": "Allianz Parque",
+      "ciudad": "São Paulo"
+    },
+    {
+      "id": "cruzeiro",
+      "nombre": "Cruzeiro",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 78,
+      "estadio": "Mineirão",
+      "ciudad": "Belo Horizonte"
+    },
+    {
+      "id": "fluminense",
+      "nombre": "Fluminense",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 78,
+      "estadio": "Maracanã",
+      "ciudad": "Río de Janeiro"
+    },
+    {
+      "id": "athletico_paranaense",
+      "nombre": "Athletico Paranaense",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 76,
+      "estadio": "Arena da Baixada",
+      "ciudad": "Curitiba"
+    },
+    {
+      "id": "bahia",
+      "nombre": "Bahia",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 76,
+      "estadio": "Arena Fonte Nova",
+      "ciudad": "Salvador"
+    },
+    {
+      "id": "atletico_mineiro",
+      "nombre": "Atlético Mineiro",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 76,
+      "estadio": "Arena MRV",
+      "ciudad": "Belo Horizonte"
+    },
+    {
+      "id": "red_bull_bragantino",
+      "nombre": "Red Bull Bragantino",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 75,
+      "estadio": "Estádio Cícero de Souza Marques",
+      "ciudad": "Bragança Paulista"
+    },
+    {
+      "id": "santos_fc",
+      "nombre": "Santos",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 75,
+      "estadio": "Vila Belmiro",
+      "ciudad": "Santos"
+    },
+    {
+      "id": "vasco",
+      "nombre": "Vasco da Gama",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 74,
+      "estadio": "São Januário",
+      "ciudad": "Río de Janeiro"
+    },
+    {
+      "id": "coritiba",
+      "nombre": "Coritiba",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 73,
+      "estadio": "Couto Pereira",
+      "ciudad": "Curitiba"
+    },
+    {
+      "id": "sao_paulo",
+      "nombre": "São Paulo",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 75,
+      "estadio": "MorumBIS",
+      "ciudad": "São Paulo"
+    },
+    {
+      "id": "botafogo",
+      "nombre": "Botafogo",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 75,
+      "estadio": "Estádio Nilton Santos",
+      "ciudad": "Río de Janeiro"
+    },
+    {
+      "id": "vitoria",
+      "nombre": "Vitória",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 72,
+      "estadio": "Barradão",
+      "ciudad": "Salvador"
+    },
+    {
+      "id": "mirassol",
+      "nombre": "Mirassol",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 72,
+      "estadio": "Estádio José Maria de Campos Maia",
+      "ciudad": "Mirassol"
+    },
+    {
+      "id": "corinthians",
+      "nombre": "Corinthians",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 74,
+      "estadio": "Neo Química Arena",
+      "ciudad": "São Paulo"
+    },
+    {
+      "id": "internacional",
+      "nombre": "Internacional",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 74,
+      "estadio": "Beira-Rio",
+      "ciudad": "Porto Alegre"
+    },
+    {
+      "id": "gremio",
+      "nombre": "Grêmio",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 74,
+      "estadio": "Arena do Grêmio",
+      "ciudad": "Porto Alegre"
+    },
+    {
+      "id": "remo",
+      "nombre": "Remo",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 70,
+      "estadio": "Mangueirão",
+      "ciudad": "Belém"
+    },
+    {
+      "id": "chapecoense",
+      "nombre": "Chapecoense",
+      "pais": "Brasil",
+      "plantilla": [],
+      "nivel": 69,
+      "estadio": "Arena Condá",
+      "ciudad": "Chapecó"
+    }
+  ]
+}

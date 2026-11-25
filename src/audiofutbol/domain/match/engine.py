@@ -5,6 +5,7 @@ from __future__ import annotations
 import random
 from typing import Callable
 
+from audiofutbol.domain.match.commentary import CommentaryContext, MatchCommentary
 from audiofutbol.domain.match.narration import Narrator
 from audiofutbol.domain.match.ports import HeadlessMatchIO, MatchIO, MatchSettings
 from audiofutbol.domain.match.set_pieces import SetPieceResolver
@@ -42,6 +43,8 @@ class MatchEngine:
         attendance: tuple[str, float] | None = None,
         rng: random.Random | None = None,
         prematch_menu: bool = True,
+        yellow_card_limit: int = 2,
+        commentary_context: CommentaryContext | None = None,
     ) -> None:
         self.prematch_menu = prematch_menu
         self.io: MatchIO = io or HeadlessMatchIO(rng=rng)
@@ -61,11 +64,13 @@ class MatchEngine:
             table_advantage=table_advantage,
             attendance=attendance,
             rng=rng,
+            yellow_card_limit=yellow_card_limit,
         )
         self.narrator = Narrator(self.state.rng)
+        self.commentary = MatchCommentary(self.state, self._speak, commentary_context)
         self.var = VarSystem(self.state, self.io, self._crowd_react)
         self.set_pieces = SetPieceResolver(
-            self.state, self.io, self.var, self._choose, self._crowd_react
+            self.state, self.io, self.var, self._choose, self._crowd_react, self.commentary
         )
         self.subs = SubstitutionManager(
             self.state, self.io, self._crowd_react, self.set_pieces.give_card
@@ -395,6 +400,8 @@ class MatchEngine:
                 )
             )
             self._lose_possession(can_foul=True, interceptor=marker)
+            if self.state.possession == 1:
+                self.commentary.turnover(carrier, intercepted_pass=True)
 
     def _switch_play(self, carrier: Player, mid_diff: float) -> None:
         """Cross-field switch to the opposite wing: stereo pan + disorganizes rival defense."""
@@ -431,6 +438,7 @@ class MatchEngine:
                     rival=self.state.team_name(1),
                 )
             )
+            self.commentary.turnover(carrier, intercepted_pass=True)
             self._lose_possession(can_foul=False, interceptor=marker)
 
     def _through_ball(self, z: int, carrier: Player, mid_diff: float) -> None:
@@ -474,6 +482,7 @@ class MatchEngine:
             self._speak(
                 f"El pase filtrado de {carrier.name} hacia {rec.name} es cortado por {marker.name}."
             )
+            self.commentary.turnover(carrier, intercepted_pass=True)
             self._lose_possession(can_foul=False, interceptor=marker)
 
     def _dribble(self, z: int, carrier: Player, att_diff: float) -> None:
@@ -529,6 +538,8 @@ class MatchEngine:
                 self.narrator.say("dribble_lost", def_=marker.name, jug=carrier.name)
             )
             self._lose_possession(can_foul=True, interceptor=marker)
+            if self.state.possession == 1:
+                self.commentary.turnover(carrier, dribble=True)
 
     def _carry_ball(self, z: int, carrier: Player, att_diff: float) -> None:
         marker = self.state.pick_player(1, {"DEF": 3.5, "MED": 3.5, "DEL": 0.4, "POR": 0.0})
@@ -558,6 +569,8 @@ class MatchEngine:
                 self.narrator.say("carry_lost", def_=marker.name, jug=carrier.name)
             )
             self._lose_possession(can_foul=True, interceptor=marker)
+            if self.state.possession == 1:
+                self.commentary.turnover(carrier, carry=True)
 
     def _long_pass_to_lone_striker(
         self, carrier: Player, striker: Player, mid_diff: float
@@ -1306,6 +1319,7 @@ class MatchEngine:
 
     def _play_turn(self) -> None:
         self._check_late_match_tension()
+        self.commentary.late_match()
         self._update_rival_context_and_tension()
         self.subs.check_injuries()
         self.subs.ai_waste_time()
@@ -1406,6 +1420,7 @@ class MatchEngine:
         self._speak(self.state.scoreboard_text())
         summary: tuple[str, list[str]] | None = None
         if ended_half == "primer tiempo":
+            self.commentary.halftime()
             self.state.halftime_snapshot = self.state.snapshot()
             summary = (
                 "Resumen del primer tiempo",
@@ -1475,7 +1490,6 @@ class MatchEngine:
 
     def play(self) -> MatchResult:
         """Run the match from kickoff to final whistle and return MatchResult."""
-        self._sfx("silbato")
         self.io.update_hud(self.state.hud_status())
         if not self.state.muted:
             self.io.play_theme("musica_versus", volume=0.7)
@@ -1493,6 +1507,7 @@ class MatchEngine:
         self._speak(self.state.weather.announcement)
         if self.state.attendance:
             self._speak(self.state.attendance[0])
+        self.commentary.introduction()
         if self.state.first_leg is not None:
             home_msg = (
                 "Hoy juegas de local"
@@ -1526,6 +1541,8 @@ class MatchEngine:
                 self.state.ball_in_play = prev_in_play
             self.state.refresh_ratings()
 
+        self._sfx("silbato")
+        self.commentary.kickoff()
         self.state.set_possession(self.state.rng.choice((0, 1)), 1, lane=0)
 
         try:
@@ -1615,6 +1632,7 @@ class MatchEngine:
                     )
                 if self.state.first_leg is not None:
                     self._announce_aggregate()
+                self.commentary.full_time()
         finally:
             self._cleanup()
 

@@ -217,6 +217,8 @@ class MatchResult:
     scorers: list[tuple[Team, Player, int]] = field(default_factory=list)
     assists: list[tuple[Team, Player, int]] = field(default_factory=list)
     highlights: list[tuple[int, str]] = field(default_factory=list)
+    red_cards: tuple[int, int] = (0, 0)
+    yellow_cards: tuple[int, int] = (0, 0)
 
 
 def format_result_text(

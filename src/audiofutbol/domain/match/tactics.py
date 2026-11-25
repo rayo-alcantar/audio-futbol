@@ -145,7 +145,7 @@ class TacticsManager:
             elif id(p) in st.subbed_off[0]:
                 extra = ", ya salió del partido"
             else:
-                extra = yellow_card_badge(p, in_match=False)
+                extra = yellow_card_badge(p, limit=st.yellow_card_limit)
             out.append(f"{p.name}, {preferred_role_text(p)}, calidad {p.overall}{extra}")
         return out or ["No tienes suplentes."]
 
@@ -586,7 +586,7 @@ class TacticsManager:
         )
         ops = [first_opt]
         for p in bench:
-            badge = yellow_card_badge(p, in_match=False)
+            badge = yellow_card_badge(p, limit=st.yellow_card_limit)
             if slot_idx == 0:
                 fit_note = "" if p.position == "POR" else ", fuera de puesto"
             else:
@@ -744,7 +744,7 @@ class TacticsManager:
                 slot_acts.append("swap")
             slot_ops.extend(["Quitar del once", "Cancelar"])
             slot_acts.extend(["remove", "cancel"])
-            badge = yellow_card_badge(occupant, in_match=False)
+            badge = yellow_card_badge(occupant, limit=st.yellow_card_limit)
             choice = self._menu(
                 f"{role_text(codes[idx]).capitalize()}: {occupant.name}, calidad {occupant.overall}{badge}",
                 slot_ops,

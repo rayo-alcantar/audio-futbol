@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from audiofutbol.domain.match.commentary import CommentaryContext
 from audiofutbol.domain.match.engine import MatchEngine
 from audiofutbol.domain.models import format_result_text
 from audiofutbol.scenes.base import GameContext
@@ -32,6 +33,7 @@ def run_friendly_match(ctx: GameContext) -> None:
 
     venue_pair = ctx.stadiums.venue_for(user_team)
     venue = f"{venue_pair[0]}, ciudad de {venue_pair[1]}" if venue_pair else None
+    stadium, city = venue_pair or ("", "")
 
     ctx.audio.stop_music()
     engine = MatchEngine(
@@ -42,6 +44,7 @@ def run_friendly_match(ctx: GameContext) -> None:
         knockout=(mode == 1),
         title="Amistoso",
         stadium=venue,
+        commentary_context=CommentaryContext(stadium=stadium, city=city),
     )
     result = engine.play()
     ctx.window.update_status("")

@@ -102,6 +102,10 @@ class NationsLeague:
     def step_type(self) -> str:
         return self.steps[self.step_idx][0]
 
+    def final_summary_lines(self) -> list[str]:
+        """Return any competition-specific outcomes beyond champion and runner-up."""
+        return []
+
     def phase_name(self) -> str:
         kind, data = self.steps[self.step_idx]
         if kind == "liga":
