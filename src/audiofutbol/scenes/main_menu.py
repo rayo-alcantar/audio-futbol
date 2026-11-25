@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from audiofutbol.domain.competitions.factory import CLUB_COMPETITIONS
 from audiofutbol.scenes.base import GameContext, Scene
+from audiofutbol.scenes.creation import run_creation_menu
 from audiofutbol.scenes.friendly import run_friendly_match
 from audiofutbol.scenes.league_hub import (
     continue_saved_league,
@@ -59,9 +60,9 @@ class MainMenuScene:
                 ctx.audio.play_menu_music()
             choice = ctx.ui.menu(
                 "Menú principal",
-                ["Nuevo juego", "Partidas guardadas", "Opciones", "Salir"],
+                ["Nuevo juego", "Partidas guardadas", "Crear", "Opciones", "Salir"],
             )
-            if choice is None or choice == 3:
+            if choice is None or choice == 4:
                 ctx.ui.speak("Hasta luego.", interrupt=True)
                 ctx.window.pause(600)
                 return None
@@ -92,4 +93,6 @@ class MainMenuScene:
                     else:
                         continue_saved_league(ctx, slot_key)
             elif choice == 2:
+                run_creation_menu(ctx)
+            elif choice == 3:
                 run_options_menu(ctx)

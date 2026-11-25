@@ -61,6 +61,16 @@ En las competiciones de clubes puedes activar **Personalizar participantes** ant
 
 Para jugar en Brasil, elige **Nuevo juego > Brasileirão** y selecciona la división. Las dos se guardan por separado y tienen plantillas de la base de datos para todos sus clubes, sin sincronización con los fichajes. El juego genera el calendario; no reproduce las fechas de la CBF ni cambia automáticamente los participantes de la temporada siguiente. Las reglas de cada formato se basan en los reglamentos de la CBF de [Série A](https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/REC_Brasileiro_SA_rie_A_2026_v15_12_2025_final_02692c1077.pdf) y [Série B](https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/REC_Brasileiro_Serie_B_2026_85d55b9f72.pdf).
 
+## Crear equipos y torneos
+
+En el menú principal, elige **Crear**:
+
+- **Equipo:** crea un club o una selección, o parte de un equipo existente para actualizar su plantel. Añade jugadores por puesto o importa un CSV. Puedes proponer un cupo en una competición existente sin modificarla.
+- **Torneo:** elige liga, liguilla, grupos, eliminación directa o un formato oficial como plantilla. Ajusta las reglas que correspondan y selecciona participantes del catálogo o de tus planteles.
+- **Probar y compartir:** juega con el equipo, juega o simula el torneo y luego exporta un ZIP a Descargas. Si quieres compartirlo por GitHub, el juego abre un formulario de incidencia para que adjuntes el ZIP y decidas si lo envías.
+
+Los borradores se guardan en cada edición confirmada. Las pruebas no modifican las partidas oficiales y los archivos compartidos se pueden reabrir en **Crear → Importar un aporte ZIP**. Consulta la [guía de aportes](COLABORAR.md#crea-y-comparte-un-aporte-desde-el-juego).
+
 ## Controles y atajos
 
 ### Atajos globales de accesibilidad

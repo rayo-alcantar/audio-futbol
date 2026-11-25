@@ -4,12 +4,12 @@ from __future__ import annotations
 
 from typing import Any
 
-from audiofutbol.data.competition_loader import load_competition_data
+from audiofutbol.data.competition_loader import LIBERTADORES_SOUTH, load_registered_club_field
 from audiofutbol.domain.competitions.club_tournaments import CopaPersonalizada
-from audiofutbol.domain.competitions.factory import CLUB_COMPETITIONS
 from audiofutbol.domain.competitions.nations_league import NationsLeague
 from audiofutbol.domain.models import Team
 from audiofutbol.scenes.base import GameContext
+from audiofutbol.scenes.creation_preview import simulate_preview
 from audiofutbol.scenes.customize import (
     choose_national_field,
     choose_size,
@@ -21,7 +21,7 @@ from audiofutbol.scenes.match_scene import run_tournament_match
 from audiofutbol.ui.widgets import squad_lines
 
 
-def _finish_league(ctx: GameContext, tournament: NationsLeague) -> None:
+def _finish_league(ctx: GameContext, tournament: NationsLeague, *, preview: bool = False) -> None:
     assert tournament.champion is not None
     assert tournament.runner_up is not None
     if tournament.champion is tournament.user_team:
@@ -47,7 +47,8 @@ def _finish_league(ctx: GameContext, tournament: NationsLeague) -> None:
     outcomes = tournament.final_summary_lines()
     for line in outcomes:
         ctx.ui.speak(line)
-    ctx.saves.delete(tournament.KEY)
+    if not preview:
+        ctx.saves.delete(tournament.KEY)
     ctx.ui.reader(
         f"Resumen final de la {tournament.TITLE}",
         [
@@ -60,10 +61,10 @@ def _finish_league(ctx: GameContext, tournament: NationsLeague) -> None:
     ctx.audio.play_menu_music()
 
 
-def run_league_hub(ctx: GameContext, tournament: NationsLeague) -> None:
+def run_league_hub(ctx: GameContext, tournament: NationsLeague, *, preview: bool = False) -> None:
     while True:
         if tournament.champion is not None:
-            _finish_league(ctx, tournament)
+            _finish_league(ctx, tournament, preview=preview)
             return
 
         phase = tournament.phase_name()
@@ -92,7 +93,7 @@ def run_league_hub(ctx: GameContext, tournament: NationsLeague) -> None:
         if step_kind == "liga":
             ops.append(f"Simular hasta el final de {tournament.LEAGUE_PHASE_LABEL}")
             actions.append("sim_liga")
-        if idx is None:
+        if idx is None or preview:
             ops.append("Simular hasta el final del torneo")
             actions.append("sim_todo")
         if step_kind == "liga":
@@ -121,7 +122,7 @@ def run_league_hub(ctx: GameContext, tournament: NationsLeague) -> None:
                 "Goleadores del torneo",
                 "Asistidores del torneo",
                 "Mi plantilla",
-                "Guardar y volver al menú",
+                "Terminar prueba" if preview else "Guardar y volver al menú",
             ]
         )
         actions.extend(["resultados", "goleadores", "asistidores", "plantilla", "guardar"])
@@ -134,7 +135,7 @@ def run_league_hub(ctx: GameContext, tournament: NationsLeague) -> None:
             status += " Estás eliminado."
         choice = ctx.ui.menu(status, ops)
         if choice is None:
-            if ctx.ui.confirm("¿Volver al menú sin guardar?"):
+            if ctx.ui.confirm("¿Terminar la prueba? El borrador se conserva." if preview else "¿Volver al menú sin guardar?"):
                 return
             continue
 
@@ -160,6 +161,11 @@ def run_league_hub(ctx: GameContext, tournament: NationsLeague) -> None:
                         "Resultados de la fase", tournament.results_lines(phase)
                     )
         elif act == "sim_liga":
+            if preview:
+                notice = simulate_preview(ctx, tournament, stage_only=True)
+                if notice:
+                    ctx.ui.speak(notice)
+                continue
             ctx.ui.speak(f"Simulando {tournament.LEAGUE_PHASE_LABEL}.")
             notice = ""
             while tournament.champion is None and tournament.step_type() == "liga":
@@ -168,6 +174,9 @@ def run_league_hub(ctx: GameContext, tournament: NationsLeague) -> None:
             if notice:
                 ctx.ui.speak(notice)
         elif act == "sim_todo":
+            if preview:
+                simulate_preview(ctx, tournament)
+                continue
             while tournament.champion is None:
                 tournament.simulate_remaining(ctx.match_settings())
                 tournament.close_step()
@@ -221,6 +230,8 @@ def run_league_hub(ctx: GameContext, tournament: NationsLeague) -> None:
                 squad_lines(tournament.user_team),
             )
         elif act == "guardar":
+            if preview:
+                return
             if ctx.saves.save(tournament.KEY, tournament):
                 ctx.ui.speak("Partida guardada.")
             else:
@@ -263,8 +274,6 @@ def start_new_nations_league(ctx: GameContext) -> None:
 
 
 def start_new_club_competition(ctx: GameContext, key: str) -> None:
-    spec = CLUB_COMPETITIONS[key]
-    json_file = spec.json_filename
     if key == "libertadores":
         variant = ctx.ui.menu(
             "Copa Libertadores",
@@ -276,13 +285,12 @@ def start_new_club_competition(ctx: GameContext, key: str) -> None:
         if variant is None:
             return
         if variant == 1:
-            json_file = "libertadores_2026.json"
+            key = LIBERTADORES_SOUTH
 
-    data, teams_by_id = load_competition_data(ctx.paths, json_file)
-    if not teams_by_id:
-        ctx.ui.speak(
-            f"No encontré el archivo {json_file} en la carpeta competiciones."
-        )
+    try:
+        spec, data, teams_by_id = load_registered_club_field(ctx.paths, key)
+    except ValueError as exc:
+        ctx.ui.speak(str(exc))
         return
     mode = ctx.ui.menu(
         f"{spec.title}. Participantes",

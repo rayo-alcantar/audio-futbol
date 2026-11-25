@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from audiofutbol.domain.match.commentary import CommentaryContext
 from audiofutbol.domain.match.engine import MatchEngine
-from audiofutbol.domain.models import format_result_text
+from audiofutbol.domain.models import Team, format_result_text
 from audiofutbol.scenes.base import GameContext
 from audiofutbol.scenes.match_scene import PygameMatchIO
 
@@ -31,6 +31,12 @@ def run_friendly_match(ctx: GameContext) -> None:
     if mode is None:
         return
 
+    play_friendly(ctx, user_team, rival, knockout=(mode == 1))
+
+
+def play_friendly(ctx: GameContext, user_team: Team, rival: Team, *, knockout: bool = False) -> None:
+    """Run a match on independent copies, including when previewing a draft."""
+    user_team, rival = (Team.from_dict(team.to_dict()) for team in (user_team, rival))
     venue_pair = ctx.stadiums.venue_for(user_team)
     venue = f"{venue_pair[0]}, ciudad de {venue_pair[1]}" if venue_pair else None
     stadium, city = venue_pair or ("", "")
@@ -41,7 +47,7 @@ def run_friendly_match(ctx: GameContext) -> None:
         rival_team=rival,
         io=PygameMatchIO(ctx),
         settings=ctx.match_settings(),
-        knockout=(mode == 1),
+        knockout=knockout,
         title="Amistoso",
         stadium=venue,
         commentary_context=CommentaryContext(stadium=stadium, city=city),

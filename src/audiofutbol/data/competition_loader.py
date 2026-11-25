@@ -10,9 +10,12 @@ from audiofutbol.data.csv_loader import (
     load_club_players,
     select_squad,
 )
+from audiofutbol.domain.competitions.factory import CLUB_COMPETITIONS, ClubCompetitionSpec
 from audiofutbol.domain.models import Team
 from audiofutbol.domain.text import normalize_text
 from audiofutbol.engine.paths import AppPaths
+
+LIBERTADORES_SOUTH = "libertadores_sur"
 
 
 class StadiumDirectory:
@@ -90,3 +93,19 @@ def load_competition_data(
         teams_by_id[entry["id"]] = team_from_entry(entry, real_clubs)
 
     return data, teams_by_id
+
+
+def load_registered_club_field(
+    paths: AppPaths, key: str
+) -> tuple[ClubCompetitionSpec, dict[str, Any], dict[str, Team]]:
+    """Resolve a registered field once, whether launching or creating a preview."""
+    if key == LIBERTADORES_SOUTH:
+        spec = CLUB_COMPETITIONS["libertadores"]
+        filename = "libertadores_2026.json"
+    else:
+        spec = CLUB_COMPETITIONS[key]
+        filename = spec.json_filename
+    data, teams = load_competition_data(paths, filename)
+    if data is None or not teams:
+        raise ValueError(f"No encontré el archivo {filename} en la carpeta competiciones.")
+    return spec, data, teams

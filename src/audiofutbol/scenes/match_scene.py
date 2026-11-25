@@ -110,7 +110,7 @@ def _commentary_context(ctx: GameContext, tournament: Any, idx: int) -> Commenta
     home_index = 0 if home is tournament.user_team else 1
     stadium, city = tournament.venue(idx, ctx.stadiums.venue_for) or ("", "")
     stage = tournament.step_type()
-    if stage == "unico":
+    if stage == "unico" and getattr(tournament, "is_neutral", lambda: True)():
         return CommentaryContext(home_index=None, stadium=stadium, city=city)
 
     recent: list[int] = []

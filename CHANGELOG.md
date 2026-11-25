@@ -2,6 +2,7 @@
 
 ## v0.17.0
 
+- **Creador de equipos y torneos**: menú accesible para editar planteles, configurar formatos, probar sin tocar las partidas oficiales e intercambiar aportes ZIP con un formato común.
 - **Historial de voz más limpio**: las opciones de los menús y del tablero táctico se anuncian sin guardarse en el historial. Al saltar al primero o al último se lee directamente el mensaje.
 - **Comentarios del partido**: 206 frases revisadas en español, seleccionadas para el inicio, el descanso, el final y jugadas concretas. Los comentarios en vivo se espacian y solo celebran los goles que no anula el VAR.
 - **Brasileirão Série A y Série B 2026**: dos modos con partidas guardadas independientes y 20 clubes por división con plantillas de la base de datos. La Série B incluye el repechaje de ascenso del tercero al sexto, a ida y vuelta.

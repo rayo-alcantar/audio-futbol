@@ -346,6 +346,22 @@ class GameWindow:
                     return event.key, getattr(event, "unicode", "")
             pygame.time.wait(15)
 
+    def wait_text_event(self) -> pygame.event.Event:
+        """Read editing keys and IME text without intercepting decimal punctuation."""
+        while True:
+            # Poll one event at a time so KEYDOWN does not drop TEXTINPUT in the same batch.
+            event = pygame.event.poll()
+            self._handle_system_event(event)
+            if event.type == pygame.TEXTINPUT:
+                return event
+            if event.type == pygame.KEYDOWN:
+                if event.key in (pygame.K_LCTRL, pygame.K_RCTRL, pygame.K_F2):
+                    self._handle_global_keydown(event)
+                else:
+                    return event
+            if event.type == pygame.NOEVENT:
+                pygame.time.wait(15)
+
     def pause(self, ms: int) -> None:
         """Wait `ms` milliseconds while pumping window events."""
         if self.headless or ms <= 0:

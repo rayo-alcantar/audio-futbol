@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from audiofutbol.domain.competitions.world_cup import GROUP_LETTERS, WorldCup
 from audiofutbol.scenes.base import GameContext
+from audiofutbol.scenes.creation_preview import simulate_preview
 from audiofutbol.scenes.customize import choose_national_field
 from audiofutbol.scenes.match_scene import run_tournament_match
 from audiofutbol.ui.widgets import squad_lines
 
 
-def _finish_world_cup(ctx: GameContext, wc: WorldCup) -> None:
+def _finish_world_cup(ctx: GameContext, wc: WorldCup, *, preview: bool = False) -> None:
     assert wc.podium is not None
     champ, runner_up, third = wc.podium
     if champ is wc.user_team:
@@ -20,7 +21,8 @@ def _finish_world_cup(ctx: GameContext, wc: WorldCup) -> None:
     else:
         ctx.audio.play_menu_music()
     ctx.ui.speak(
-        f"¡{champ.name} es campeón del mundo! Subcampeón: {runner_up.name}. "
+        (f"¡{champ.name} es campeón de {wc.TITLE}! " if preview else f"¡{champ.name} es campeón del mundo! ")
+        + f"Subcampeón: {runner_up.name}. "
         f"Tercer lugar: {third.name}."
     )
     top = wc.top_scorers(1)
@@ -30,7 +32,8 @@ def _finish_world_cup(ctx: GameContext, wc: WorldCup) -> None:
         ctx.ui.speak("¡Enhorabuena, has ganado el Mundial!")
     elif runner_up is wc.user_team:
         ctx.ui.speak(f"{wc.user_team.name} termina como subcampeón del mundo.")
-    ctx.saves.delete(WorldCup.KEY)
+    if not preview:
+        ctx.saves.delete(WorldCup.KEY)
     ctx.ui.reader(
         "Resumen final del Mundial",
         [
@@ -43,10 +46,10 @@ def _finish_world_cup(ctx: GameContext, wc: WorldCup) -> None:
     ctx.audio.play_menu_music()
 
 
-def run_world_cup_hub(ctx: GameContext, wc: WorldCup) -> None:
+def run_world_cup_hub(ctx: GameContext, wc: WorldCup, *, preview: bool = False) -> None:
     while True:
         if wc.champion is not None:
-            _finish_world_cup(ctx, wc)
+            _finish_world_cup(ctx, wc, preview=preview)
             return
 
         phase = wc.phase_name()
@@ -64,7 +67,8 @@ def run_world_cup_hub(ctx: GameContext, wc: WorldCup) -> None:
         else:
             ops.append(f"Simular: {phase}")
             actions.append("sim_fase")
-            ops.append("Simular hasta el final del Mundial")
+        if idx is None or preview:
+            ops.append("Simular hasta el final del torneo" if preview else "Simular hasta el final del Mundial")
             actions.append("sim_todo")
 
         if wc.phases[wc.phase_idx][1] == "g" or not wc.user_eliminated:
@@ -83,21 +87,21 @@ def run_world_cup_hub(ctx: GameContext, wc: WorldCup) -> None:
                 "Goleadores del torneo",
                 "Asistidores del torneo",
                 "Mi plantilla",
-                "Guardar y volver al menú",
+                "Terminar prueba" if preview else "Guardar y volver al menú",
             ]
         )
         actions.extend(
             ["resultados", "sorteo", "goleadores", "asistidores", "plantilla", "guardar"]
         )
 
-        status = f"Mundial. {phase}. Tu selección es {wc.user_team.name}."
+        status = f"{wc.TITLE}. {phase}. Tu selección es {wc.user_team.name}."
         if wc.user_eliminated:
             status += " Estás eliminado."
         elif wc.phases[wc.phase_idx][1] == "k3" and wc.user_team in wc.semi_winners:
             status += " Ya estás clasificado a la gran final."
         choice = ctx.ui.menu(status, ops)
         if choice is None:
-            if ctx.ui.confirm("¿Volver al menú sin guardar?"):
+            if ctx.ui.confirm("¿Terminar la prueba? El borrador se conserva." if preview else "¿Volver al menú sin guardar?"):
                 return
             continue
 
@@ -116,6 +120,9 @@ def run_world_cup_hub(ctx: GameContext, wc: WorldCup) -> None:
             if notice:
                 ctx.ui.speak(notice)
         elif act == "sim_todo":
+            if preview:
+                simulate_preview(ctx, wc)
+                continue
             while wc.champion is None:
                 wc.simulate_remaining(ctx.match_settings())
                 wc.close_phase()
@@ -165,6 +172,8 @@ def run_world_cup_hub(ctx: GameContext, wc: WorldCup) -> None:
         elif act == "plantilla":
             ctx.ui.reader(f"Plantilla de {wc.user_team.name}", squad_lines(wc.user_team))
         elif act == "guardar":
+            if preview:
+                return
             if ctx.saves.save(WorldCup.KEY, wc):
                 ctx.ui.speak("Partida guardada.")
             else:

@@ -2,6 +2,25 @@
 
 Esta guía explica cómo preparar archivos de jugadores, clubes, selecciones, estadios y competiciones para integrarlos en AudioFútbol sin errores.
 
+## Crea y comparte un aporte desde el juego
+
+1. Abre **Menú principal → Crear** y elige **Equipo** o **Torneo**. Puedes cerrar el editor y retomar desde **Continuar un borrador**.
+2. Completa los datos y revisa el resumen. Un plantel exportable necesita de 12 a 30 jugadores, dorsales del 1 al 99 sin repetir, al menos dos porteros y diez jugadores de campo repartidos en defensa, mediocampo y ataque. Puedes importar el CSV de un solo equipo con los encabezados documentados abajo.
+3. Prueba el equipo en un amistoso o en un cupo que hayas propuesto. Para un torneo, elige un equipo que dirigir y juega o simula dentro del modo de prueba. Pulsa Escape durante una simulación larga para detenerla al final de la jornada actual. Salir de la prueba conserva el borrador, no el progreso del partido.
+4. Elige **Exportar a ZIP**. El juego indica el nombre y la ruta en Descargas. Si eliges GitHub, inicia sesión, adjunta el ZIP en la descripción, explica qué probaste y envía cuando esté listo. Nada se adjunta ni se envía por sí solo.
+
+### Formatos y participantes
+
+- **Configurables:** liga a una o dos vueltas (con jornadas de descanso cuando el total es impar), liga seguida de eliminatorias, grupos de cuatro con dos clasificados por grupo y eliminación directa. Según el formato puedes elegir partido único, ida y vuelta, sede neutral o gol de visitante.
+- **Inspirados en formatos existentes:** Mundial, Liga de Naciones, Liga de Campeones, Liga MX, Liga 1 de Perú y Série B del Brasileirão. Estos usan el motor del modo oficial y conservan sus reglas específicas. La Liga de Campeones reutiliza la distribución de partidos del calendario incluido en el juego, no sus equipos; asigna los cupos según el orden de tu lista.
+- **Planteles:** los torneos pueden mezclar planteles de la comunidad y equipos oficiales del mismo tipo. No se mezclan clubes con selecciones nacionales.
+
+### Revisión por el desarrollador
+
+El ZIP contiene `aporte.json` (esquema versionado) y `LEEME.txt`. Incluye los planteles creados que use el torneo y referencias a los equipos oficiales por nombre normalizado. No contiene código ejecutable, configuración ni partidas. Importa el ZIP desde **Crear → Importar un aporte ZIP** para revisarlo como borrador y probarlo con el mismo motor; la importación no instala ni reemplaza datos oficiales. Si el catálogo de tu versión cambió y falta un participante, el editor te permite reemplazarlo.
+
+Los pasos siguientes documentan los formatos históricos de los datos oficiales para cuando un aporte revisado se vaya a incorporar al catálogo del repositorio.
+
 ## Ruta rápida según lo que quieras aportar
 
 1. Agregar o actualizar plantillas de clubes: crea o edita un archivo `.csv` en `datos/clubes/`.
