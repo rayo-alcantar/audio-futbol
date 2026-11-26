@@ -90,105 +90,167 @@ Como,7,Álvaro Morata,DEL,76,ED
 Como,11,Anastasios Douvikas,DEL,75,ED
 Como,19,Jesús Rodríguez,DEL,72,EI
 Como,20,Andrea Belotti,DEL,70,DC
-Barcelona,1,Joan García,POR,80,POR
+Barcelona,1,Joan García,POR,86,POR
 Barcelona,13,Wojciech Szczęsny,POR,78,POR
-Barcelona,2,Jules Koundé,DEF,86,LD
-Barcelona,3,Pau Cubarsí,DEF,85,CE
-Barcelona,4,Ronald Araújo,DEF,84,CE
-Barcelona,5,Alejandro Balde,DEF,83,LI
-Barcelona,6,Andreas Christensen,DEF,79,CE
-Barcelona,12,Eric García,DEF,77,CE
-Barcelona,15,Gerard Martín,DEF,76,CE
-Barcelona,8,Pedri,MED,88,MP
-Barcelona,10,Frenkie de Jong,MED,85,MCD
-Barcelona,14,Dani Olmo,MED,83,MP
-Barcelona,16,Gavi,MED,82,MP
-Barcelona,17,Fermín López,MED,80,MC
-Barcelona,18,Marc Casadó,MED,77,MCD
-Barcelona,9,Lamine Yamal,DEL,91,ED
-Barcelona,7,Raphinha,DEL,88,ED
-Barcelona,11,Marcus Rashford,DEL,82,EI
-Barcelona,19,Ferran Torres,DEL,80,EI
-Barcelona,20,Gabriel Jesus,DEL,81,DC
+Barcelona,25,Dominik Livaković,POR,78,POR
+Barcelona,31,Eder Aller,POR,58,POR
+Barcelona,35,Iker Rodríguez,POR,56,POR
+Barcelona,2,João Cancelo,DEF,82,LD
+Barcelona,3,Alejandro Balde,DEF,83,LI
+Barcelona,5,Pau Cubarsí,DEF,85,CE
+Barcelona,12,Xavi Espart,DEF,64,LD
+Barcelona,15,Andreas Christensen,DEF,79,CE
+Barcelona,18,Gerard Martín,DEF,76,CE
+Barcelona,23,Jules Koundé,DEF,86,LD
+Barcelona,24,Eric García,DEF,85,CE
+Barcelona,26,Álvaro Cortés,DEF,62,LI
+Barcelona,33,Jordi Pesquer,DEF,58,CE
+Barcelona,40,Guillem Víctor,DEF,57,CE
+Barcelona,41,Álex Campos,DEF,59,LI
+Barcelona,4,Brian Fariñas,MED,62,MC
+Barcelona,6,Gavi,MED,82,MP
+Barcelona,7,Fermín López,MED,85,MC
+Barcelona,8,Pedri,MED,88,MC
+Barcelona,16,Rodri,MED,85,MCD
+Barcelona,19,Roony Bardghji,DEL,73,ED
+Barcelona,20,Dani Olmo,MED,83,MP
+Barcelona,21,Frenkie de Jong,MED,85,MCD
+Barcelona,22,Marc Bernal,MED,74,MCD
+Barcelona,30,Ebrima Tunkara,MED,58,MCD
+Barcelona,32,Orian Goren,MED,58,MC
+Barcelona,9,Gabriel Jesus,DEL,81,DC
+Barcelona,10,Lamine Yamal,DEL,91,ED
+Barcelona,11,Raphinha,DEL,88,EI
+Barcelona,14,Karim Adeyemi,DEL,79,EI
+Barcelona,17,Anthony Gordon,DEL,83,EI
+Barcelona,27,Jesse Bisiwu,DEL,67,ED
+Barcelona,29,Hamza Abdelkarim,DEL,62,DC
 Real Madrid,1,Thibaut Courtois,POR,90,POR
 Real Madrid,13,Andriy Lunin,POR,78,POR
-Real Madrid,2,Antonio Rüdiger,DEF,85,CE
-Real Madrid,3,Trent Alexander-Arnold,DEF,85,LD
-Real Madrid,4,Éder Militão,DEF,84,CE
-Real Madrid,5,Dean Huijsen,DEF,81,CE
-Real Madrid,6,Álvaro Carreras,DEF,80,LI
-Real Madrid,12,Ferland Mendy,DEF,80,LI
-Real Madrid,8,Jude Bellingham,MED,90,MP
-Real Madrid,10,Federico Valverde,MED,88,MC
+Real Madrid,26,Sergio Mestre,POR,62,POR
+Real Madrid,31,Javi Navarro,POR,58,POR
+Real Madrid,39,Illia Voloshyn,POR,57,POR
+Real Madrid,2,Raúl Asencio,DEF,79,CE
+Real Madrid,3,Éder Militão,DEF,84,CE
+Real Madrid,4,Dean Huijsen,DEF,84,CE
+Real Madrid,12,Trent Alexander-Arnold,DEF,85,LD
+Real Madrid,16,Ibrahima Konaté,DEF,84,CE
+Real Madrid,17,Marc Cucurella,DEF,83,LI
+Real Madrid,18,Álvaro Carreras,DEF,80,LI
+Real Madrid,22,Antonio Rüdiger,DEF,85,CE
+Real Madrid,23,Ferland Mendy,DEF,80,LI
+Real Madrid,24,Denzel Dumfries,DEF,81,LD
+Real Madrid,33,Mario Rivas,DEF,60,CE
+Real Madrid,5,Jude Bellingham,MED,90,MP
+Real Madrid,6,Eduardo Camavinga,MED,83,MC
+Real Madrid,8,Federico Valverde,MED,88,MC
 Real Madrid,14,Aurélien Tchouaméni,MED,85,MCD
-Real Madrid,16,Eduardo Camavinga,MED,83,MCD
-Real Madrid,17,Arda Güler,MED,83,MP
-Real Madrid,18,Franco Mastantuono,MED,78,MC
-Real Madrid,9,Kylian Mbappé,DEL,92,DC
-Real Madrid,7,Vinícius Júnior,DEL,90,EI
-Real Madrid,11,Rodrygo,DEL,85,ED
-Real Madrid,19,Endrick,DEL,78,DC
-Real Madrid,15,Raúl Asencio,DEF,79,LD
+Real Madrid,15,Arda Güler,MED,85,MP
+Real Madrid,20,Bernardo Silva,MED,85,MP
 Real Madrid,21,Brahim Díaz,MED,81,MP
+Real Madrid,27,Thiago Pitarch,MED,70,MC
+Real Madrid,29,Jorge Cestero,MED,63,MC
+Real Madrid,38,Sergio Martínez,MED,64,MC
+Real Madrid,7,Vinícius Júnior,DEL,90,EI
+Real Madrid,9,Endrick,DEL,78,DC
+Real Madrid,10,Kylian Mbappé,DEL,92,DC
+Real Madrid,11,Rodrygo,DEL,85,ED
+Real Madrid,19,Carlos Espí,DEL,79,DC
+Real Madrid,25,Yan Diomande,DEL,86,EI
+Real Madrid,36,Alexis Ciria,DEL,65,DC
 Villarreal,1,Luiz Júnior,POR,75,POR
-Villarreal,13,Diego Conde,POR,72,POR
-Villarreal,2,Juan Foyth,DEF,77,CE
-Villarreal,3,Rafa Marín,DEF,76,CE
-Villarreal,4,Alfonso Pedraza,DEF,76,LI
-Villarreal,5,Willy Kambwala,DEF,75,CE
-Villarreal,6,Sergi Cardona,DEF,75,LI
-Villarreal,12,Santiago Mouriño,DEF,75,LD
-Villarreal,8,Thomas Partey,MED,79,MCD
-Villarreal,10,Alberto Moleiro,MED,79,MC
-Villarreal,14,Pape Gueye,MED,77,MP
-Villarreal,16,Santi Comesaña,MED,77,MC
-Villarreal,17,Dani Parejo,MED,76,MP
-Villarreal,9,Georges Mikautadze,DEL,79,DC
+Villarreal,13,Rubén Gómez,POR,62,POR
+Villarreal,25,Péter Gulácsi,POR,82,POR
+Villarreal,2,Logan Costa,DEF,76,CE
+Villarreal,3,Alexander Freeman,DEF,72,LD
+Villarreal,6,Pau Navarro,DEF,74,CE
+Villarreal,8,Juan Foyth,DEF,77,CE
+Villarreal,12,Renato Veiga,DEF,78,CE
+Villarreal,15,Santiago Mouriño,DEF,75,CE
+Villarreal,20,Carlos Romero,DEF,80,LI
+Villarreal,23,Sergi Cardona,DEF,75,LI
+Villarreal,5,Alassane Diatta,MED,66,MCD
+Villarreal,10,Alberto Moleiro,MED,79,MP
+Villarreal,14,Santi Comesaña,MED,77,MC
+Villarreal,16,Carlos Macià,MED,65,MC
+Villarreal,17,Tajon Buchanan,DEL,74,ED
+Villarreal,18,Pape Gueye,MED,77,MCD
+Villarreal,19,Nicolas Pépé,DEL,81,ED
+Villarreal,24,Nathan Saliba,MED,74,MC
+Villarreal,27,Nizar Jmili,MED,58,MC
+Villarreal,28,Joselillo Gaitán,MED,58,MC
+Villarreal,30,Cheikh Thiam,MED,58,MC
+Villarreal,32,César Bonafé,MED,57,MC
+Villarreal,37,Mauro Roca,MED,57,MC
+Villarreal,38,Sergio Barrera,MED,57,MC
 Villarreal,7,Gerard Moreno,DEL,78,DC
-Villarreal,11,Ayoze Pérez,DEL,76,EI
-Villarreal,19,Tajon Buchanan,DEL,74,ED
-Villarreal,20,Nicolas Pépé,DEL,74,DC
-Atlético de Madrid,1,Jan Oblak,POR,88,POR
-Atlético de Madrid,13,Juan Musso,POR,76,POR
-Atlético de Madrid,2,Marcos Llorente,DEF,82,LI
-Atlético de Madrid,3,Robin Le Normand,DEF,82,CE
-Atlético de Madrid,4,José María Giménez,DEF,80,CE
-Atlético de Madrid,5,David Hancko,DEF,80,LD
-Atlético de Madrid,6,Nahuel Molina,DEF,79,LD
-Atlético de Madrid,12,Clément Lenglet,DEF,76,LI
-Atlético de Madrid,15,Matteo Ruggeri,DEF,76,CE
-Atlético de Madrid,8,Koke,MED,82,MC
+Villarreal,9,Georges Mikautadze,DEL,79,DC
+Villarreal,11,Ilias Akhomach,DEL,74,ED
+Villarreal,21,Tani Oluwaseyi,DEL,72,DC
+Villarreal,22,Ayoze Pérez,DEL,76,EI
+Atlético de Madrid,1,Juan Musso,POR,82,POR
+Atlético de Madrid,13,Jan Oblak,POR,88,POR
+Atlético de Madrid,25,Salvi Esquivel,POR,60,POR
+Atlético de Madrid,17,David Hancko,DEF,80,CE
+Atlético de Madrid,18,Marc Pubill,DEF,81,LD
+Atlético de Madrid,21,Cristian Romero,DEF,83,CE
+Atlético de Madrid,22,Alejandro Grimaldo,DEF,84,LI
+Atlético de Madrid,24,Robin Le Normand,DEF,82,CE
+Atlético de Madrid,27,Jorge Domínguez,DEF,58,CE
+Atlético de Madrid,30,Daniel Martínez,DEF,63,LD
+Atlético de Madrid,45,Javier Gil,DEF,57,CE
+Atlético de Madrid,3,Obed Vargas,MED,74,MC
+Atlético de Madrid,4,Rodrigo Mendoza,MED,74,MC
+Atlético de Madrid,5,Johnny Cardoso,MED,78,MCD
+Atlético de Madrid,6,Koke,MED,82,MC
+Atlético de Madrid,7,Lee Kang-in,MED,80,MP
+Atlético de Madrid,8,Pablo Barrios,MED,80,MC
 Atlético de Madrid,10,Álex Baena,MED,82,MC
-Atlético de Madrid,14,Pablo Barrios,MED,80,MCD
-Atlético de Madrid,16,Conor Gallagher,MED,80,VD
-Atlético de Madrid,17,Johnny Cardoso,MED,78,MP
-Atlético de Madrid,9,Julián Álvarez,DEL,87,DC
-Atlético de Madrid,7,Antoine Griezmann,DEL,86,DC
-Atlético de Madrid,11,Alexander Sørloth,DEL,80,EI
-Atlético de Madrid,19,Giuliano Simeone,DEL,78,ED
-Atlético de Madrid,20,Thiago Almada,DEL,78,ED
-Atlético de Madrid,21,Ademola Lookman,DEL,83,DC
+Atlético de Madrid,14,Marcos Llorente,DEF,82,LD
+Atlético de Madrid,16,Arnau Ortiz,MED,69,MC
+Atlético de Madrid,23,Morten Hjulmand,MED,82,MCD
+Atlético de Madrid,26,Romeo Hueso,MED,57,MC
+Atlético de Madrid,46,Jorge Castillo,MED,57,MC
+Atlético de Madrid,9,Alexander Sørloth,DEL,80,DC
+Atlético de Madrid,11,Ademola Lookman,DEL,83,EI
+Atlético de Madrid,15,Jonathan David,DEL,82,DC
+Atlético de Madrid,19,Julián Álvarez,DEL,87,DC
+Atlético de Madrid,20,Giuliano Simeone,DEL,78,ED
+Atlético de Madrid,29,Cubo,DEL,63,DC
 Real Betis,1,Álvaro Valles,POR,76,POR
-Real Betis,13,Pau López,POR,74,POR
-Real Betis,2,Natan,DEF,77,CE
-Real Betis,3,Marc Bartra,DEF,76,CE
-Real Betis,4,Diego Llorente,DEF,76,CE
-Real Betis,5,Héctor Bellerín,DEF,75,LD
-Real Betis,6,Ricardo Rodríguez,DEF,75,LI
-Real Betis,12,Junior Firpo,DEF,74,LI
-Real Betis,15,Aitor Ruibal,DEF,73,LD
-Real Betis,8,Isco,MED,80,MP
-Real Betis,10,Giovani Lo Celso,MED,79,MC
-Real Betis,14,Pablo Fornals,MED,77,MC
-Real Betis,16,Sofyan Amrabat,MED,77,MC
-Real Betis,17,Marc Roca,MED,75,MC
+Real Betis,13,Diego Conde,POR,72,POR
+Real Betis,30,Yan Zhuravskyi,POR,58,POR
+Real Betis,31,Manu González,POR,60,POR
+Real Betis,40,Álvaro de Pablo,POR,57,POR
+Real Betis,51,Alejandro Postigo,POR,56,POR
+Real Betis,2,Héctor Bellerín,DEF,75,LD
+Real Betis,3,Diego Llorente,DEF,76,CE
+Real Betis,4,Natan,DEF,77,CE
+Real Betis,5,Marc Bartra,DEF,76,CE
+Real Betis,11,Fran García,DEF,78,LI
+Real Betis,16,Valentín Gómez,DEF,76,CE
+Real Betis,23,Junior Firpo,DEF,74,LI
+Real Betis,6,Facundo Bernal,MED,71,MCD
+Real Betis,8,Pablo Fornals,MED,77,MC
+Real Betis,12,Ángel Ortiz,DEF,67,LD
+Real Betis,14,Iker Losada,MED,70,MP
+Real Betis,15,Álvaro Fidalgo,MED,78,MC
+Real Betis,17,Rodrigo Riquelme,DEL,76,EI
 Real Betis,18,Nelson Deossa,MED,74,MCD
-Real Betis,9,Antony,DEL,80,ED
-Real Betis,7,Cucho Hernández,DEL,78,DC
-Real Betis,11,Abde Ezzalzouli,DEL,78,SD
-Real Betis,19,Chimy Ávila,DEL,74,DC
-Real Betis,20,Cédric Bakambu,DEL,72,EI
-Real Betis,21,Álvaro Fidalgo,MED,78,MC
+Real Betis,20,Giovani Lo Celso,MED,79,MC
+Real Betis,21,Marc Roca,MED,75,MC
+Real Betis,22,Isco,MED,80,MP
+Real Betis,25,Dani Ceballos,MED,79,MC
+Real Betis,37,Ricardo Fúnez,MED,58,MC
+Real Betis,50,Iván Corralejo,MED,57,MC
+Real Betis,7,Antony,DEL,80,ED
+Real Betis,9,Cucho Hernández,DEL,78,DC
+Real Betis,10,Abde Ezzalzouli,DEL,78,EI
+Real Betis,19,Troy Parrott,DEL,76,DC
+Real Betis,24,Aitor Ruibal,DEF,73,LD
+Real Betis,27,José Morante,DEL,58,DC
+Real Betis,29,Rodrigo Marina,DEL,58,DC
+Real Betis,39,Borja Alonso,DEL,57,DC
 Lens,1,Robin Risser,POR,76,POR
 Lens,13,Hervé Koffi,POR,68,POR
 Lens,2,Facundo Medina,DEF,77,CE

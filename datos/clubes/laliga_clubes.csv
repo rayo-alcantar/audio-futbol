@@ -1,387 +1,471 @@
 equipo,numero,jugador,posicion,calidad,puesto
-Athletic Club,1,Unai Simón,POR,82,POR
+Athletic Club,1,Unai Simón,POR,84,POR
 Athletic Club,13,Álex Padilla,POR,72,POR
-Athletic Club,2,Jesús Areso,DEF,78,LI
-Athletic Club,3,Hugo Rincón,DEF,77,LD
-Athletic Club,4,Dani Vivian,DEF,80,CE
-Athletic Club,5,Aitor Paredes,DEF,76,LI
-Athletic Club,6,Yeray Álvarez,DEF,76,CE
-Athletic Club,15,Aymeric Laporte,DEF,79,CE
-Athletic Club,18,Unai Egiluz,DEF,73,LD
-Athletic Club,22,Yuri Berchiche,DEF,75,CE
-Athletic Club,8,Iñigo Ruiz de Galarreta,MED,78,MP
-Athletic Club,10,Beñat Prados,MED,77,MCD
-Athletic Club,14,Mikel Jauregizar,MED,77,MCD
-Athletic Club,16,Alejandro Rego,MED,77,MCD
-Athletic Club,20,Beñat Gerenabarrena,MED,72,MCD
-Athletic Club,9,Iñaki Williams,DEL,77,ED
-Athletic Club,7,Robert Navarro,DEL,74,EI
-Athletic Club,21,Oihan Sancet,MED,80,MC
-Athletic Club,26,Peio Canales,MED,78,MC
-Athletic Club,11,Nico Williams,DEL,86,EI
-Athletic Club,17,Nico Serrano,DEL,72,DC
-Athletic Club,19,Álvaro Djaló,DEL,75,DC
-Athletic Club,29,Álex Berenguer,DEL,73,ED
-Athletic Club,30,Gorka Guruzeta,DEL,78,DC
-Athletic Club,12,Maroan Sannadi,DEL,78,ED
-Osasuna,1,Sergio Herrera,POR,68,POR
+Athletic Club,3,Dani Vivian,DEF,80,CE
+Athletic Club,4,Aitor Paredes,DEF,76,CE
+Athletic Club,5,Yeray Álvarez,DEF,76,CE
+Athletic Club,12,Jesús Areso,DEF,78,LD
+Athletic Club,14,Aymeric Laporte,DEF,83,CE
+Athletic Club,15,Hugo Rincón,DEF,77,LD
+Athletic Club,17,Yuri Berchiche,DEF,75,LI
+Athletic Club,20,Alejandro Rego,MED,77,MCD
+Athletic Club,30,Iker Monreal,DEF,60,CE
+Athletic Club,31,Johaneko Louis-Jean,DEF,65,LD
+Athletic Club,6,Beñat Prados,MED,77,MCD
+Athletic Club,8,Oihan Sancet,MED,82,MC
+Athletic Club,16,Iñigo Ruiz de Galarreta,MED,78,MC
+Athletic Club,18,Mikel Jauregizar,MED,77,MCD
+Athletic Club,23,Robert Navarro,DEL,74,EI
+Athletic Club,24,Beñat Gerenabarrena,MED,72,MCD
+Athletic Club,44,Selton Sánchez,MED,64,MP
+Athletic Club,7,Álex Berenguer,DEL,79,ED
+Athletic Club,9,Iñaki Williams,DEL,81,ED
+Athletic Club,10,Nico Williams,DEL,86,EI
+Athletic Club,11,Gorka Guruzeta,DEL,78,DC
+Athletic Club,21,Maroan Sannadi,DEL,78,DC
+Athletic Club,22,Nico Serrano,DEL,72,EI
+Athletic Club,25,Álvaro Djaló,DEL,75,EI
+Athletic Club,28,Peio Canales,MED,78,MC
+Athletic Club,33,Christian Imga,DEL,60,DC
+Athletic Club,34,Txus Vizcay,DEL,58,DC
+Athletic Club,35,Aritz Conde,DEL,58,DC
+Osasuna,1,Sergio Herrera,POR,79,POR
 Osasuna,13,Aitor Fernández,POR,73,POR
-Osasuna,2,Valentín Rosier,DEF,70,LI
-Osasuna,3,Iñigo Arguibide,DEF,70,CE
-Osasuna,4,Alejandro Catena,DEF,74,CE
-Osasuna,5,Jorge Herrando,DEF,67,LD
-Osasuna,6,Enzo Boyomo,DEF,71,LD
-Osasuna,15,Rockson Yeboah,DEF,70,LI
-Osasuna,18,Abel Bretones,DEF,71,CE
-Osasuna,22,Diego Rico,DEF,71,CE
-Osasuna,8,Lucas Torró,MED,69,MP
-Osasuna,10,Iker Muñoz,MED,73,MC
-Osasuna,14,Jon Moncayola,MED,75,MC
-Osasuna,16,Asier Osambela,MED,73,MCD
-Osasuna,9,Kike Barja,DEL,69,DC
-Osasuna,7,Rubén García,DEL,71,EI
-Osasuna,11,Jonathan Dubasin,DEL,67,DC
-Osasuna,17,Romain Del Castillo,DEL,69,ED
-Osasuna,20,Moi Gómez,MED,73,MCD
-Osasuna,21,Aimar Oroz,MED,76,MC
-Osasuna,19,Raúl Moro,DEL,68,DC
-Osasuna,29,Ante Budimir,DEL,77,ED
-Osasuna,30,Raúl García,DEL,69,DC
-Alavés,1,Antonio Sivera,POR,68,POR
+Osasuna,31,Rafa Fernández,POR,58,POR
+Osasuna,32,Mikel Bermejo,POR,57,POR
+Osasuna,5,Jorge Herrando,DEF,74,CE
+Osasuna,15,Diego Rico,DEF,76,LI
+Osasuna,19,Valentín Rosier,DEF,78,LD
+Osasuna,22,Enzo Boyomo,DEF,79,CE
+Osasuna,24,Alejandro Catena,DEF,74,CE
+Osasuna,27,Iñigo Arguibide,DEF,70,CE
+Osasuna,35,Unai Santos,DEF,58,CE
+Osasuna,48,Rockson Yeboah,DEF,70,LI
+Osasuna,6,Lucas Torró,MED,76,MCD
+Osasuna,7,Jon Moncayola,MED,75,MC
+Osasuna,8,Iker Muñoz,MED,73,MC
+Osasuna,16,Moi Gómez,MED,73,MP
+Osasuna,18,Raúl Moro,DEL,75,EI
+Osasuna,20,Romain Del Castillo,DEL,69,ED
+Osasuna,21,Jonathan Dubasin,DEL,74,DC
+Osasuna,23,Abel Bretones,DEF,76,LI
+Osasuna,26,Mauro Echegoyen,MED,60,MC
+Osasuna,29,Asier Osambela,MED,73,MCD
+Osasuna,9,Raúl García,DEL,75,DC
+Osasuna,10,Aimar Oroz,MED,76,MC
+Osasuna,11,Kike Barja,DEL,69,EI
+Osasuna,14,Rubén García,DEL,77,EI
+Osasuna,17,Ante Budimir,DEL,82,DC
+Osasuna,30,Asier Bonel,DEL,58,DC
+Alavés,1,Antonio Sivera,POR,77,POR
 Alavés,13,Adrián Rodríguez,POR,69,POR
-Alavés,2,Nahuel Tenaglia,DEF,66,LD
-Alavés,3,Hugo Novoa,DEF,69,LI
-Alavés,4,Jonny Otto,DEF,70,CE
-Alavés,5,Facundo Garcés,DEF,70,LD
-Alavés,6,Ville Koski,DEF,68,CE
-Alavés,15,Nicolás Valentini,DEF,70,CE
-Alavés,18,Youssef Enríquez,DEF,68,LI
-Alavés,8,Antonio Blanco,MED,67,MP
-Alavés,10,Tomás Mendes,MED,66,MP
-Alavés,14,Carlos Protesoni,MED,70,MCD
-Alavés,16,Ander Guevara,MED,68,MCD
-Alavés,20,Selu Diallo,MED,71,VI
-Alavés,21,Mikel Rodríguez,MED,71,MCD
-Alavés,26,Pablo Ibáñez,MED,69,MP
-Alavés,27,Carles Aleñá,MED,69,MC
-Alavés,9,Ángel Pérez,DEL,68,EI
-Alavés,7,Miguel Rodríguez,DEL,67,ED
-Alavés,28,Denis Suárez,MED,70,MC
-Alavés,11,Abde Rebbach,DEL,66,ED
-Alavés,17,Toni Martínez,DEL,71,DC
-Alavés,19,Mariano Díaz,DEL,69,SD
-Alavés,29,Lucas Boyé,DEL,68,EI
-Alavés,30,Aitor Mañas,DEL,66,EI
-Elche,1,Matías Dituro,POR,66,POR
+Alavés,31,Grégoire Swiderski,POR,60,POR
+Alavés,33,Rubén Montero,POR,56,POR
+Alavés,2,Nicolás Valentini,DEF,70,CE
+Alavés,3,Youssef Enríquez,DEF,68,LI
+Alavés,5,Facundo Garcés,DEF,70,CE
+Alavés,7,Ángel Pérez,DEL,68,EI
+Alavés,12,Hugo Novoa,DEF,69,LI
+Alavés,14,Nahuel Tenaglia,DEF,77,LD
+Alavés,16,Ville Koski,DEF,68,CE
+Alavés,17,Jonny Otto,DEF,76,LD
+Alavés,18,Mikel Rodríguez,MED,71,MCD
+Alavés,27,Xanet Olaiz,DEF,63,CE
+Alavés,4,Denis Suárez,MED,70,MC
+Alavés,6,Ander Guevara,MED,74,MCD
+Alavés,8,Antonio Blanco,MED,78,MCD
+Alavés,10,Carles Aleñá,MED,74,MC
+Alavés,19,Pablo Ibáñez,MED,69,MP
+Alavés,21,Abde Rebbach,DEL,73,ED
+Alavés,23,Carlos Protesoni,MED,70,MCD
+Alavés,24,Selu Diallo,MED,71,VI
+Alavés,29,Izei Hernández,MED,57,MC
+Alavés,9,Mariano Díaz,DEL,69,DC
+Alavés,11,Toni Martínez,DEL,78,DC
+Alavés,15,Lucas Boyé,DEL,77,DC
+Alavés,20,Aitor Mañas,DEL,66,EI
+Alavés,22,Miguel Rodríguez,DEL,72,ED
+Elche,1,Matías Dituro,POR,76,POR
 Elche,13,Alejandro Iturbe,POR,69,POR
 Elche,2,Buba Sangaré,DEF,71,CE
-Elche,3,Rubén Sánchez,DEF,69,CE
-Elche,4,Pedro Bigas,DEF,67,CE
-Elche,5,Matia Barzic,DEF,69,CE
-Elche,6,Bambo Diaby,DEF,66,LI
-Elche,15,Víctor Chust,DEF,70,CE
-Elche,18,Kevin Lomónaco,DEF,66,CE
-Elche,22,Roy Revivo,DEF,67,LD
-Elche,8,Marc Aguado,MED,66,MC
-Elche,10,Federico Redondo,MED,67,MCD
-Elche,14,Martim Neto,MED,66,MC
-Elche,16,Gonzalo Villar,MED,67,MC
-Elche,20,Javi Morcillo,MED,69,MC
-Elche,9,Grady Diangana,DEL,67,DC
-Elche,7,Josan,DEL,70,SD
-Elche,21,Facundo Buonanotte,MED,73,MCD
-Elche,26,Thomas Lemar,MED,74,MP
-Elche,27,Ali Houary,MED,70,MP
-Elche,28,Adam Boayar,MED,67,MCD
-Elche,11,Yago Santiago,DEL,65,DC
-Elche,17,Germán Valera,DEL,70,EI
-Elche,19,Lucas Cepeda,DEL,74,ED
-Elche,29,Tete Morente,DEL,67,DC
-Elche,30,Abiel Osorio,DEL,69,ED
-Elche,12,Fer Niño,DEL,70,EI
-Elche,23,Ezequiel Ponce,DEL,67,DC
-Getafe,1,David Soria,POR,70,POR
-Getafe,13,Jiri Letacek,POR,71,POR
-Getafe,2,Kiko Femenía,DEF,70,CE
-Getafe,3,Andrés García,DEF,70,LI
-Getafe,4,Dani Carvajal,DEF,80,LD
-Getafe,5,Sebastián Boselli,DEF,73,LI
-Getafe,6,Djené,DEF,75,LD
-Getafe,15,Abdel Abqar,DEF,71,CE
-Getafe,18,Jean Ives Valou,DEF,73,CE
-Getafe,22,Zaid Romero,DEF,69,CE
-Getafe,24,Saba Sazonov,DEF,68,CE
-Getafe,7,Davinchi,DEF,70,LD
-Getafe,8,Johan Mojica,DEF,74,LI
-Getafe,10,Mario Martín,MED,68,MCD
-Getafe,14,Orel Mangala,MED,71,MP
-Getafe,16,Nemanja Gudelj,MED,68,MC
-Getafe,20,Ramón Terrats,MED,70,MC
-Getafe,21,Francho Serrano,MED,72,MP
-Getafe,9,Juanmi,DEL,72,DC
-Getafe,11,Christantus Uche,DEL,69,EI
-Getafe,17,Borja Mayoral,DEL,76,ED
-Getafe,19,Martín Satriano,DEL,68,EI
-Getafe,29,Enes Ünal,DEL,75,DC
-Getafe,30,Iván Azón,DEL,70,ED
-Levante,1,Pablo Campos,POR,64,POR
-Levante,13,Álex Primo,POR,64,POR
-Levante,23,Mathew Ryan,POR,74,POR
-Levante,2,Jeremy Toljan,DEF,70,LD
-Levante,3,Nacho Pérez,DEF,69,LI
-Levante,4,Adrián de la Fuente,DEF,64,CE
-Levante,5,Jorge Cabello,DEF,70,CE
-Levante,6,Aïssa Mandi,DEF,74,CE
-Levante,15,Ifeanyi Ndukwe,DEF,69,CE
-Levante,18,Axel Tape,DEF,64,LI
-Levante,22,Manu Sánchez,DEF,70,CE
-Levante,24,Marc Santos,DEF,67,LD
-Levante,8,Oriol Rey,MED,67,VD
-Levante,10,Jon Ander Olasagasti,MED,68,MP
-Levante,14,Dani Requena,MED,70,MP
-Levante,16,Enzo Bardeli,MED,64,MCD
-Levante,20,Hugo Sotelo,MED,66,MC
-Levante,9,Víctor García,DEL,64,ED
-Levante,7,Roger Brugué,DEL,68,ED
-Levante,11,Paco Cortés,DEL,68,DC
-Levante,17,Thiago Fernández,DEL,67,DC
-Levante,19,Iván Romero,DEL,67,DC
-Levante,29,Karl Etta Eyong,DEL,64,DC
-Levante,30,Yanis Musuayi,DEL,70,EI
-Levante,12,Petar Ratkov,DEL,65,DC
-Málaga,1,Alfonso Herrero,POR,67,POR
+Elche,3,Roy Revivo,DEF,67,LD
+Elche,4,Bambo Diaby,DEF,66,LI
+Elche,6,Pedro Bigas,DEF,76,CE
+Elche,15,Kevin Lomónaco,DEF,66,CE
+Elche,23,Víctor Chust,DEF,70,CE
+Elche,26,Matia Barzic,DEF,69,CE
+Elche,5,Federico Redondo,MED,67,MCD
+Elche,7,Yago Santiago,DEL,70,DC
+Elche,8,Marc Aguado,MED,74,MC
+Elche,10,Facundo Buonanotte,MED,73,MP
+Elche,11,Germán Valera,DEL,76,ED
+Elche,12,Gonzalo Villar,MED,72,MC
+Elche,16,Martim Neto,MED,72,MC
+Elche,17,Josan,DEL,70,SD
+Elche,18,Thomas Lemar,MED,74,MP
+Elche,19,Grady Diangana,DEL,67,ED
+Elche,20,Tete Morente,DEL,67,DC
+Elche,22,Rubén Sánchez,DEF,69,CE
+Elche,27,Adam Boayar,MED,67,MP
+Elche,30,Álvaro Padilla,MED,58,MC
+Elche,47,Javi Morcillo,MED,69,MC
+Elche,9,Ezequiel Ponce,DEL,72,DC
+Elche,14,Fer Niño,DEL,70,DC
+Elche,21,Lucas Cepeda,DEL,74,ED
+Elche,24,Abiel Osorio,DEL,69,ED
+Elche,29,Ali Houary,MED,70,MP
+Elche,33,Nordin Al-Lal,DEL,57,DC
+Getafe,1,Jiri Letacek,POR,71,POR
+Getafe,13,David Soria,POR,80,POR
+Getafe,35,Diego Ferrer,POR,57,POR
+Getafe,2,Djené,DEF,75,CE
+Getafe,3,Davinchi,DEF,70,LD
+Getafe,4,Saba Sazonov,DEF,73,CE
+Getafe,5,Abdel Abqar,DEF,71,CE
+Getafe,14,Dani Carvajal,DEF,80,LD
+Getafe,15,Sebastián Boselli,DEF,73,CE
+Getafe,17,Kiko Femenía,DEF,70,LD
+Getafe,24,Zaid Romero,DEF,77,CE
+Getafe,26,Jean Ives Valou,DEF,73,CE
+Getafe,40,Bafodé Gassama,DEF,57,CE
+Getafe,6,Mario Martín,MED,74,MCD
+Getafe,8,Nemanja Gudelj,MED,68,MCD
+Getafe,11,Ramón Terrats,MED,70,MC
+Getafe,16,Francho Serrano,MED,72,MC
+Getafe,18,Christantus Uche,DEL,75,EI
+Getafe,21,Andrés García,DEF,70,LI
+Getafe,22,Johan Mojica,DEF,74,LI
+Getafe,23,Orel Mangala,MED,71,MC
+Getafe,28,Alberto Risco,MED,60,MC
+Getafe,29,Curro Burgos,MED,58,MC
+Getafe,30,Óscar López,MED,57,MC
+Getafe,31,Moha Hamdoune,MED,57,MC
+Getafe,34,Jesús Martínez,MED,57,MC
+Getafe,39,Mady Macalou,MED,57,MC
+Getafe,7,Juanmi,DEL,72,DC
+Getafe,9,Borja Mayoral,DEL,76,DC
+Getafe,10,Martín Satriano,DEL,77,DC
+Getafe,19,Enes Ünal,DEL,75,DC
+Getafe,20,Iván Azón,DEL,70,DC
+Getafe,27,Ebrahima Drammeh,DEL,58,DC
+Getafe,32,Joselu,DEL,57,DC
+Getafe,33,Moha Achraf,DEL,57,DC
+Getafe,36,Ibrahima Danfakha,DEL,57,DC
+Levante,1,Pablo Campos,POR,69,POR
+Levante,13,Mathew Ryan,POR,79,POR
+Levante,32,Álex Primo,POR,64,POR
+Levante,36,Ihor Galdin,POR,56,POR
+Levante,2,Aïssa Mandi,DEF,79,CE
+Levante,3,Ifeanyi Ndukwe,DEF,69,CE
+Levante,4,Adrián de la Fuente,DEF,74,CE
+Levante,14,Jorge Cabello,DEF,70,CE
+Levante,17,Víctor García,DEL,72,ED
+Levante,22,Jeremy Toljan,DEF,70,LD
+Levante,23,Manu Sánchez,DEF,76,LI
+Levante,29,Nacho Pérez,DEF,69,LI
+Levante,33,Marc Santos,DEF,67,LD
+Levante,35,Huseini Nakoha,DEF,57,CE
+Levante,39,Alejandro Moya,DEF,57,LI
+Levante,5,Hugo Sotelo,MED,74,MC
+Levante,6,Dani Requena,MED,70,MP
+Levante,8,Jon Ander Olasagasti,MED,74,MC
+Levante,16,Axel Tape,DEF,64,LI
+Levante,18,Enzo Bardeli,MED,73,MCD
+Levante,20,Oriol Rey,MED,73,MCD
+Levante,24,Thiago Fernández,DEL,74,DC
+Levante,27,Paco Cortés,DEL,68,DC
+Levante,34,Manel Usedo,MED,57,MC
+Levante,38,Alberto Calatrava,MED,57,MC
+Levante,7,Roger Brugué,DEL,74,ED
+Levante,9,Iván Romero,DEL,75,DC
+Levante,10,Petar Ratkov,DEL,65,DC
+Levante,11,Yanis Musuayi,DEL,70,EI
+Levante,21,Karl Etta Eyong,DEL,75,DC
+Levante,26,Luismi Pérez,DEL,58,DC
+Málaga,1,Alfonso Herrero,POR,75,POR
 Málaga,13,Carlos López,POR,63,POR
-Málaga,2,Rafita Garrido,DEF,66,CE
-Málaga,3,Carlos Puga,DEF,61,CE
-Málaga,4,Diego Murillo,DEF,61,LD
-Málaga,5,Einar Galilea,DEF,61,CE
-Málaga,6,Ángel Recio,DEF,65,LI
-Málaga,15,Moussa Diarra,DEF,62,CE
-Málaga,18,Fernando Calero,DEF,63,CE
-Málaga,22,Álex Pastor,DEF,63,CE
-Málaga,24,Juan Berrocal,DEF,66,CE
-Málaga,7,José Salinas,DEF,65,LD
-Málaga,8,Adam Aznou,DEF,65,LI
-Málaga,10,Jens Cajuste,MED,74,MCD
-Málaga,14,Izan Merino,MED,64,MP
-Málaga,16,Carlos Dotor,MED,64,MCD
-Málaga,20,Pablo Martínez,MED,61,MC
-Málaga,21,Ramón Enríquez,MED,62,MC
-Málaga,9,David Larrubia,DEL,63,DC
-Málaga,11,Haitam Abaida,DEL,66,EI
-Málaga,26,Dani Lorenzo,MED,63,MC
-Málaga,27,Aarón Ochoa,MED,64,MC
-Málaga,28,Rafa Rodríguez,MED,61,MP
-Málaga,17,Julen Lobete,DEL,61,DC
-Málaga,19,Juan Cruz,DEL,65,DC
-Málaga,29,Joaquín Muñoz,DEL,62,DC
-Málaga,30,Adrián Niño,DEL,65,ED
-Málaga,12,Chupe,DEL,64,DC
-Málaga,23,Eneko Jauregi,DEL,65,SD
-Rayo Vallecano,1,Dani Cárdenas,POR,67,POR
-Rayo Vallecano,13,Augusto Batalla,POR,69,POR
-Rayo Vallecano,23,Emil Audero,POR,73,POR
-Rayo Vallecano,2,Andrei Rațiu,DEF,76,LI
-Rayo Vallecano,3,Iván Balliu,DEF,73,CE
-Rayo Vallecano,4,Jozhua Vertrouwd,DEF,71,LI
-Rayo Vallecano,5,Florian Lejeune,DEF,74,CE
-Rayo Vallecano,6,Pelayo Fernández,DEF,73,CE
-Rayo Vallecano,15,Luiz Felipe,DEF,74,CE
-Rayo Vallecano,18,Marash Kumbulla,DEF,73,LD
-Rayo Vallecano,22,Mujaid Sadick,DEF,73,LD
-Rayo Vallecano,24,Adrià Pedrosa,DEF,74,CE
-Rayo Vallecano,8,Óscar Valentín,MED,75,MP
-Rayo Vallecano,10,Unai López,MED,71,MC
-Rayo Vallecano,14,Pathé Ciss,MED,72,MC
-Rayo Vallecano,16,Pedro Díaz,MED,72,MCD
-Rayo Vallecano,20,Gnangoro Bouare,MED,67,MC
-Rayo Vallecano,9,Jorge de Frutos,DEL,75,ED
-Rayo Vallecano,7,Fran Pérez,DEL,67,DC
-Rayo Vallecano,21,Randy Nteka,MED,73,MC
-Rayo Vallecano,26,Rayane Belaid,MED,71,MCD
-Rayo Vallecano,27,Isi Palazón,MED,77,MC
-Rayo Vallecano,11,Álvaro García,DEL,71,ED
-Rayo Vallecano,17,Giorgi Tsitaishvili,DEL,70,EI
-Rayo Vallecano,19,Alemão,DEL,74,ED
-Rayo Vallecano,29,Sergio Camello,DEL,74,DC
-Rayo Vallecano,30,Raúl de Tomás,DEL,67,DC
-Espanyol,1,Marko Dmitrović,POR,75,POR
-Espanyol,13,Ángel Fortuño,POR,67,POR
-Espanyol,2,Omar El Hilali,DEF,67,CE
-Espanyol,3,Andoni Gorosabel,DEF,71,CE
-Espanyol,4,Leandro Cabrera,DEF,68,CE
-Espanyol,5,Clemens Riedel,DEF,66,LI
-Espanyol,6,Unai Núñez,DEF,66,LD
-Espanyol,15,Vanja Drkušić,DEF,69,CE
-Espanyol,18,Roger Hinojo,DEF,67,LI
-Espanyol,22,Quilindschy Hartman,DEF,69,LD
-Espanyol,8,Urko González de Zárate,MED,70,MC
-Espanyol,10,Gabriel Moscardó,MED,70,MC
-Espanyol,14,Pol Lozano,MED,66,VD
-Espanyol,16,Edu Expósito,MED,75,MCD
-Espanyol,20,Rafel Bauzà,MED,68,MCD
-Espanyol,9,Jofre Carreras,DEL,70,EI
-Espanyol,7,Tyrhys Dolan,DEL,68,ED
-Espanyol,21,Javi Hernández,MED,72,MP
-Espanyol,26,Álex Calatrava,MED,69,MC
-Espanyol,11,Javi Puado,DEL,75,ED
-Espanyol,17,Pere Milla,DEL,74,DC
-Espanyol,19,Bryan Zaragoza,DEL,71,EI
-Espanyol,29,Kike García,DEL,67,DC
-Espanyol,30,Marcos Fernández,DEL,67,SD
-Espanyol,12,Roberto Fernández,DEL,68,DC
-Celta de Vigo,1,Iván Villar,POR,73,POR
-Celta de Vigo,13,Ionuț Radu,POR,71,POR
-Celta de Vigo,23,Altay Bayındır,POR,76,POR
-Celta de Vigo,2,Sergio Carreira,DEF,69,LD
-Celta de Vigo,3,Javi Rueda,DEF,68,CE
-Celta de Vigo,4,Álvaro Núñez,DEF,72,CE
-Celta de Vigo,5,Carl Starfelt,DEF,76,LI
-Celta de Vigo,6,Javi Rodríguez,DEF,71,CE
-Celta de Vigo,15,Yoel Lago,DEF,70,LI
-Celta de Vigo,18,Marcos Alonso,DEF,74,LD
-Celta de Vigo,22,Abdoulaye Faye,DEF,72,CE
-Celta de Vigo,24,Sebastián Cáceres,DEF,70,CE
-Celta de Vigo,7,Javi Galán,DEF,73,CE
-Celta de Vigo,8,Stefan Bajcetic,MED,75,MC
-Celta de Vigo,10,Miguel Román,MED,73,MP
-Celta de Vigo,14,Ilaix Moriba,MED,68,MCD
-Celta de Vigo,16,Aleix Febas,MED,71,MC
-Celta de Vigo,9,Jones El-Abdellaoui,DEL,70,ED
-Celta de Vigo,11,Hugo González,DEL,73,DC
-Celta de Vigo,20,Hugo Cuenca,MED,71,VD
-Celta de Vigo,17,Iago Aspas,DEL,82,DC
+Málaga,30,Andrés Céspedes,POR,56,POR
+Málaga,3,Carlos Puga,DEF,71,LD
+Málaga,4,Einar Galilea,DEF,69,CE
+Málaga,5,Álex Pastor,DEF,63,CE
+Málaga,12,José Salinas,DEF,72,LD
+Málaga,15,Ángel Recio,DEF,65,LI
+Málaga,16,Diego Murillo,DEF,72,LD
+Málaga,20,Fernando Calero,DEF,75,CE
+Málaga,25,Juan Berrocal,DEF,66,CE
+Málaga,26,Óscar González,DEF,58,CE
+Málaga,31,Rafita Garrido,DEF,66,CE
+Málaga,39,Adam Aznou,DEF,65,LI
+Málaga,2,Jens Cajuste,MED,74,MCD
+Málaga,6,Ramón Enríquez,MED,62,MC
+Málaga,8,Carlos Dotor,MED,70,MCD
+Málaga,10,David Larrubia,DEL,75,DC
+Málaga,14,Rafa Rodríguez,MED,68,MP
+Málaga,18,Pablo Martínez,MED,76,MC
+Málaga,19,Juan Cruz,DEL,70,DC
+Málaga,22,Dani Lorenzo,MED,72,MC
+Málaga,23,Izan Merino,MED,70,MCD
+Málaga,28,Joseph Otu,MED,57,MC
+Málaga,7,Haitam Abaida,DEL,66,EI
+Málaga,9,Chupe,DEL,76,DC
+Málaga,11,Joaquín Muñoz,DEL,71,EI
+Málaga,17,Eneko Jauregi,DEL,65,SD
+Málaga,21,Adrián Niño,DEL,72,ED
+Málaga,32,Juani Fernández,DEL,58,DC
+Rayo Vallecano,1,Dani Cárdenas,POR,74,POR
+Rayo Vallecano,13,Augusto Batalla,POR,79,POR
+Rayo Vallecano,25,Emil Audero,POR,73,POR
+Rayo Vallecano,30,Adrián Molina,POR,56,POR
+Rayo Vallecano,2,Andrei Rațiu,DEF,76,LD
+Rayo Vallecano,5,Luiz Felipe,DEF,74,CE
+Rayo Vallecano,15,Mujaid Sadick,DEF,73,CE
+Rayo Vallecano,17,Adrià Pedrosa,DEF,74,LI
+Rayo Vallecano,20,Iván Balliu,DEF,73,LD
+Rayo Vallecano,22,Pelayo Fernández,DEF,73,CE
+Rayo Vallecano,24,Florian Lejeune,DEF,79,CE
+Rayo Vallecano,26,Marco de las Sías,DEF,62,CE
+Rayo Vallecano,27,Sergio Lozano,DEF,58,CE
+Rayo Vallecano,33,Jozhua Vertrouwd,DEF,71,LI
+Rayo Vallecano,3,Marash Kumbulla,DEF,73,CE
+Rayo Vallecano,4,Pedro Díaz,MED,72,MC
+Rayo Vallecano,6,Pathé Ciss,MED,77,MCD
+Rayo Vallecano,7,Isi Palazón,DEL,77,ED
+Rayo Vallecano,8,Unai López,MED,76,MC
+Rayo Vallecano,11,Randy Nteka,MED,73,MC
+Rayo Vallecano,18,Álvaro García,DEL,81,EI
+Rayo Vallecano,19,Jorge de Frutos,DEL,81,ED
+Rayo Vallecano,21,Fran Pérez,DEL,74,ED
+Rayo Vallecano,23,Óscar Valentín,MED,75,MCD
+Rayo Vallecano,28,Samu Becerra,MED,60,MC
+Rayo Vallecano,31,Marco Román,MED,57,MC
+Rayo Vallecano,36,Gnangoro Bouare,MED,67,MC
+Rayo Vallecano,9,Alemão,DEL,74,DC
+Rayo Vallecano,10,Sergio Camello,DEL,74,DC
+Rayo Vallecano,14,Giorgi Tsitaishvili,DEL,70,EI
+Rayo Vallecano,34,Iván Alonso,DEL,58,DC
+Rayo Vallecano,37,Rayane Belaid,MED,71,MCD
+Rayo Vallecano,12,Raúl de Tomás,DEL,72,DC
+Espanyol,1,Ángel Fortuño,POR,67,POR
+Espanyol,13,Marko Dmitrović,POR,75,POR
+Espanyol,31,Llorenç Serred,POR,62,POR
+Espanyol,2,Andoni Gorosabel,DEF,76,LD
+Espanyol,3,Quilindschy Hartman,DEF,75,LI
+Espanyol,4,Urko González de Zárate,MED,76,MC
+Espanyol,5,Clemens Riedel,DEF,66,CE
+Espanyol,6,Leandro Cabrera,DEF,76,CE
+Espanyol,14,Unai Núñez,DEF,75,LD
+Espanyol,16,Vanja Drkušić,DEF,69,CE
+Espanyol,21,Roger Hinojo,DEF,67,LI
+Espanyol,23,Omar El Hilali,DEF,75,LD
+Espanyol,27,Adama Timera,DEF,57,CE
+Espanyol,32,José Ángel López,DEF,57,LI
+Espanyol,7,Javi Puado,DEL,75,ED
+Espanyol,8,Edu Expósito,MED,75,MC
+Espanyol,10,Pol Lozano,MED,75,MC
+Espanyol,15,Bryan Zaragoza,DEL,71,EI
+Espanyol,20,Gabriel Moscardó,MED,70,MC
+Espanyol,26,Rafel Bauzà,MED,68,MCD
+Espanyol,33,Jan Peries,MED,57,MC
+Espanyol,36,Alejandro Santiago,MED,57,MC
+Espanyol,9,Roberto Fernández,DEL,74,DC
+Espanyol,11,Pere Milla,DEL,74,DC
+Espanyol,17,Jofre Carreras,DEL,70,EI
+Espanyol,18,Marcos Fernández,DEL,72,SD
+Espanyol,19,Kike García,DEL,75,DC
+Espanyol,22,Cala,DEL,75,DC
+Espanyol,24,Tyrhys Dolan,DEL,74,ED
+Espanyol,28,Javi Hernández,MED,72,MP
+Espanyol,29,Víctor Mullerat,DEL,57,DC
+Espanyol,34,Makar Kotovshchikov,DEL,57,DC
+Celta de Vigo,1,Altay Bayındır,POR,76,POR
+Celta de Vigo,13,Ionuț Radu,POR,78,POR
+Celta de Vigo,25,Iván Villar,POR,73,POR
+Celta de Vigo,2,Carl Starfelt,DEF,76,CE
+Celta de Vigo,3,Marcos Alonso,DEF,79,LI
+Celta de Vigo,4,Abdoulaye Faye,DEF,72,CE
+Celta de Vigo,5,Sergio Carreira,DEF,76,LD
+Celta de Vigo,15,Álvaro Núñez,DEF,72,CE
+Celta de Vigo,17,Javi Rueda,DEF,76,LD
+Celta de Vigo,18,Yoel Lago,DEF,70,LI
+Celta de Vigo,20,Javi Rodríguez,DEF,76,CE
+Celta de Vigo,21,Sebastián Cáceres,DEF,70,CE
+Celta de Vigo,27,Quique Ribes,DEF,58,LD
+Celta de Vigo,35,Germain Miller,DEF,58,CE
+Celta de Vigo,6,Ilaix Moriba,MED,78,MCD
+Celta de Vigo,8,Miguel Román,MED,73,MP
+Celta de Vigo,14,Aleix Febas,MED,79,MC
+Celta de Vigo,16,Hugo González,DEL,73,DC
 Celta de Vigo,19,Williot Swedberg,DEL,76,EI
-Celta de Vigo,29,Hugo Álvarez,DEL,70,SD
-Celta de Vigo,30,Couhaib Driouech,DEL,74,EI
-Celta de Vigo,12,Pablo Durán,DEL,74,DC
-Celta de Vigo,21,Ferran Jutglà,DEL,68,DC
-Celta de Vigo,25,Borja Iglesias,DEL,77,DC
-Deportivo de La Coruña,1,Germán Parreño,POR,63,POR
-Deportivo de La Coruña,13,Álvaro Ferllo,POR,64,POR
-Deportivo de La Coruña,23,Leo Román,POR,66,POR
-Deportivo de La Coruña,2,Ximo Navarro,DEF,64,CE
-Deportivo de La Coruña,3,Adrià Altimira,DEF,64,CE
-Deportivo de La Coruña,4,Miguel Loureiro,DEF,65,LD
+Celta de Vigo,22,Javi Galán,DEF,73,LI
+Celta de Vigo,23,Hugo Álvarez,DEL,75,EI
+Celta de Vigo,28,Andrés Antañón,MED,62,MC
+Celta de Vigo,30,Hugo Burcio,MED,60,MC
+Celta de Vigo,31,Ángel Arcos,MED,58,MC
+Celta de Vigo,7,Borja Iglesias,DEL,77,DC
+Celta de Vigo,9,Ferran Jutglà,DEL,75,DC
+Celta de Vigo,10,Iago Aspas,DEL,82,DC
+Celta de Vigo,11,Pablo Durán,DEL,74,DC
+Celta de Vigo,24,Couhaib Driouech,DEL,74,EI
+Celta de Vigo,39,Jones El-Abdellaoui,DEL,70,ED
+Deportivo de La Coruña,1,Germán Parreño,POR,68,POR
+Deportivo de La Coruña,13,Leo Román,POR,77,POR
+Deportivo de La Coruña,25,Álvaro Ferllo,POR,74,POR
+Deportivo de La Coruña,2,Adrià Altimira,DEF,73,LD
+Deportivo de La Coruña,3,Arnau Comas,DEF,68,LD
+Deportivo de La Coruña,4,Lucas Noubi,DEF,69,CE
 Deportivo de La Coruña,5,Dani Barcia,DEF,69,CE
-Deportivo de La Coruña,6,Lucas Noubi,DEF,69,CE
-Deportivo de La Coruña,15,Arnau Comas,DEF,68,LD
-Deportivo de La Coruña,18,Bright Ede,DEF,69,CE
-Deportivo de La Coruña,22,José María Giménez,DEF,76,CE
-Deportivo de La Coruña,24,Giacomo Quagliata,DEF,69,LI
-Deportivo de La Coruña,7,Angeliño,DEF,64,LI
-Deportivo de La Coruña,8,Marc Casadó,MED,78,MCD
-Deportivo de La Coruña,10,Lorenzo Amatucci,MED,67,MC
+Deportivo de La Coruña,12,Giacomo Quagliata,DEF,69,LI
+Deportivo de La Coruña,15,Miguel Loureiro,DEF,73,LD
+Deportivo de La Coruña,17,Angeliño,DEF,78,LI
+Deportivo de La Coruña,20,José María Giménez,DEF,82,CE
+Deportivo de La Coruña,22,Bright Ede,DEF,69,CE
+Deportivo de La Coruña,23,Ximo Navarro,DEF,72,LD
+Deportivo de La Coruña,6,Marc Casadó,MED,78,MCD
+Deportivo de La Coruña,8,Diego Villares,MED,73,MC
+Deportivo de La Coruña,10,Yeremay Hernández,DEL,78,EI
+Deportivo de La Coruña,11,David Mella,DEL,73,DC
 Deportivo de La Coruña,14,Riki Rodríguez,MED,68,MP
-Deportivo de La Coruña,16,Diego Villares,MED,67,MP
-Deportivo de La Coruña,20,Noé Carrillo,MED,67,MC
-Deportivo de La Coruña,9,David Mella,DEL,63,DC
-Deportivo de La Coruña,11,Luismi Cruz,DEL,69,EI
-Deportivo de La Coruña,17,Adama Traoré,DEL,74,ED
-Deportivo de La Coruña,21,Jonathan Asp Jensen,MED,68,MC
-Deportivo de La Coruña,26,Mario Soriano,MED,74,MP
-Deportivo de La Coruña,19,Yeremay Hernández,DEL,78,DC
-Deportivo de La Coruña,29,Zakaria Eddahchouri,DEL,69,DC
-Deportivo de La Coruña,30,Bil Nsongo,DEL,63,SD
-Deportivo de La Coruña,12,Pierre-Emerick Aubameyang,DEL,78,DC
+Deportivo de La Coruña,16,Lorenzo Amatucci,MED,73,MC
+Deportivo de La Coruña,18,Jonathan Asp Jensen,MED,68,MC
+Deportivo de La Coruña,21,Mario Soriano,MED,74,MP
+Deportivo de La Coruña,35,Rubén López,MED,58,MC
+Deportivo de La Coruña,36,Yayo,MED,58,MC
+Deportivo de La Coruña,37,Noé Carrillo,MED,67,MC
+Deportivo de La Coruña,7,Pierre-Emerick Aubameyang,DEL,78,DC
+Deportivo de La Coruña,9,Zakaria Eddahchouri,DEL,69,DC
+Deportivo de La Coruña,19,Luismi Cruz,DEL,74,EI
+Deportivo de La Coruña,24,Adama Traoré,DEL,74,ED
+Deportivo de La Coruña,31,Martín Ochoa,DEL,57,DC
+Deportivo de La Coruña,32,Bil Nsongo,DEL,69,SD
+Deportivo de La Coruña,33,Kevin Sánchez,DEL,63,DC
 Racing de Santander,1,Simon Eriksson,POR,67,POR
-Racing de Santander,13,Julen Agirrezabala,POR,62,POR
-Racing de Santander,2,Álvaro Mantilla,DEF,66,CE
-Racing de Santander,3,Manu Hernando,DEF,68,CE
-Racing de Santander,4,Facundo González,DEF,65,LD
-Racing de Santander,5,Pedro Felipe,DEF,62,LI
-Racing de Santander,6,Pablo Ramón,DEF,67,LD
-Racing de Santander,15,Jeanuël Belocian,DEF,64,CE
-Racing de Santander,18,Jorge Salinas,DEF,63,LI
-Racing de Santander,22,Aarón Martín,DEF,63,CE
-Racing de Santander,8,Maguette Gueye,MED,67,MP
-Racing de Santander,10,Matteo Prati,MED,65,MP
-Racing de Santander,14,Íñigo Sainz-Maza,MED,64,MC
-Racing de Santander,16,Iván Martín,MED,66,MCD
-Racing de Santander,9,Andrés Martín,DEL,64,ED
-Racing de Santander,7,Iker Luque,DEL,67,DC
-Racing de Santander,11,Pablo García,DEL,65,SD
-Racing de Santander,20,Sergio Canales,MED,74,MC
-Racing de Santander,21,André Almeida,MED,63,MC
-Racing de Santander,17,Iñigo Vicente,DEL,66,EI
-Racing de Santander,19,Giorgi Guliashvili,DEL,66,SD
-Racing de Santander,29,Juan Carlos Arana,DEL,68,DC
-Racing de Santander,30,Asier Villalibre,DEL,67,DC
-Racing de Santander,12,Yassir Zabiri,DEL,66,DC
+Racing de Santander,13,Julen Agirrezabala,POR,76,POR
+Racing de Santander,31,Laro Gómez,POR,56,POR
+Racing de Santander,2,Álvaro Mantilla,DEF,71,CE
+Racing de Santander,3,Aarón Martín,DEF,63,CE
+Racing de Santander,4,Manu Hernando,DEF,68,CE
+Racing de Santander,6,Íñigo Sainz-Maza,MED,64,MC
+Racing de Santander,16,Facundo González,DEF,65,LD
+Racing de Santander,17,Jorge Salinas,DEF,72,LI
+Racing de Santander,22,Pedro Felipe,DEF,69,LI
+Racing de Santander,24,Jeanuël Belocian,DEF,64,CE
+Racing de Santander,26,Álvaro Fernández,DEF,58,LD
+Racing de Santander,28,Héctor Mejía,DEF,57,CE
+Racing de Santander,39,Gaby Jiménez,DEF,57,CE
+Racing de Santander,5,Pablo Ramón,DEF,67,LD
+Racing de Santander,8,André Almeida,MED,74,MC
+Racing de Santander,14,Maguette Gueye,MED,67,MP
+Racing de Santander,18,Matteo Prati,MED,65,MP
+Racing de Santander,19,Iker Luque,DEL,67,DC
+Racing de Santander,20,Sergio Canales,MED,74,MP
+Racing de Santander,23,Iván Martín,MED,77,MCD
+Racing de Santander,29,Andrés Vallecillo,MED,58,MC
+Racing de Santander,33,Jorge Castellanos,MED,57,MC
+Racing de Santander,38,Hugo Pérez,MED,57,MC
+Racing de Santander,41,Mario Solórzano,MED,57,MC
+Racing de Santander,7,Giorgi Guliashvili,DEL,66,SD
+Racing de Santander,9,Juan Carlos Arana,DEL,68,DC
+Racing de Santander,10,Iñigo Vicente,DEL,77,EI
+Racing de Santander,11,Andrés Martín,DEL,77,ED
+Racing de Santander,12,Asier Villalibre,DEL,74,DC
+Racing de Santander,15,Pablo García,DEL,70,SD
+Racing de Santander,21,Yassir Zabiri,DEL,78,DC
+Racing de Santander,42,Junior Bita,DEL,57,DC
+Racing de Santander,43,Alejandro Laso,DEL,57,DC
 Real Sociedad,1,Álex Remiro,POR,80,POR
 Real Sociedad,13,Unai Marrero,POR,72,POR
-Real Sociedad,2,Álvaro Odriozola,DEF,71,LI
-Real Sociedad,3,Jon Aramburu,DEF,76,LI
-Real Sociedad,4,Héctor Fort,DEF,77,CE
+Real Sociedad,32,Aitor Fraga,POR,58,POR
+Real Sociedad,2,Jon Aramburu,DEF,76,LD
+Real Sociedad,3,Aihen Muñoz,DEF,76,LI
 Real Sociedad,5,Igor Zubeldia,DEF,78,CE
-Real Sociedad,6,Jon Pacheco,DEF,77,CE
-Real Sociedad,15,Jon Martín,DEF,77,CE
-Real Sociedad,18,Mamadou Sarr,DEF,77,LD
-Real Sociedad,22,Aihen Muñoz,DEF,76,CE
-Real Sociedad,24,Sergio Gómez,DEF,76,LD
-Real Sociedad,8,Jon Gorrotxategi,MED,71,MCD
-Real Sociedad,10,Beñat Turrientes,MED,72,MP
-Real Sociedad,14,Luka Sučić,MED,77,MC
-Real Sociedad,16,Yangel Herrera,MED,77,MC
-Real Sociedad,20,Carlos Soler,MED,77,MCD
-Real Sociedad,9,Takefusa Kubo,DEL,82,DC
-Real Sociedad,7,Job Ochieng,DEL,74,ED
-Real Sociedad,21,Pablo Marín,MED,73,MCD
-Real Sociedad,26,Arsen Zakharyan,MED,71,MP
-Real Sociedad,11,Ander Barrenetxea,DEL,77,EI
-Real Sociedad,17,Gonçalo Guedes,DEL,76,DC
-Real Sociedad,19,Mikel Oyarzabal,DEL,87,DC
-Real Sociedad,29,Orri Óskarsson,DEL,71,EI
+Real Sociedad,6,Jon Martín,DEF,77,CE
+Real Sociedad,16,Jon Pacheco,DEF,77,CE
+Real Sociedad,17,Sergio Gómez,DEF,76,LI
+Real Sociedad,19,Mamadou Sarr,DEF,77,LD
+Real Sociedad,20,Álvaro Odriozola,DEF,71,LD
+Real Sociedad,22,Héctor Fort,DEF,77,CE
+Real Sociedad,28,Álex Lebarbier,DEF,60,CE
+Real Sociedad,34,Luken Beitia,DEF,62,CE
+Real Sociedad,4,Jon Gorrotxategi,MED,78,MCD
+Real Sociedad,7,Ander Barrenetxea,DEL,77,EI
+Real Sociedad,8,Beñat Turrientes,MED,72,MC
+Real Sociedad,11,Gonçalo Guedes,DEL,76,EI
+Real Sociedad,12,Job Ochieng,DEL,74,ED
+Real Sociedad,14,Takefusa Kubo,DEL,82,ED
+Real Sociedad,15,Pablo Marín,MED,73,MCD
+Real Sociedad,18,Carlos Soler,MED,77,MC
+Real Sociedad,21,Yangel Herrera,MED,77,MC
+Real Sociedad,23,Arsen Zakharyan,MED,71,MP
+Real Sociedad,24,Luka Sučić,MED,77,MC
+Real Sociedad,26,Ibai Aguirre,MED,60,MC
+Real Sociedad,29,Álex Marchal,MED,58,MC
+Real Sociedad,9,Orri Óskarsson,DEL,71,DC
+Real Sociedad,10,Mikel Oyarzabal,DEL,87,DC
+Real Sociedad,27,Gorka Carrera,DEL,62,DC
 Sevilla,1,Odysseas Vlachodimos,POR,76,POR
 Sevilla,13,Fran González,POR,73,POR
-Sevilla,2,José Ángel Carmona,DEF,69,CE
-Sevilla,3,Juan Iglesias,DEF,71,LD
+Sevilla,33,Rafa Romero,POR,58,POR
+Sevilla,2,Juan Iglesias,DEF,76,LD
+Sevilla,3,Julio Díaz,DEF,69,LI
 Sevilla,4,Kike Salas,DEF,74,CE
-Sevilla,5,Marcão,DEF,74,CE
-Sevilla,6,Fábio Cardoso,DEF,74,CE
-Sevilla,15,Arouna Sangante,DEF,69,LI
-Sevilla,18,Andrés Castrín,DEF,70,CE
-Sevilla,22,Gabriel Suazo,DEF,74,LD
-Sevilla,24,Julio Díaz,DEF,69,LI
-Sevilla,8,Lucien Agoumé,MED,74,MC
-Sevilla,10,Youssouf Fofana,MED,80,MC
+Sevilla,5,Andrés Castrín,DEF,70,CE
+Sevilla,12,Arouna Sangante,DEF,74,CE
+Sevilla,15,Fábio Cardoso,DEF,74,CE
+Sevilla,17,Gabriel Suazo,DEF,74,LI
+Sevilla,22,José Ángel Carmona,DEF,77,LD
+Sevilla,23,Marcão,DEF,74,CE
+Sevilla,26,Manuel Ángel,DEF,65,LD
+Sevilla,34,Iker Muñoz Ortín,DEF,57,CE
+Sevilla,45,Tamiou Kpebane,DEF,57,CE
+Sevilla,6,Lucien Agoumé,MED,74,MC
+Sevilla,8,Giorgi Kochorashvili,MED,71,MC
 Sevilla,14,Manu Bueno,MED,68,MP
-Sevilla,16,Jon Guridi,MED,73,MC
-Sevilla,20,Giorgi Kochorashvili,MED,71,MC
-Sevilla,21,Nico Guillén,MED,70,MC
-Sevilla,9,Miguel Sierra,DEL,73,SD
-Sevilla,26,Peque Fernández,MED,70,MCD
-Sevilla,7,Chidera Ejuke,DEL,71,DC
+Sevilla,18,Jon Guridi,MED,73,MC
+Sevilla,24,Youssouf Fofana,MED,80,MC
+Sevilla,27,Nico Guillén,MED,70,MC
+Sevilla,39,Edu Altozano,MED,60,MC
+Sevilla,7,Alfon González,DEL,72,ED
+Sevilla,9,Robbie Ure,DEL,69,ED
+Sevilla,10,Peque Fernández,MED,70,MP
 Sevilla,11,Rubén Vargas,DEL,75,ED
-Sevilla,17,Alfon González,DEL,72,ED
-Sevilla,19,Félix Correia,DEL,76,DC
-Sevilla,29,Isaac Romero,DEL,70,DC
-Sevilla,30,Robbie Ure,DEL,69,ED
-Sevilla,12,Lucas Stassin,DEL,68,EI
+Sevilla,16,Isaac Romero,DEL,70,DC
+Sevilla,19,Lucas Stassin,DEL,68,EI
+Sevilla,20,Félix Correia,DEL,76,ED
+Sevilla,21,Chidera Ejuke,DEL,76,EI
+Sevilla,29,Jesús Cruz,DEL,57,DC
+Sevilla,30,Miguel Sierra,DEL,73,SD
+Sevilla,37,Ibrahima Sow,DEL,58,DC
+Sevilla,46,Marc Scuri,DEL,57,DC
 Valencia,1,Stole Dimitrievski,POR,77,POR
 Valencia,13,Cristian Rivero,POR,70,POR
-Valencia,23,Kayne van Oevelen,POR,70,POR
-Valencia,2,Dimitri Foulquier,DEF,68,CE
-Valencia,3,Pablo Maffeo,DEF,71,CE
-Valencia,4,Arnau Martínez,DEF,68,CE
-Valencia,5,Mouctar Diakhaby,DEF,72,CE
-Valencia,6,César Tárrega,DEF,70,LI
-Valencia,15,José Copete,DEF,71,CE
-Valencia,18,Justin de Haas,DEF,70,LD
-Valencia,22,Iker Córdoba,DEF,69,LD
-Valencia,24,José Gayà,DEF,80,LD
-Valencia,7,Jesús Vázquez,DEF,72,LI
-Valencia,8,Pepelu,MED,75,MC
-Valencia,10,Guido Rodríguez,MED,77,MCD
-Valencia,14,Aliou Dieng,MED,73,MC
-Valencia,16,Javi Guerra,MED,74,MCD
-Valencia,20,Filip Ugrinic,MED,73,MP
-Valencia,9,Luis Rioja,DEL,73,ED
-Valencia,11,Diego López,DEL,68,DC
-Valencia,21,Harvey Elliott,MED,76,MCD
-Valencia,26,Dani Raba,MED,68,MCD
-Valencia,17,Arnaut Danjuma,DEL,77,EI
-Valencia,19,Sergi Canós,DEL,72,DC
-Valencia,29,Ryunosuke Sato,DEL,71,DC
-Valencia,30,Hugo Duro,DEL,75,EI
-Valencia,12,Umar Sadiq,DEL,71,EI
+Valencia,25,Kayne van Oevelen,POR,70,POR
+Valencia,3,José Copete,DEF,71,CE
+Valencia,4,Mouctar Diakhaby,DEF,72,CE
+Valencia,5,César Tárrega,DEF,75,CE
+Valencia,12,Justin de Haas,DEF,76,LD
+Valencia,14,José Gayà,DEF,80,LI
+Valencia,20,Dimitri Foulquier,DEF,68,LD
+Valencia,21,Jesús Vázquez,DEF,72,LI
+Valencia,22,Arnau Martínez,DEF,68,CE
+Valencia,24,Pablo Maffeo,DEF,77,LD
+Valencia,29,Álex Panach,DEF,60,LD
+Valencia,31,Rodrigo Gamón,DEF,58,CE
+Valencia,36,Iker Córdoba,DEF,69,LD
+Valencia,41,Marcos Navarro,DEF,57,CE
+Valencia,2,Guido Rodríguez,MED,77,MCD
+Valencia,7,Arnaut Danjuma,DEL,77,EI
+Valencia,8,Javi Guerra,MED,74,MCD
+Valencia,10,Harvey Elliott,MED,76,MP
+Valencia,11,Luis Rioja,DEL,73,EI
+Valencia,15,Aliou Dieng,MED,73,MC
+Valencia,18,Pepelu,MED,75,MCD
+Valencia,23,Filip Ugrinic,MED,73,MC
+Valencia,33,Aarón Mayol,MED,57,MC
+Valencia,38,Jaume Durà,MED,58,MC
+Valencia,39,Ryunosuke Sato,DEL,71,DC
+Valencia,6,Umar Sadiq,DEL,76,DC
+Valencia,9,Hugo Duro,DEL,75,DC
+Valencia,19,Dani Raba,MED,74,MP
+Valencia,27,David Otorbi,DEL,60,DC
+Valencia,37,Aimar Blázquez,DEL,58,DC
+Valencia,16,Sergi Canós,DEL,72,ED
