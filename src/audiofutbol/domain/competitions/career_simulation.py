@@ -74,20 +74,16 @@ def _record_goal(rng: Random, side: Team, xi: list[Player], minute: int, result:
         result.assists.append((side, assist, minute))
 
 
-def _discipline(rng: Random, side: Team, xi: list[Player], yellow_limit: int) -> tuple[int, int]:
+def _discipline(rng: Random, side: Team, participants: list[Player], yellow_limit: int) -> int:
     for player in side.players:
         player.suspended_matches = max(0, player.suspended_matches - 1)
-    available = [p for p in xi if any(p is registered for registered in side.players)]
-    yellows = rng.sample(available, min(len(available), poisson(rng, 1.65 + .13 * side.mentality)))
+    yellows = rng.sample(participants, min(len(participants), poisson(rng, 1.65 + .13 * side.mentality)))
     for player in yellows:
         player.yellow_cards += 1
         if player.yellow_cards >= yellow_limit:
             player.yellow_cards = 0
             player.suspended_matches += 1
-    red = int(bool(available) and rng.random() < .06)
-    if red:
-        rng.choice(available).suspended_matches += 1
-    return len(yellows), red
+    return len(yellows)
 
 
 @dataclass
@@ -101,6 +97,7 @@ class _Side:
     managed: bool
     minutes: dict[str, int] = field(default_factory=dict)
     injuries: list[str] = field(default_factory=list)
+    sent_off: list[Player] = field(default_factory=list)
     used: int = 0
 
     def fatigue(self, player: Player) -> float:
@@ -121,23 +118,48 @@ class _Side:
         result.highlights.append((minute, f"Cambio {reason} en {self.original.name}: "
                                           f"sale {outgoing.name}, entra {incoming.name}."))
 
-    def injury_or_changes(self, minute: int, margin: int, rng: Random, result: MatchResult) -> None:
-        if minute < 90 and self.xi and len(self.injuries) < 2:
+    def maybe_send_off(self, minute: int, rng: Random, result: MatchResult) -> None:
+        candidates = [p for p in self.xi if p.position != "POR"]
+        if candidates and len(self.xi) > 7 and rng.random() < .010:
+            player = rng.choice(candidates)
+            self.xi.remove(player)
+            self.sent_off.append(player)
+            result.highlights.append((minute, f"Expulsión de {player.name}, de {self.original.name}."))
+
+    def apply_plan(
+        self, minute: int, margin: int, advantage: int, result: MatchResult, *, only_player: Player | None = None,
+    ) -> bool:
+        changed = False
+        for rule in sorted(self.plan, key=lambda r: (r.condition != "injured", r.minute)):
+            players = rule.players(self.xi, self.bench)
+            if players is None or self.used >= 5:
+                continue
+            out, incoming = players
+            if ((only_player is not None and out is not only_player)
+                    or (out.position == "POR") != (incoming.position == "POR")):
+                continue
+            if rule.matches(minute, margin, self.fatigue(out),
+                            injured=out.name in self.injuries, red_card_advantage=advantage):
+                reason = "programado por lesión" if out.name in self.injuries else "programado"
+                self.swap(out, incoming, result, minute, reason)
+                self.plan.remove(rule)
+                changed = True
+        return changed
+
+    def injury_or_changes(self, minute: int, margin: int, advantage: int, rng: Random, result: MatchResult) -> None:
+        if 0 < minute < 90 and minute % 15 == 0 and self.xi and len(self.injuries) < 2:
             injured = rng.choices(self.xi, weights=[1 + self.fatigue(p) / 28 for p in self.xi])[0]
             if rng.random() < .009 + max(0., self.fatigue(injured) - 45) * .00055:
                 self.injuries.append(injured.name)
                 result.highlights.append((minute, f"Lesión de {injured.name}, de {self.original.name}."))
                 bench = [p for p in self.bench if (p.position == "POR") == (injured.position == "POR")]
-                if self.used < 5 and bench:
-                    self.swap(injured, max(bench, key=lambda p: (p.position == injured.position, p.overall)),
-                              result, minute, "por lesión")
-                else:
-                    self.xi.remove(injured)
-        for rule in self.plan.copy():
-            players = rule.players(self.xi, self.bench)
-            if players is not None and self.used < 5 and rule.matches(minute, margin, self.fatigue(players[0])):
-                self.swap(*players, result, minute, "programado")
-                self.plan.remove(rule)
+                if not self.apply_plan(minute, margin, advantage, result, only_player=injured):
+                    if self.used < 5 and bench:
+                        self.swap(injured, max(bench, key=lambda p: (p.position == injured.position, p.overall)),
+                                  result, minute, "por lesión")
+                    else:
+                        self.xi.remove(injured)
+        self.apply_plan(minute, margin, advantage, result)
         if not self.managed and 60 <= minute < 90 and self.used < 3:
             candidates = [p for p in self.xi if p.position != "POR"]
             if candidates:
@@ -168,9 +190,12 @@ def quick_match(
     result = MatchResult((0, 0))
     times = sorted({0, 15, 30, 45, 60, 75, 90} | {r.minute for r in changes or [] if 0 < r.minute < 90})
     for start, end in zip(times, times[1:]):
-        if start:
-            for i, s in enumerate(sides):
-                s.injury_or_changes(start, goals[i] - goals[1 - i], rng, result)
+        if start and start % 15 == 0:
+            for s in sides:
+                s.maybe_send_off(start, rng, result)
+        for i, s in enumerate(sides):
+            s.injury_or_changes(start, goals[i] - goals[1 - i], len(sides[1 - i].sent_off) - len(s.sent_off),
+                                rng, result)
         span = end - start
         a, b = (s.quality() for s in sides)
         home_control += span * max(.29, min(.71, .50 + (a.midfield - b.midfield) * .008 + rng.uniform(-.04, .04)))
@@ -195,8 +220,12 @@ def quick_match(
     result.goals = goals[0], goals[1]
     cards = [_discipline(rng, s.tactics, [p for p in s.original.players if p.name in s.minutes], yellow_limit)
              for s in sides]
-    result.yellow_cards, result.red_cards = (cards[0][0], cards[1][0]), (cards[0][1], cards[1][1])
-    result.fair_play = tuple(y + 3 * r for y, r in cards)
+    result.yellow_cards = cards[0], cards[1]
+    result.red_cards = len(sides[0].sent_off), len(sides[1].sent_off)
+    for s in sides:
+        for player in s.sent_off:
+            player.suspended_matches += 1
+    result.fair_play = tuple(y + 3 * r for y, r in zip(result.yellow_cards, result.red_cards))
     possession = round(home_control * 100 / 90)
     result.statistics = {
         "Posesión": (possession, 100 - possession), "Tiros": tuple(shots), "A puerta": tuple(on_target),

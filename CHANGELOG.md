@@ -2,6 +2,7 @@
 
 ## Sin publicar
 
+- **Cambios condicionales en amistosos y torneos:** prepara hasta tres sustituciones con nombres, minuto y condición. Puedes activarlas por marcador, cansancio, lesión o diferencia de expulsiones, y editarlas también durante el partido.
 - **Modo carrera unificado:** Brasil se juega desde el catálogo normal con las Séries A, B y C, Copa do Brasil, repechaje de ascenso y clasificación continental. Los guardados anteriores siguen siendo recuperables.
 - **Fichajes negociados por calendario:** tecla D para el saldo; filtros por liga, club, posición, edad y media; ofertas y contraofertas con respuestas y vencimientos en días del juego. Los acuerdos no mueven dinero hasta su confirmación.
 - **Bitácoras y estado físico:** figura, estadísticas, resumen contextual, lesiones entre partidos, alertas de cansancio y cambios programables por minuto y situación.

@@ -120,6 +120,8 @@ El historial no guarda las opciones al recorrer menús o el tablero táctico. Pu
 | Táctica y contexto | `X` abrir táctica en vivo (esquema, posiciones, cobradores, mentalidad, rendimiento y rival), `N` lector estructurado con estado del partido (marcador, esquemas, ánimo, clima, tensión y llegadas por banda) |
 | Información en vivo | `M` marcador y global, `T` minuto, `P` posesión, zona, carril y portador, `G` goles, `A` tarjetas, `E` tiros y tiros a puerta, `S` estadísticas |
 | Gestión y ayuda | `C` pedir cambio al cuarto árbitro (se aplica en la siguiente detención; 5 cambios + 1 en tiempo extra), `L` alineación en campo, `H` hacer tiempo, `V` historial del VAR, `F1` ayuda de atajos |
+
+En amistosos y torneos, abre **Preparación del partido → Cambios por situación**, o pulsa **X → Cambios por situación** en juego. Elige quién sale, quién entra, la condición y el minuto mínimo. Por ejemplo: «Si se lesiona este jugador, desde el inicio» o «si vamos perdiendo, desde el minuto 65». Puedes preparar hasta tres reglas por partido. Se aplican en una detención si se cumple la condición y queda cupo; si no hay un cambio programado viable por lesión, puedes hacerlo manualmente. Estos planes no se guardan para el siguiente partido, salvo los que configures en Gestión del club dentro de la carrera.
 | Resumen y recuento | `Espacio` salta a la siguiente sección (goles, jugadas, estadísticas), `Escape` cancela la narración |
 
 ## Menú de Opciones

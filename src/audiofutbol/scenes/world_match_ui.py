@@ -6,10 +6,10 @@ from collections.abc import Callable
 
 from audiofutbol.domain.competitions.career_core import FIRST_YEAR, SEASON_DAYS, career_date
 from audiofutbol.domain.competitions.world_career import WorldCareer
-from audiofutbol.domain.match.conditional_changes import CONDITIONS, ConditionalChange
+from audiofutbol.domain.match.conditional_change_menu import edit_change_plan
 from audiofutbol.domain.models import POSITION_NAMES_ES
 from audiofutbol.scenes.base import GameContext
-from audiofutbol.scenes.career_management import open_menu
+from audiofutbol.scenes.match_scene import PygameMatchIO
 from audiofutbol.scenes.world_career_ui import _pick
 
 
@@ -48,51 +48,9 @@ def read_fitness(ctx: GameContext, career: WorldCareer) -> None:
 
 
 def run_change_plans(ctx: GameContext, career: WorldCareer, changed: Callable[[], None]) -> None:
-    def add() -> None:
-        if len(career.changes) >= 3:
-            ctx.ui.speak("Solo puedes guardar tres reglas. Elimina alguna antes de añadir otra.")
-            return
-        starters = career.club.lineup(ignore_suspensions=True)
-        label = lambda p: f"{p.name}, {POSITION_NAMES_ES[p.position]}, media {p.overall}"
-        outgoing = _pick(ctx, "¿Quién sale? Once actual", [label(p) for p in starters])
-        if outgoing is None:
-            return
-        out = starters[outgoing]
-        bench = [p for p in career.club.players if p not in starters and (p.position == "POR") == (out.position == "POR")]
-        if not bench:
-            ctx.ui.speak("No hay suplentes compatibles.")
-            return
-        incoming = _pick(ctx, "¿Quién entra? Suplentes", [label(p) for p in bench])
-        if incoming is None:
-            return
-        minutes = [45, 55, 60, 65, 70, 75, 80, 85]
-        minute = _pick(ctx, "A partir de qué minuto", [f"Minuto {n}" for n in minutes])
-        if minute is None:
-            return
-        options = list(CONDITIONS)
-        condition = _pick(ctx, "En qué situación", list(CONDITIONS.values()))
-        if condition is None:
-            return
-        rule = ConditionalChange(minutes[minute], options[condition], out.name, bench[incoming].name)
-        if ctx.ui.confirm(f"¿Guardar esta regla? {rule.describe()}"):
-            career.set_changes([*career.changes, rule])
-            ctx.ui.speak("Cambio programado guardado.")
-            changed()
-
-    def remove() -> None:
-        entries = career.changes
-        index = _pick(ctx, "Elige la regla que quieres quitar", [r.describe() for r in entries])
-        if index is not None and ctx.ui.confirm(f"¿Quitar esta regla? {entries[index].describe()}"):
-            career.set_changes([r for i, r in enumerate(entries) if i != index])
-            ctx.ui.speak("Regla quitada.")
-            changed()
-
-    while True:
-        selected = open_menu(ctx, f"Cambios por situación. {len(career.changes)} de 3 configurados", [
-            ("Leer reglas guardadas", lambda: ctx.ui.reader(
-                "Reglas", [r.describe() for r in career.changes] or ["No hay cambios programados."])),
-            ("Programar cambio", add),
-            ("Quitar una regla", remove),
-        ])
-        if selected is None:
-            return
+    starters = career.club.lineup(ignore_suspensions=True)
+    bench = [p for p in career.club.players if p not in starters]
+    plan = edit_change_plan(PygameMatchIO(ctx), starters, bench, career.changes)
+    if plan != career.changes:
+        career.set_changes(plan)
+        changed()

@@ -53,6 +53,7 @@ class TacticsManager:
         self.io = io
         self._shortcuts = shortcuts_fn
         self._say = speak
+        self.edit_planned_changes: Callable[[], None] | None = None
 
     def _menu(
         self,
@@ -807,6 +808,8 @@ class TacticsManager:
             add("move", "Mover a un jugador a otra posición")
             add("takers", "Cobradores: penales, tiros libres y córners")
             add("mental", f"Mentalidad: {MENTALITY_NAMES[st.mentality(0)]}")
+            if not club_setup and self.edit_planned_changes is not None:
+                add("planned", "Cambios por situación")
             if not prematch:
                 add("perf", "Rendimiento de mis jugadores")
                 add("flanks", "Por dónde me atacan")
@@ -871,6 +874,8 @@ class TacticsManager:
                 self._takers_menu(prematch=prematch)
             elif act == "mental":
                 self._mentality_menu(prematch)
+            elif act == "planned" and self.edit_planned_changes is not None:
+                self.edit_planned_changes()
             elif act == "perf":
                 self._lines("Rendimiento de tus jugadores", self.performance_lines())
             elif act == "flanks":

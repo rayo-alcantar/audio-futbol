@@ -16,6 +16,7 @@ from audiofutbol.domain.match.board import (
     format_quality,
     yellow_card_badge,
 )
+from audiofutbol.domain.match.conditional_change_menu import edit_change_plan
 from audiofutbol.domain.match.conditional_changes import ConditionalChange
 from audiofutbol.domain.match.ports import MatchIO
 from audiofutbol.domain.match.state import MatchState
@@ -461,12 +462,27 @@ class SubstitutionManager:
         )
         return None
 
-    def apply_planned(self) -> bool:
+    def edit_plan(self) -> None:
         st = self.state
-        if not self.planned or st.auto or st.abandoned or st.suspended_match:
+        self.planned = edit_change_plan(
+            self.io, st.xi[0], self.bench(0), self.planned,
+            minute=st.minute(), role_for=st.player_role,
+        )
+
+    def record_unexecuted_plan(self) -> None:
+        for rule in self.planned:
+            self.state.add_highlight(
+                f"Cambio programado no ejecutado: {rule.outgoing} por {rule.incoming}. "
+                "No se cumplió la condición o no había jugadores o cambios disponibles."
+            )
+
+    def apply_planned(self, *, only_player: Player | None = None) -> bool:
+        st = self.state
+        if not self.planned or st.abandoned or st.suspended_match or st.in_penalty_shootout:
             return False
         changed = False
-        for rule in self.planned.copy():
+        rules = sorted(self.planned, key=lambda rule: (rule.condition != "injured", rule.minute))
+        for rule in rules:
             rem = self.remaining_subs(0, human=True)
             if rem is not None and rem <= 0:
                 break
@@ -474,27 +490,32 @@ class SubstitutionManager:
             if players is None:
                 continue
             out, incoming = players
-            if not rule.matches(st.minute(), st.goals[0] - st.goals[1], st.fatigue.get(id(out), 0.)):
+            if only_player is not None and out is not only_player:
+                continue
+            if not rule.matches(st.minute(), st.goals[0] - st.goals[1], st.fatigue.get(id(out), 0.),
+                                injured=id(out) in st.injured,
+                                red_card_advantage=st.red_cards[1] - st.red_cards[0]):
                 continue
             role = st.player_role(out)
             if (role == "POR") != (incoming.position == "POR"):
                 continue
             self.apply_substitution(0, out, incoming, play_as_position=role)
             self.planned.remove(rule)
-            text = f"Cambio programado: sale {out.name}, entra {incoming.name}."
+            why = " por lesión" if id(out) in st.injured else ""
+            text = f"Cambio programado{why}: sale {out.name}, entra {incoming.name}."
             st.add_highlight(text)
-            self.io.speak(text)
+            self._speak(text)
             changed = True
         return changed
 
     def process_pending_substitution(self, reason: str | None = None) -> bool:
         """Execute a queued substitution when play stops (dead ball, foul, out of bounds)."""
-        if not self.state.pending_substitution:
+        if not self.state.pending_substitution or self.state.auto:
             return self.apply_planned()
         if (
-            self.state.auto
-            or self.state.abandoned
+            self.state.abandoned
             or self.state.suspended_match
+            or self.state.in_penalty_shootout
         ):
             return False
 
@@ -526,7 +547,7 @@ class SubstitutionManager:
 
         if not done:
             self.io.speak("No hiciste el cambio. Se reanuda el juego.")
-        return done
+        return self.apply_planned() or done
 
     def ai_substitutions(self, team_idx: int) -> None:
         if team_idx == 0 and not self.state.auto:
@@ -592,21 +613,21 @@ class SubstitutionManager:
                 f"Se lesiona {player.name}, de {self.state.team_name(team_idx)}."
             )
             self.state.ratings[team_idx] = self.state.compute_ratings(team_idx)
-            if team_idx == 0 and not self.state.auto:
-                rem = self.remaining_subs(0, human=True)
-                if (rem is None or rem > 0) and self.eligible_replacements(0, player):
-                    self.io.speak("Tienes que hacer un cambio. Elige quién entra.")
-                    if not self.open_substitution_menu(forced_out=player):
-                        self.io.speak(
-                            f"{player.name} seguirá en el campo lesionado y rendirá mucho menos."
-                        )
-                else:
-                    self._speak(
-                        f"No te quedan cambios disponibles, {player.name} seguirá jugando lesionado."
-                    )
-            else:
-                self.ai_substitutions(team_idx)
+            self._replace_injured(team_idx, player)
             self.process_pending_substitution("la lesión")
+
+    def _replace_injured(self, team_idx: int, player: Player) -> None:
+        if team_idx == 0 and self.apply_planned(only_player=player):
+            return
+        if team_idx or self.state.auto:
+            self.ai_substitutions(team_idx)
+            return
+        rem = self.remaining_subs(0, human=True)
+        if (rem is None or rem > 0) and self.eligible_replacements(0, player):
+            self.io.speak("Elige quién entra por el jugador lesionado.")
+            if self.open_substitution_menu(forced_out=player):
+                return
+        self._speak(f"{player.name} seguirá jugando lesionado y rendirá mucho menos.")
 
     def apply_turn_fatigue(self) -> None:
         rates = {"POR": 0.5, "DEF": 2.0, "MED": 2.6, "DEL": 2.3}

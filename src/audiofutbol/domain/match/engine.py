@@ -86,6 +86,7 @@ class MatchEngine:
         self.tactics = TacticsManager(
             self.state, self.io, self.build_shortcuts, self._speak
         )
+        self.tactics.edit_planned_changes = self.subs.edit_plan
 
     def _speak(self, text: str, interrupt: bool = False) -> None:
         if not self.state.muted:
@@ -272,7 +273,7 @@ class MatchEngine:
             self.io.speak(
                 "Atajos: M marcador. T tiempo. P posesión y carril. G goles. A tarjetas. "
                 "E tiros y tiros a puerta. S estadísticas. "
-                "X táctica: esquema, posiciones, cobradores y mentalidad. "
+                "X táctica: esquema, posiciones, cobradores, mentalidad y cambios por situación. "
                 "N estado estructurado del partido. H hacer tiempo. V VAR. "
                 "C pedir cambio al cuarto árbitro (se aplica en la siguiente pausa). L alineación. "
                 "En ataque: Q cambio de frente, F pase filtrado, R regate, D disparo, B conducir. "
@@ -1443,7 +1444,6 @@ class MatchEngine:
             prev_in_play = self.state.ball_in_play
             self.state.ball_in_play = False
             try:
-                self.subs.apply_planned()
                 if self.state.pending_substitution:
                     self.state.pending_substitution = False
                     self.io.update_hud(self.state.hud_status())
@@ -1451,6 +1451,7 @@ class MatchEngine:
                         "Habías pedido un cambio al cuarto árbitro. Puedes hacerlo ahora en el descanso."
                     )
                     self.subs.open_substitution_menu()
+                self.subs.apply_planned()
                 self._halftime_menu(next_half, summary)
             finally:
                 self.state.ball_in_play = prev_in_play
@@ -1632,6 +1633,7 @@ class MatchEngine:
 
             self._sfx("silbato_final")
             if not self.state.abandoned:
+                self.subs.record_unexecuted_plan()
                 self._speak("¡Final del partido!")
                 self._speak(self.state.scoreboard_text())
                 if self.state.penalties:

@@ -22,7 +22,7 @@ from audiofutbol.domain.competitions.career_world_league import WorldLeague, bac
 from audiofutbol.domain.competitions.career_world_market import budget_for, open_world_budget, recruit
 from audiofutbol.domain.competitions.career_world_season import apply_promotions
 from audiofutbol.domain.competitions.club_tournaments import ClubTournament
-from audiofutbol.domain.match.conditional_changes import CONDITIONS, ConditionalChange
+from audiofutbol.domain.match.conditional_changes import CONDITIONS, MAX_PLANNED_CHANGES, ConditionalChange
 from audiofutbol.domain.match.ports import MatchSettings
 from audiofutbol.domain.models import MatchResult, Player, Team
 
@@ -144,9 +144,9 @@ class WorldCareer(ManagerCareer):
 
     def set_changes(self, entries: list[ConditionalChange]) -> None:
         roster = {p.name: p for p in self.club.players}
-        if not self.employed or len(entries) > 3 or any(
+        if not self.employed or len(entries) > MAX_PLANNED_CHANGES or any(
             r.outgoing == r.incoming or r.outgoing not in roster or r.incoming not in roster
-            or r.condition not in CONDITIONS or not 1 <= r.minute < 90
+            or r.condition not in CONDITIONS or not 0 <= r.minute < 90
             or (roster[r.outgoing].position == "POR") != (roster[r.incoming].position == "POR")
             for r in entries
         ):
