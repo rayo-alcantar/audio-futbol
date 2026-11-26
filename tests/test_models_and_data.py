@@ -67,6 +67,7 @@ def test_load_all_competition_jsons() -> None:
         ("interamericana_2026.json", 64),
         ("ligamx_apertura_2026.json", 18),
         ("premier_league_2026_27.json", 20),
+        ("laliga_2026_27.json", 20),
         ("liga1_peru_2026.json", 18),
         ("liga_argentina_2025.json", 20),
         ("clubes_europa_extra.json", 27),
@@ -75,7 +76,7 @@ def test_load_all_competition_jsons() -> None:
         assert data is not None
         assert eqs is not None
         assert len(eqs) == expected_min
-        if filename == "liga_argentina_2025.json":
+        if filename in ("liga_argentina_2025.json", "laliga_2026_27.json"):
             assert all(t.is_real_squad for t in eqs.values())
 
 

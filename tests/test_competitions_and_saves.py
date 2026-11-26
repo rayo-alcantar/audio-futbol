@@ -2,9 +2,18 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import Mock
 
-from audiofutbol.data.competition_loader import StadiumDirectory, load_competition_data
+import pytest
+
+from audiofutbol.data.competition_loader import (
+    StadiumDirectory,
+    load_competition_data,
+    load_registered_club_field,
+)
 from audiofutbol.data.csv_loader import create_generic_team, load_national_teams
 from audiofutbol.data.save_manager import SaveManager
 from audiofutbol.domain.competitions.attendance import calculate_attendance
@@ -15,6 +24,7 @@ from audiofutbol.domain.competitions.club_tournaments import (
     CopaLibertadores,
     CopaPersonalizada,
     CopaSudamericana,
+    LaLiga,
     Liga1Peru,
     LigaArgentina,
     LigaMX,
@@ -90,6 +100,7 @@ def test_all_club_competitions_simulate_and_serialize(tmp_path: Path) -> None:
         ("interamericana_2026.json", CopaInteramericana),
         ("ligamx_apertura_2026.json", LigaMX),
         ("premier_league_2026_27.json", PremierLeague),
+        ("laliga_2026_27.json", LaLiga),
         ("liga1_peru_2026.json", Liga1Peru),
         ("liga_argentina_2025.json", LigaArgentina),
         ("brasileirao_a_2026.json", BrasileiraoA),
@@ -116,6 +127,99 @@ def test_all_club_competitions_simulate_and_serialize(tmp_path: Path) -> None:
         assert restored.champion is not None
         assert restored.runner_up is not None
         assert len(restored.table_lines()) >= len(eqs)
+
+
+@pytest.mark.parametrize(("label", "cls"), [("LaLiga", LaLiga), ("Premier League", PremierLeague)])
+def test_european_leagues_open_from_new_game_menu(monkeypatch, label, cls) -> None:
+    from audiofutbol.scenes import league_hub, main_menu
+
+    paths = AppPaths.detect()
+    spec, _, _ = load_registered_club_field(paths, cls.KEY)
+    choices = iter(("Nuevo juego", "Ligas europeas", label, "Usar los participantes oficiales", "Salir"))
+    ui = Mock()
+    ui.menu.side_effect = lambda title, options: options.index(next(choices))
+    ui.choose_team.side_effect = lambda title, options: options[0]
+    ctx = SimpleNamespace(
+        audio=Mock(), ui=ui, paths=paths, window=Mock(), national_teams=[],
+        loaded_from_csv=True, config=SimpleNamespace(musica=False), stadiums=StadiumDirectory(paths),
+    )
+    hub = Mock()
+    monkeypatch.setattr(league_hub, "run_league_hub", hub)
+    monkeypatch.setattr(main_menu, "check_updates_on_startup_if_ready", Mock())
+
+    main_menu.MainMenuScene().run(ctx)
+
+    hub.assert_called_once()
+    league = hub.call_args.args[1]
+    assert isinstance(league, cls)
+    assert len(league.teams) == 20
+    fixtures = Counter((a.team_id, b.team_id) for round_ in league.schedule for a, b in round_)
+    assert len(league.schedule) == 38 and all(len(round_) == 10 for round_ in league.schedule)
+    assert len(fixtures) == 380 and set(fixtures.values()) == {1}
+    ui.speak.assert_any_call(spec.intro_text)
+
+
+@pytest.mark.parametrize(
+    ("results", "expected_prefix"),
+    [
+        (
+            {("A", "B"): (1, 0), ("A", "C"): (1, 0), ("B", "C"): (3, 0),
+             ("C", "B"): (0, 3), ("B", "D"): (3, 0), ("D", "B"): (1, 0)},
+            ("A", "B"),
+        ),
+        (
+            {("A", "B"): (2, 0), ("B", "A"): (1, 0), ("A", "C"): (0, 8), ("C", "B"): (1, 0),
+             ("A", "D"): (1, 0), ("D", "A"): (0, 1), ("B", "D"): (1, 0), ("D", "B"): (0, 1)},
+            ("C", "A", "B"),
+        ),
+        (
+            {("A", "B"): (4, 0), ("B", "A"): (1, 0), ("B", "C"): (0, 1), ("C", "B"): (1, 0),
+             ("A", "D"): (4, 0), ("B", "D"): (1, 0), ("D", "B"): (0, 1), ("D", "C"): (1, 0)},
+            ("C", "A", "B"),
+        ),
+    ],
+    ids=["two_clubs", "multiple_clubs_direct_margin_between_remaining", "multiple_clubs_direct_points"],
+)
+def test_laliga_final_tiebreak_prefers_direct_results(tmp_path, results, expected_prefix) -> None:
+    clubs = {name: create_generic_team(name, 70) for name in "ABCD"}
+    league = LaLiga(None, clubs, clubs["A"])
+    saves = SaveManager(AppPaths(tmp_path))
+
+    for _ in range(league.rounds_count - 1):
+        for idx, (home, away) in enumerate(league.pairs):
+            league.register_result(idx, home, MatchResult(goals=results.get((home.name, away.name), (0, 0))))
+        league.close_step()
+
+    assert saves.save(league.KEY, league)
+    restored = saves.load(league.KEY)
+    assert isinstance(restored, LaLiga)
+    for idx, (home, away) in enumerate(restored.pairs):
+        restored.register_result(idx, home, MatchResult(goals=results.get((home.name, away.name), (0, 0))))
+    restored.close_step()
+
+    assert len({restored.table[club]["pts"] for club in expected_prefix}) == 1
+    overall = sorted(restored.teams, key=restored._sort_key)
+    assert [team.name for team in overall[:len(expected_prefix)]] != list(expected_prefix)
+    assert [team.name for team in restored.standings()][:len(expected_prefix)] == list(expected_prefix)
+    assert restored.champion is not None and restored.champion.name == expected_prefix[0]
+
+
+def test_laliga_final_summary_reports_zones_and_relegation() -> None:
+    _, data, clubs = load_registered_club_field(AppPaths.detect(), LaLiga.KEY)
+    league = LaLiga(data, clubs, next(iter(clubs.values())))
+    for _ in range(league.rounds_count):
+        for idx, (home, _) in enumerate(league.pairs):
+            league.register_result(idx, home, MatchResult(goals=(0, 0)))
+        league.close_step()
+
+    order = [team.name for team in league.standings()]
+    assert len(league.history) == 380
+    lines = league.final_summary_lines()
+    assert all(club in lines[0] for club in order[:4])
+    assert order[4] in lines[1] and order[5] in lines[2]
+    assert all(club in lines[3] for club in order[-3:])
+    assert "descenso" not in league.zone_label(17, False)
+    assert league.zone_label(18, True) == "Desciende a Segunda División"
 
 
 def test_world_cup_semifinal_winner_is_not_marked_eliminated() -> None:

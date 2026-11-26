@@ -19,6 +19,9 @@ REGLAS: tuple[str, ...] = (
     "Salir a marcar: un defensa sale a marcar de cerca al jugador que lleva el balón. Es más seguro que presionar arriba, pero si llega tarde puede cometer falta.",
     "Liga MX: 18 clubes, 17 jornadas y liguilla de 8 equipos sin play-in. En cuartos y semifinales, si el global se empata pasa el mejor ubicado en la tabla y no hay tiempo extra. En la final hay tiempo extra y penales.",
     "Premier League: 20 clubes, 38 jornadas de todos contra todos a ida y vuelta, sin playoffs. El que termina primero es el campeón y los tres últimos descienden.",
+    "LaLiga: 20 clubes y 38 jornadas a ida y vuelta. El primero es campeón y los tres últimos descienden. "
+    "Al final de la temporada, los empates a puntos se resuelven primero por los enfrentamientos directos. "
+    "La tabla indica las zonas base de Liga de Campeones, Liga Europa y Conference League.",
     "Liga 1 de Perú: 18 clubes, Torneo Apertura y Torneo Clausura de 17 fechas cada uno con localías invertidas, tabla acumulada y playoffs por el título a ida y vuelta entre los ganadores de cada torneo y los mejores del acumulado.",
     "Liga Profesional Argentina: 20 clubes, 38 jornadas de todos contra todos a ida y vuelta, sin playoffs. El que termina primero es el campeón, los cuatro primeros van a la Libertadores, del quinto al noveno a la Sudamericana y los dos últimos descienden.",
     "Brasileirão Série A 2026: 20 clubes y 38 jornadas. El primero es campeón y los cuatro últimos descienden. La tabla muestra las zonas base de Libertadores y Sudamericana, sin reasignar plazas por otras copas.",

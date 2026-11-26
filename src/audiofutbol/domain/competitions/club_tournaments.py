@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from itertools import groupby
 import random
 from typing import Any
 
@@ -711,6 +712,71 @@ class DoubleRoundRobin(LigaMX):
         self.step_idx += 1
         self._prepare_step()
         return ""
+
+
+class LaLiga(DoubleRoundRobin):
+    """LaLiga 2026-27: 20 clubs, 38 matchdays, no playoffs."""
+
+    KEY = "laliga"
+    TITLE = "LaLiga"
+
+    def _sort_group(self, grp: list[Team]) -> list[Team]:
+        order = super()._sort_group(grp)
+        if any(self.table[team.name]["pj"] < self.rounds_count for team in grp):
+            return order
+
+        final_order: list[Team] = []
+        for _, group in groupby(order, key=lambda team: self.table[team.name]["pts"]):
+            final_order.extend(self._break_points_tie(list(group)))
+        return final_order
+
+    def _break_points_tie(self, tied: list[Team]) -> list[Team]:
+        if len(tied) < 2:
+            return tied
+
+        points = dict.fromkeys((team.name for team in tied), 0)
+        goal_difference = points.copy()
+        for _, home, away, home_goals, away_goals, _ in self.history:
+            if home.name not in points or away.name not in points:
+                continue
+            goal_difference[home.name] += home_goals - away_goals
+            goal_difference[away.name] += away_goals - home_goals
+            points[home.name] += 3 if home_goals > away_goals else int(home_goals == away_goals)
+            points[away.name] += 3 if away_goals > home_goals else int(home_goals == away_goals)
+
+        if len(tied) > 2 and len(set(points.values())) > 1:
+            def direct_points(team: Team) -> int:
+                return points[team.name]
+
+            order = sorted(tied, key=direct_points, reverse=True)
+            return [
+                team
+                for _, group in groupby(order, key=direct_points)
+                for team in self._break_points_tie(list(group))
+            ]
+        return sorted(tied, key=lambda team: (-goal_difference[team.name], self._sort_key(team)))
+
+    def zone_label(self, rank: int, finished: bool) -> str:
+        if rank <= 4:
+            return "Zona base de Liga de Campeones"
+        if rank == 5:
+            return "Zona base de Liga Europa"
+        if rank == 6:
+            return "Zona base de Conference League"
+        if rank > len(self.teams) - 3:
+            return "Desciende a Segunda División" if finished else "Zona de descenso"
+        return ""
+
+    def final_summary_lines(self) -> list[str]:
+        if self.champion is None:
+            return []
+        clubs = [team.name for team in self.standings()]
+        return [
+            f"Zona base de Liga de Campeones: {', '.join(clubs[:4])}.",
+            f"Zona base de Liga Europa: {clubs[4]}.",
+            f"Zona base de Conference League: {clubs[5]}.",
+            f"Descenso a Segunda División: {', '.join(clubs[-3:])}.",
+        ]
 
 
 class PremierLeague(DoubleRoundRobin):

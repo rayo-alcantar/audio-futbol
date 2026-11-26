@@ -75,6 +75,10 @@ def test_bundled_league_club_identity_and_real_rosters(real_catalogue):
     assert "Guarani" in cat.leagues["world:brasil:3"].club_names
     assert cat.rosters["Bayern de Múnich"].country == "Alemania"
     assert cat.rosters["París Saint-Germain"].is_real_squad
+    for club in ("Deportivo Alavés", "Deportivo La Coruña", "Racing Santander", "RCD Espanyol de Barcelona"):
+        assert cat.rosters[club].country == "España"
+        assert cat.rosters[club].is_real_squad
+    assert cat.rosters["Real Betis"].stadium == "Estadio de La Cartuja"
     for link in cat.links:
         assert 0 < link.places < min(len(cat.leagues[link.upper].club_names), len(cat.leagues[link.lower].club_names))
 

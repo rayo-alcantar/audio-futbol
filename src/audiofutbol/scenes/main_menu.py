@@ -23,13 +23,11 @@ from audiofutbol.scenes.world_cup_hub import continue_world_cup, start_new_world
 from audiofutbol.version import APP_NAME, VERSION
 
 
-def _start_brasileirao(ctx: GameContext) -> None:
-    divisions = [CLUB_COMPETITIONS[key] for key in ("brasileirao_a", "brasileirao_b")]
-    choice = ctx.ui.menu(
-        "Brasileirão. Elige la división", [spec.menu_label for spec in divisions] + ["Volver"]
-    )
-    if choice is not None and choice < len(divisions):
-        start_new_club_competition(ctx, divisions[choice].key)
+def _start_league_group(ctx: GameContext, title: str, keys: tuple[str, ...]) -> None:
+    labels = [CLUB_COMPETITIONS[key].menu_label for key in keys]
+    choice = ctx.ui.menu(title, labels + ["Volver"])
+    if choice is not None and choice < len(keys):
+        start_new_club_competition(ctx, keys[choice])
 
 
 class MainMenuScene:
@@ -53,10 +51,14 @@ class MainMenuScene:
             ("Copa Sudamericana", lambda: start_new_club_competition(ctx, "sudamericana")),
             ("Copa Interamericana", lambda: start_new_club_competition(ctx, "interamericana")),
             ("Liga MX", lambda: start_new_club_competition(ctx, "ligamx")),
-            ("Premier League", lambda: start_new_club_competition(ctx, "premier")),
+            ("Ligas europeas", lambda: _start_league_group(
+                ctx, "Ligas europeas. Elige la liga", ("premier", "laliga")
+            )),
             ("Liga 1 de Perú", lambda: start_new_club_competition(ctx, "liga1")),
             ("Liga Profesional Argentina", lambda: start_new_club_competition(ctx, "liga_argentina")),
-            ("Brasileirão", lambda: _start_brasileirao(ctx)),
+            ("Brasileirão", lambda: _start_league_group(
+                ctx, "Brasileirão. Elige la división", ("brasileirao_a", "brasileirao_b")
+            )),
             ("Copa de clubes personalizada", lambda: start_custom_cup(ctx)),
             ("Partido amistoso", lambda: run_friendly_match(ctx)),
         ]
