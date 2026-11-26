@@ -37,6 +37,12 @@ class Player:
     goals: int = 0
     assists: int = 0
     puesto: str = ""
+    birth_year: int | None = None
+    medically_unavailable: bool = field(default=False, repr=False, compare=False)
+
+    @property
+    def available(self) -> bool:
+        return self.suspended_matches <= 0 and not self.medically_unavailable
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -49,6 +55,7 @@ class Player:
             "goals": self.goals,
             "assists": self.assists,
             "puesto": self.puesto,
+            **({"birth_year": self.birth_year} if self.birth_year is not None else {}),
         }
 
     @classmethod
@@ -63,6 +70,7 @@ class Player:
             goals=int(data.get("goals", 0)),
             assists=int(data.get("assists", 0)),
             puesto=str(data.get("puesto", "") or ""),
+            birth_year=int(data["birth_year"]) if data.get("birth_year") is not None else None,
         )
 
 
@@ -96,7 +104,7 @@ class Team:
         )
         counts = scheme_counts(use)
         available = [
-            p for p in self.players if ignore_suspensions or p.suspended_matches <= 0
+            p for p in self.players if ignore_suspensions or p.available
         ]
         by_name = {p.name: p for p in available}
         xi: list[Player] = []
@@ -134,7 +142,7 @@ class Team:
     def starting_xi(self, ignore_suspensions: bool = False) -> list[Player]:
         """Pick the strongest available 11 players respecting 1-4-3-3 formation."""
         available = [
-            p for p in self.players if ignore_suspensions or p.suspended_matches <= 0
+            p for p in self.players if ignore_suspensions or p.available
         ]
         xi: list[Player] = []
         used: set[int] = set()
@@ -219,6 +227,10 @@ class MatchResult:
     highlights: list[tuple[int, str]] = field(default_factory=list)
     red_cards: tuple[int, int] = (0, 0)
     yellow_cards: tuple[int, int] = (0, 0)
+    statistics: dict[str, tuple[int, int]] = field(default_factory=dict)
+    minutes: tuple[dict[str, int], dict[str, int]] = field(default_factory=lambda: ({}, {}))
+    injuries: tuple[tuple[str, ...], tuple[str, ...]] = ((), ())
+    ratings: tuple[dict[str, float], dict[str, float]] = field(default_factory=lambda: ({}, {}))
 
 
 def format_result_text(

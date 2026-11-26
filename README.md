@@ -61,6 +61,16 @@ En las competiciones de clubes puedes activar **Personalizar participantes** ant
 
 Para jugar en Brasil, elige **Nuevo juego > Brasileirão** y selecciona la división. Las dos se guardan por separado y tienen plantillas de la base de datos para todos sus clubes, sin sincronización con los fichajes. El juego genera el calendario; no reproduce las fechas de la CBF ni cambia automáticamente los participantes de la temporada siguiente. Las reglas de cada formato se basan en los reglamentos de la CBF de [Série A](https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/REC_Brasileiro_SA_rie_A_2026_v15_12_2025_final_02692c1077.pdf) y [Série B](https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/REC_Brasileiro_Serie_B_2026_85d55b9f72.pdf).
 
+## Modo carrera
+
+En **Nuevo juego → Modo carrera**, elige cualquier club del catálogo por nombre, región o liga. Hay 160 divisiones de 91 países, además de las ligas de clubes válidas que tengas en el Creador. Brasil se elige desde el mismo catálogo y conserva sus competiciones de carrera.
+
+- **Temporada:** juega o simula. En **Bitácoras** consulta figura, posesión, tiros, paradas, goles, asistencias, tarjetas, lesiones y cambios. Las tablas de las otras ligas se actualizan al cerrar cada año.
+- **Gestión del club:** abre los filtros de fichajes, negocia, revisa la carga física o programa cambios por minuto y marcador. Pulsa **D** en los menús y lectores de carrera para escuchar el presupuesto disponible.
+- **Oficina → Director técnico:** consulta los puntos y la reputación del DT, dimite o busca un nuevo puesto. Cuando cambias de club, el dinero y los jugadores se quedan en el club anterior.
+
+El progreso se guarda tras cada avance o cambio confirmado. Retómalo desde **Partidas guardadas → Continuar: Carrera mundial de DT**. Consulta la [guía de la carrera mundial](docs/carrera-dt-mundial.md) para ver los pasos de prueba y cómo funcionan los plazos. Un guardado anterior de la carrera exclusiva de Brasil sigue visible si ya existía; no se ofrece esa modalidad al iniciar una partida nueva.
+
 ## Crear equipos y torneos
 
 En el menú principal, elige **Crear**:

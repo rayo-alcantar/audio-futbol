@@ -6,6 +6,7 @@ import random
 from typing import Callable
 
 from audiofutbol.domain.match.commentary import CommentaryContext, MatchCommentary
+from audiofutbol.domain.match.conditional_changes import ConditionalChange
 from audiofutbol.domain.match.narration import Narrator
 from audiofutbol.domain.match.ports import HeadlessMatchIO, MatchIO, MatchSettings
 from audiofutbol.domain.match.set_pieces import SetPieceResolver
@@ -45,6 +46,8 @@ class MatchEngine:
         prematch_menu: bool = True,
         yellow_card_limit: int = 2,
         commentary_context: CommentaryContext | None = None,
+        initial_fatigue: tuple[dict[str, float], dict[str, float]] | None = None,
+        planned_changes: list[ConditionalChange] | None = None,
     ) -> None:
         self.prematch_menu = prematch_menu
         self.io: MatchIO = io or HeadlessMatchIO(rng=rng)
@@ -75,6 +78,9 @@ class MatchEngine:
         self.subs = SubstitutionManager(
             self.state, self.io, self._crowd_react, self.set_pieces.give_card
         )
+        self.subs.planned = list(planned_changes or [])
+        if initial_fatigue is not None:
+            self.state.enable_workload(initial_fatigue)
         self.set_pieces.on_goalkeeper_sent_off = self.subs.handle_goalkeeper_sent_off
         self.set_pieces.on_stoppage = self.subs.process_pending_substitution
         self.tactics = TacticsManager(
@@ -1327,6 +1333,8 @@ class MatchEngine:
         self.subs.ai_substitutions(0)
         self.tactics.ai_adjust(1)
         self.tactics.ai_adjust(0)
+        if self.state.workload is not None:
+            self.state.record_workload_turn()
         self.state.refresh_ratings()
         self.state.possession_turns[self.state.possession] += 1
         self.state.drought_turns[self.state.possession] += 1
@@ -1435,6 +1443,7 @@ class MatchEngine:
             prev_in_play = self.state.ball_in_play
             self.state.ball_in_play = False
             try:
+                self.subs.apply_planned()
                 if self.state.pending_substitution:
                     self.state.pending_substitution = False
                     self.io.update_hud(self.state.hud_status())

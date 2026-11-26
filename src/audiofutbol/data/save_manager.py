@@ -7,7 +7,9 @@ from pathlib import Path
 import pickle
 from typing import Any
 
+from audiofutbol.domain.competitions.brazil_career import BrazilianCareer
 from audiofutbol.domain.competitions.factory import SAVE_SLOTS, deserialize_competition
+from audiofutbol.domain.competitions.world_career import WorldCareer
 from audiofutbol.engine.paths import AppPaths
 
 SAVE_SCHEMA_VERSION = 1
@@ -274,6 +276,8 @@ class SaveManager:
 
     def legacy_candidates(self, key: str) -> list[Path]:
         """Candidate paths where legacy `.sav` or root `.json` files may reside."""
+        if key in (BrazilianCareer.KEY, WorldCareer.KEY):
+            return []
         return [
             self.base_dir / f"partida_{key}.json",
             self.saves_dir / f"partida_{key}.sav",

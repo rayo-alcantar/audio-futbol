@@ -2,8 +2,13 @@
 
 from __future__ import annotations
 
+from audiofutbol.domain.competitions.brazil_career import BrazilianCareer
 from audiofutbol.domain.competitions.factory import CLUB_COMPETITIONS
+from audiofutbol.domain.competitions.world_career import WorldCareer
 from audiofutbol.scenes.base import GameContext, Scene
+from audiofutbol.scenes.career_hub import (
+    continue_brazil_career, continue_world_career, start_world_career,
+)
 from audiofutbol.scenes.creation import run_creation_menu
 from audiofutbol.scenes.friendly import run_friendly_match
 from audiofutbol.scenes.league_hub import (
@@ -40,6 +45,7 @@ class MainMenuScene:
         check_updates_on_startup_if_ready(ctx)
 
         new_game_entries = [
+            ("Modo carrera", lambda: start_world_career(ctx)),
             ("Mundial", lambda: start_new_world_cup(ctx)),
             ("Liga de Naciones", lambda: start_new_nations_league(ctx)),
             ("Liga de Campeones", lambda: start_new_club_competition(ctx, "champions")),
@@ -69,7 +75,7 @@ class MainMenuScene:
 
             if choice == 0:
                 sub = ctx.ui.menu(
-                    "Nuevo juego. Elige la competición",
+                    "Nuevo juego. Elige un modo o competición",
                     [label for label, _ in new_game_entries] + ["Volver"],
                 )
                 if sub is not None and sub < len(new_game_entries):
@@ -80,9 +86,7 @@ class MainMenuScene:
                     ctx.ui.speak("No hay partidas guardadas todavía.")
                     continue
                 labels = [
-                    f"Continuar {name} guardado"
-                    if name == "Mundial"
-                    else f"Continuar {name} guardada"
+                    f"Continuar: {name}"
                     for _, name in saved
                 ] + ["Volver"]
                 sub = ctx.ui.menu("Partidas guardadas. Elige cuál continuar", labels)
@@ -90,6 +94,10 @@ class MainMenuScene:
                     slot_key = saved[sub][0]
                     if slot_key == "mundial":
                         continue_world_cup(ctx)
+                    elif slot_key == BrazilianCareer.KEY:
+                        continue_brazil_career(ctx)
+                    elif slot_key == WorldCareer.KEY:
+                        continue_world_career(ctx)
                     else:
                         continue_saved_league(ctx, slot_key)
             elif choice == 2:

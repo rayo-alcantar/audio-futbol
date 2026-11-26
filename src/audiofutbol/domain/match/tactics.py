@@ -253,7 +253,7 @@ class TacticsManager:
         return left, right
 
     # ---------------------------------------------------------------- Submenus
-    def _scheme_menu(self, prematch: bool) -> None:
+    def _scheme_menu(self, prematch: bool, *, club_setup: bool = False) -> None:
         st = self.state
         ops = [
             f"{s}. {SCHEME_DESC[s]}{'. Es el que tienes' if s == st.scheme[0] else ''}"
@@ -261,12 +261,10 @@ class TacticsManager:
         ]
         ops.append("Volver")
         start = SCHEME_ORDER.index(st.scheme[0]) if st.scheme[0] in SCHEME_ORDER else 0
-        k = self._menu(
-            f"Esquemas. Tu esquema es {st.scheme[0]}. El rival juega con {st.scheme_label(1)}",
-            ops,
-            start,
-            prematch=prematch,
-        )
+        title = f"Esquemas. Tu esquema es {st.scheme[0]}"
+        if not club_setup:
+            title += f". El rival juega con {st.scheme_label(1)}"
+        k = self._menu(title, ops, start, prematch=prematch)
         if k is None or k >= len(SCHEME_ORDER) or SCHEME_ORDER[k] == st.scheme[0]:
             return
         new = SCHEME_ORDER[k]
@@ -557,7 +555,7 @@ class TacticsManager:
             p
             for p in team.players
             if id(p) not in on_pitch
-            and p.suspended_matches <= 0
+            and p.available
             and id(p) not in st.excluded_suspended[0]
             and id(p) not in st.subbed_off[0]
         ]
@@ -776,8 +774,9 @@ class TacticsManager:
         self._lineup_board()
 
     # ------------------------------------------------------------------ Menus
-    def menu(self, prematch: bool = False) -> None:
-        """Open prematch preparation (`prematch=True`) or live tactical menu."""
+    def menu(self, prematch: bool = False, *, club_setup: bool = False) -> bool | None:
+        """Open the tactical menu. In club setup, return whether to keep the draft."""
+        prematch = prematch or club_setup
         st = self.state
         pos = 0
         nones = 0
@@ -791,7 +790,8 @@ class TacticsManager:
 
             if prematch:
                 avg_txt = format_quality(st.lineup_average_quality(0, include_fatigue=False))
-                add("start", f"Empezar el partido ({len(st.xi[0])} jugadores, calidad media {avg_txt})")
+                label = "Guardar táctica y volver" if club_setup else "Empezar el partido"
+                add("start", f"{label} ({len(st.xi[0])} jugadores, calidad media {avg_txt})")
             add("scheme", f"Esquema: {st.scheme_label(0)}. Cambiar el esquema")
             add("lineup", "Leer mi once con las posiciones")
             if prematch:
@@ -810,16 +810,22 @@ class TacticsManager:
             if not prematch:
                 add("perf", "Rendimiento de mis jugadores")
                 add("flanks", "Por dónde me atacan")
-            add("rival", "Ver el esquema y el once del rival")
+            if club_setup:
+                add("back", "Descartar cambios y volver")
+            else:
+                add("rival", "Ver el esquema y el once del rival")
             if not prematch:
                 add("back", "Volver al partido")
-            title = (
-                "Preparación del partido"
-                if prematch
-                else "Táctica. Escape para volver al partido"
-            )
+            if club_setup:
+                title = "Táctica del club"
+            elif prematch:
+                title = "Preparación del partido"
+            else:
+                title = "Táctica. Escape para volver al partido"
             k = self._menu(title, ops, min(pos, len(ops) - 1), prematch=prematch)
             if k is None:
+                if club_setup:
+                    return False
                 nones += 1
                 if not prematch:
                     return
@@ -844,11 +850,11 @@ class TacticsManager:
                     )
                     self._lineup_board()
                     continue
-                return
+                return True if club_setup else None
             if act == "back":
-                return
+                return False if club_setup else None
             if act == "scheme":
-                self._scheme_menu(prematch)
+                self._scheme_menu(prematch, club_setup=club_setup)
             elif act == "lineup":
                 self._lines("Tu once y sus posiciones", self.lineup_lines())
             elif act == "squad":

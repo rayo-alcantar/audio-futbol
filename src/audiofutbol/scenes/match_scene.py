@@ -9,8 +9,9 @@ from audiofutbol.domain.competitions.nations_league import NationsLeague
 from audiofutbol.domain.competitions.world_cup import WorldCup
 from audiofutbol.domain.match.board import FormationRowView
 from audiofutbol.domain.match.commentary import CommentaryContext
+from audiofutbol.domain.match.conditional_changes import ConditionalChange
 from audiofutbol.domain.match.engine import MatchEngine
-from audiofutbol.domain.models import format_result_text
+from audiofutbol.domain.models import MatchResult, format_result_text
 from audiofutbol.scenes.base import GameContext
 from audiofutbol.ui.widgets import map_quick_keys, map_shortcut_keys
 
@@ -133,7 +134,11 @@ def _commentary_context(ctx: GameContext, tournament: Any, idx: int) -> Commenta
     )
 
 
-def run_tournament_match(ctx: GameContext, tournament: Any, simulate: bool) -> None:
+def run_tournament_match(
+    ctx: GameContext, tournament: Any, simulate: bool, *,
+    initial_fatigue: tuple[dict[str, float], dict[str, float]] | None = None,
+    planned_changes: list[ConditionalChange] | None = None,
+) -> MatchResult | None:
     """Play or simulate the user's current match in any competition and register it."""
     idx = tournament.user_match_index()
     if idx is None:
@@ -164,6 +169,8 @@ def run_tournament_match(ctx: GameContext, tournament: Any, simulate: bool) -> N
         stadium=venue,
         attendance=attendance,
         commentary_context=None if simulate else _commentary_context(ctx, tournament, idx),
+        initial_fatigue=initial_fatigue,
+        planned_changes=planned_changes,
         **extra,
     )
     if simulate:
@@ -194,3 +201,4 @@ def run_tournament_match(ctx: GameContext, tournament: Any, simulate: bool) -> N
             f"{p.name}, de {team.name}, minuto {m}" for team, p, m in result.scorers
         )
         ctx.ui.speak(f"Goles: {goals_txt}")
+    return result

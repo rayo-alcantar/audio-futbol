@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 from typing import Callable
 
 import pygame
@@ -79,6 +80,17 @@ class AudioUI:
         self.speech = speech
         self.audio = audio
         self.window = window
+        self._navigation_shortcuts: dict[int, Callable[[], str | None]] = {}
+
+    @contextmanager
+    def navigation_shortcuts(self, shortcuts: dict[int, Callable[[], str | None]]):
+        """Install temporary non-text navigation bindings without changing global keys."""
+        previous = self._navigation_shortcuts
+        self._navigation_shortcuts = shortcuts
+        try:
+            yield
+        finally:
+            self._navigation_shortcuts = previous
 
     def speak(self, text: str, interrupt: bool = False) -> None:
         self.speech.speak(text, interrupt=interrupt)
@@ -103,7 +115,7 @@ class AudioUI:
         quick_keys: dict[int, int] | None = None,
     ) -> int | None:
         """Accessible keyboard menu with arrows, Home/End, PageUp/Down, letter-jump, Esc."""
-        shortcuts = shortcuts or {}
+        shortcuts = {**self._navigation_shortcuts, **(shortcuts or {})}
         items = list(options)
         total = len(items)
         if total == 0:
@@ -180,7 +192,7 @@ class AudioUI:
         """Interactive 2D tactical formation board with spatial stereo chimes and line cues."""
         if not rows:
             return None
-        shortcuts = shortcuts or {}
+        shortcuts = {**self._navigation_shortcuts, **(shortcuts or {})}
         row_idx = 0
         col_idx = 0 if len(rows[0].slots) == 1 else -1
         if initial_slot_id is not None:
@@ -349,6 +361,9 @@ class AudioUI:
             if key in (pygame.K_ESCAPE, pygame.K_BACKSPACE):
                 self.audio.play_sfx("volver")
                 return
+            if key in self._navigation_shortcuts:
+                self._navigation_shortcuts[key]()
+                continue
             if key == pygame.K_DOWN:
                 idx = min(total - 1, idx + 1)
             elif key == pygame.K_UP:

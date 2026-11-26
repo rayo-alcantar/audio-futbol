@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+from audiofutbol.domain.competitions.brazil_career import BrazilianCareer
 from audiofutbol.domain.competitions.brasileirao import BrasileiraoA, BrasileiraoB
 from audiofutbol.domain.competitions.club_tournaments import (
     ChampionsLeague,
@@ -19,6 +20,7 @@ from audiofutbol.domain.competitions.club_tournaments import (
 )
 from audiofutbol.domain.competitions.nations_league import NationsLeague
 from audiofutbol.domain.competitions.world_cup import WorldCup
+from audiofutbol.domain.competitions.world_career import WorldCareer
 
 
 @dataclass(frozen=True)
@@ -158,6 +160,8 @@ CLUB_COMPETITIONS: dict[str, ClubCompetitionSpec] = {
 }
 
 SAVE_SLOTS: tuple[tuple[str, str], ...] = (
+    (WorldCareer.KEY, WorldCareer.TITLE),
+    (BrazilianCareer.KEY, f"{BrazilianCareer.TITLE}, guardado anterior"),
     ("mundial", "Mundial"),
     ("liga", "Liga de Naciones"),
     ("champions", "Liga de Campeones"),
@@ -174,6 +178,8 @@ SAVE_SLOTS: tuple[tuple[str, str], ...] = (
 )
 
 _CLASS_BY_TYPE: dict[str, type[Any]] = {
+    WorldCareer.KEY: WorldCareer,
+    BrazilianCareer.KEY: BrazilianCareer,
     "mundial": WorldCup,
     "liga": NationsLeague,
     "champions": ChampionsLeague,

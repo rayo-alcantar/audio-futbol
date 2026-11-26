@@ -16,6 +16,7 @@ from audiofutbol.domain.match.board import (
     format_quality,
     yellow_card_badge,
 )
+from audiofutbol.domain.match.conditional_changes import ConditionalChange
 from audiofutbol.domain.match.ports import MatchIO
 from audiofutbol.domain.match.state import MatchState
 from audiofutbol.domain.models import POSITION_NAMES_ES, Player
@@ -35,6 +36,7 @@ class SubstitutionManager:
         self.io = io
         self._crowd_react = crowd_react
         self._give_card = give_card
+        self.planned: list[ConditionalChange] = []
 
     def _speak(self, text: str, interrupt: bool = False) -> None:
         if not self.state.muted:
@@ -52,6 +54,7 @@ class SubstitutionManager:
             if id(p) not in on_pitch
             and id(p) not in self.state.subbed_off[team_idx]
             and id(p) not in self.state.excluded_suspended[team_idx]
+            and p.available and id(p) not in self.state.injured
         ]
 
     def eligible_replacements(self, team_idx: int, out_player: Player) -> list[Player]:
@@ -458,11 +461,38 @@ class SubstitutionManager:
         )
         return None
 
+    def apply_planned(self) -> bool:
+        st = self.state
+        if not self.planned or st.auto or st.abandoned or st.suspended_match:
+            return False
+        changed = False
+        for rule in self.planned.copy():
+            rem = self.remaining_subs(0, human=True)
+            if rem is not None and rem <= 0:
+                break
+            players = rule.players(st.xi[0], self.bench(0))
+            if players is None:
+                continue
+            out, incoming = players
+            if not rule.matches(st.minute(), st.goals[0] - st.goals[1], st.fatigue.get(id(out), 0.)):
+                continue
+            role = st.player_role(out)
+            if (role == "POR") != (incoming.position == "POR"):
+                continue
+            self.apply_substitution(0, out, incoming, play_as_position=role)
+            self.planned.remove(rule)
+            text = f"Cambio programado: sale {out.name}, entra {incoming.name}."
+            st.add_highlight(text)
+            self.io.speak(text)
+            changed = True
+        return changed
+
     def process_pending_substitution(self, reason: str | None = None) -> bool:
         """Execute a queued substitution when play stops (dead ball, foul, out of bounds)."""
+        if not self.state.pending_substitution:
+            return self.apply_planned()
         if (
-            not self.state.pending_substitution
-            or self.state.auto
+            self.state.auto
             or self.state.abandoned
             or self.state.suspended_match
         ):

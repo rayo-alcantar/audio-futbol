@@ -1,5 +1,16 @@
 # Changelog
 
+## Sin publicar
+
+- **Modo carrera unificado:** Brasil se juega desde el catálogo normal con las Séries A, B y C, Copa do Brasil, repechaje de ascenso y clasificación continental. Los guardados anteriores siguen siendo recuperables.
+- **Fichajes negociados por calendario:** tecla D para el saldo; filtros por liga, club, posición, edad y media; ofertas y contraofertas con respuestas y vencimientos en días del juego. Los acuerdos no mueven dinero hasta su confirmación.
+- **Bitácoras y estado físico:** figura, estadísticas, resumen contextual, lesiones entre partidos, alertas de cansancio y cambios programables por minuto y situación.
+
+- **Carrera mundial de DT:** elige por nombre o liga entre 2.381 clubes de 91 países y 160 divisiones, o abre una liga del Creador. El DT conserva reputación, resultados y puestos laborales al dimitir, cambiar de equipo o ser destituido.
+- **Simulación y gestión mundial:** marcadores rápidos basados en alineación, forma y localía; fichajes de la IA por necesidad y presupuesto; ascensos entre divisiones enlazadas y tablas de fondo. La carrera mundial tiene su propio guardado.
+- **Carrera de DT en Brasil:** dirige un club de la Série A o B durante varias temporadas. Juega o simula desde un calendario con liga y Copa do Brasil, asciende o desciende y clasifica a copas continentales.
+- **Gestión accesible del club:** tablero táctico, presupuesto, negociación de fichajes, ojeo y promoción de juveniles, mensajes y objetivos de la directiva. El guardado es independiente de los torneos que ya existían.
+
 ## v0.17.0
 
 - **Creador de equipos y torneos**: menú accesible para editar planteles, configurar formatos, probar sin tocar las partidas oficiales e intercambiar aportes ZIP con un formato común.

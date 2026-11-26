@@ -271,6 +271,7 @@ class MatchState:
         self.ball_in_play: bool = True
         self.in_penalty_shootout: bool = False
         self.fatigue: dict[int, float] = {}
+        self.workload: tuple[dict[str, int], dict[str, int]] | None = None
         self.injured: set[int] = set()
         self.fatigue_warned: set[int] = set()
         self.last_fatigue_warn_turn: int = -9
@@ -1271,8 +1272,22 @@ class MatchState:
         out.extend(self.stats_lines(self.snapshot()))
         return out
 
+    def enable_workload(self, initial_fatigue: tuple[dict[str, float], dict[str, float]]) -> None:
+        self.workload = ({}, {})
+        self.fatigue.update({id(p): initial_fatigue[i].get(p.name, 0.)
+                             for i, team in enumerate(self.teams) for p in team.players})
+        self.refresh_ratings()
+
+    def record_workload_turn(self) -> None:
+        if self.workload is not None:
+            for i, players in enumerate(self.xi):
+                for p in players:
+                    self.workload[i][p.name] = self.workload[i].get(p.name, 0) + self.turn_seconds
+
     def build_result(self) -> MatchResult:
         goals = (0, 3) if self.abandoned else (self.goals[0], self.goals[1])
+        minutes = tuple({name: max(1, round(seconds / 60)) for name, seconds in side.items()}
+                        for side in self.workload) if self.workload is not None else ({}, {})
         return MatchResult(
             goals=goals,
             penalties=self.penalties,
@@ -1283,4 +1298,9 @@ class MatchState:
             highlights=list(self.highlights),
             red_cards=(self.red_cards[0], self.red_cards[1]),
             yellow_cards=(self.yellow_cards[0], self.yellow_cards[1]),
+            statistics={"Posesión": self.possession_pct(self.possession_turns), "Tiros": tuple(self.shots),
+                        "A puerta": tuple(self.shots_on_target), "Paradas": tuple(self.saves),
+                        "Cambios": tuple(self.substitutions_used)},
+            minutes=minutes,
+            injuries=tuple(tuple(p.name for p in t.players if id(p) in self.injured) for t in self.teams),
         )
