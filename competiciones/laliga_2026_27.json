@@ -1,0 +1,188 @@
+{
+  "id": "laliga_2026_27",
+  "nombre": "LaLiga 2026-27",
+  "version_datos": "2026-11-26",
+  "nota": "20 clubes con plantillas reales, 38 jornadas a ida y vuelta, sin playoffs. Suben Deportivo de La Coruña, Racing de Santander y Málaga; bajaron Mallorca, Real Oviedo y Girona. El Real Betis juega de local en La Cartuja mientras se reforma el Benito Villamarín.",
+  "equipos": [
+    {
+      "id": "alaves",
+      "nombre": "Alavés",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 70,
+      "estadio": "Estadio de Mendizorroza",
+      "ciudad": "Vitoria"
+    },
+    {
+      "id": "athletic_club",
+      "nombre": "Athletic Club",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 79,
+      "estadio": "Estadio San Mamés",
+      "ciudad": "Bilbao"
+    },
+    {
+      "id": "atletico_de_madrid",
+      "nombre": "Atlético de Madrid",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 83,
+      "estadio": "Riyadh Air Metropolitano",
+      "ciudad": "Madrid"
+    },
+    {
+      "id": "barcelona",
+      "nombre": "Barcelona",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 85,
+      "estadio": "Spotify Camp Nou",
+      "ciudad": "Barcelona"
+    },
+    {
+      "id": "celta_de_vigo",
+      "nombre": "Celta de Vigo",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 75,
+      "estadio": "Balaídos",
+      "ciudad": "Vigo"
+    },
+    {
+      "id": "deportivo_de_la_coruna",
+      "nombre": "Deportivo de La Coruña",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 73,
+      "estadio": "Estadio de Riazor",
+      "ciudad": "A Coruña"
+    },
+    {
+      "id": "elche",
+      "nombre": "Elche",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 71,
+      "estadio": "Estadio Martínez Valero",
+      "ciudad": "Elche"
+    },
+    {
+      "id": "espanyol",
+      "nombre": "Espanyol",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 72,
+      "estadio": "RCDE Stadium",
+      "ciudad": "Barcelona"
+    },
+    {
+      "id": "getafe",
+      "nombre": "Getafe",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 74,
+      "estadio": "Coliseum",
+      "ciudad": "Getafe"
+    },
+    {
+      "id": "levante",
+      "nombre": "Levante",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 70,
+      "estadio": "Estadio Ciutat de València",
+      "ciudad": "Valencia"
+    },
+    {
+      "id": "malaga",
+      "nombre": "Málaga",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 66,
+      "estadio": "La Rosaleda",
+      "ciudad": "Málaga"
+    },
+    {
+      "id": "osasuna",
+      "nombre": "Osasuna",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 73,
+      "estadio": "Estadio El Sadar",
+      "ciudad": "Pamplona"
+    },
+    {
+      "id": "racing_de_santander",
+      "nombre": "Racing de Santander",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 67,
+      "estadio": "Campos de Sport de El Sardinero",
+      "ciudad": "Santander"
+    },
+    {
+      "id": "rayo_vallecano",
+      "nombre": "Rayo Vallecano",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 74,
+      "estadio": "Estadio de Vallecas",
+      "ciudad": "Madrid"
+    },
+    {
+      "id": "real_betis",
+      "nombre": "Real Betis",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 78,
+      "estadio": "Estadio de La Cartuja",
+      "ciudad": "Sevilla"
+    },
+    {
+      "id": "real_madrid",
+      "nombre": "Real Madrid",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 87,
+      "estadio": "Santiago Bernabéu",
+      "ciudad": "Madrid"
+    },
+    {
+      "id": "real_sociedad",
+      "nombre": "Real Sociedad",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 79,
+      "estadio": "Reale Arena",
+      "ciudad": "San Sebastián"
+    },
+    {
+      "id": "sevilla",
+      "nombre": "Sevilla",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 75,
+      "estadio": "Estadio Ramón Sánchez-Pizjuán",
+      "ciudad": "Sevilla"
+    },
+    {
+      "id": "valencia",
+      "nombre": "Valencia",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 75,
+      "estadio": "Mestalla",
+      "ciudad": "Valencia"
+    },
+    {
+      "id": "villarreal",
+      "nombre": "Villarreal",
+      "pais": "España",
+      "plantilla": [],
+      "nivel": 77,
+      "estadio": "Estadio de la Cerámica",
+      "ciudad": "Villarreal"
+    }
+  ]
+}

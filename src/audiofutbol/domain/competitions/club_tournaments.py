@@ -713,6 +713,22 @@ class DoubleRoundRobin(LigaMX):
         return ""
 
 
+class LaLiga(DoubleRoundRobin):
+    """LaLiga 2026-27: 20 clubs, 38 matchdays, no playoffs."""
+
+    KEY = "laliga"
+    TITLE = "LaLiga"
+
+    def zone_label(self, rank: int, finished: bool) -> str:
+        if rank <= 4:
+            return "Zona de Liga de Campeones"
+        if rank <= 6:
+            return "Zona de Liga Europa y Conference"
+        if rank > len(self.teams) - 3:
+            return "Zona de descenso"
+        return ""
+
+
 class PremierLeague(DoubleRoundRobin):
     """Premier League 2026-27: 20 clubs, 38 matchdays, no playoffs."""
 

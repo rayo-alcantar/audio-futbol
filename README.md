@@ -51,6 +51,7 @@ También puedes iniciar desde terminal con `python -m audiofutbol`.
 | Copa Interamericana | 64 clubes de toda América | 16 grupos de 4 sorteados en 4 bombos, dieciseisavos a ida y vuelta y final única en Miami |
 | Liga MX | 18 clubes | 17 jornadas y liguilla de 8 equipos a ida y vuelta (desempata mejor posición hasta semifinales) |
 | Premier League | 20 clubes | 38 jornadas a ida y vuelta sin playoffs; zonas europeas y descenso |
+| LaLiga | 20 clubes | 38 jornadas a ida y vuelta sin playoffs; zonas de Liga de Campeones, Liga Europa y Conference y descenso |
 | Liga 1 de Perú | 18 clubes | Apertura y Clausura (17 fechas cada uno con localías invertidas), tabla acumulada y playoffs por el título |
 | Brasileirão Série A 2026 | 20 clubes | 38 jornadas de ida y vuelta; campeón por puntos, zonas continentales y cuatro descensos |
 | Brasileirão Série B 2026 | 20 clubes | 38 jornadas de ida y vuelta; dos ascensos directos, dos por repechaje y cuatro descensos |

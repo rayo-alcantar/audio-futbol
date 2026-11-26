@@ -48,6 +48,7 @@ class MainMenuScene:
             ("Copa Interamericana", lambda: start_new_club_competition(ctx, "interamericana")),
             ("Liga MX", lambda: start_new_club_competition(ctx, "ligamx")),
             ("Premier League", lambda: start_new_club_competition(ctx, "premier")),
+            ("LaLiga", lambda: start_new_club_competition(ctx, "laliga")),
             ("Liga 1 de Perú", lambda: start_new_club_competition(ctx, "liga1")),
             ("Liga Profesional Argentina", lambda: start_new_club_competition(ctx, "liga_argentina")),
             ("Brasileirão", lambda: _start_brasileirao(ctx)),

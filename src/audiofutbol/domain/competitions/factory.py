@@ -12,6 +12,7 @@ from audiofutbol.domain.competitions.club_tournaments import (
     CopaLibertadores,
     CopaPersonalizada,
     CopaSudamericana,
+    LaLiga,
     Liga1Peru,
     LigaArgentina,
     LigaMX,
@@ -103,6 +104,18 @@ CLUB_COMPETITIONS: dict[str, ClubCompetitionSpec] = {
             "Los tres últimos descienden."
         ),
     ),
+    "laliga": ClubCompetitionSpec(
+        key="laliga",
+        title="LaLiga",
+        menu_label="LaLiga",
+        json_filename="laliga_2026_27.json",
+        cls=LaLiga,
+        intro_text=(
+            "LaLiga 2026-27 con 20 clubes. Son 38 jornadas, todos contra todos "
+            "a ida y vuelta. No hay playoffs: el que termina primero es el campeón. "
+            "Los cuatro primeros van a la Liga de Campeones y los tres últimos descienden."
+        ),
+    ),
     "liga1": ClubCompetitionSpec(
         key="liga1",
         title="Liga 1 de Perú",
@@ -166,6 +179,7 @@ SAVE_SLOTS: tuple[tuple[str, str], ...] = (
     ("interamericana", "Copa Interamericana"),
     ("ligamx", "Liga MX"),
     ("premier", "Premier League"),
+    ("laliga", "LaLiga"),
     ("liga1", "Liga 1 de Perú"),
     ("liga_argentina", "Liga Profesional Argentina"),
     (BrasileiraoA.KEY, CLUB_COMPETITIONS[BrasileiraoA.KEY].menu_label),
@@ -182,6 +196,7 @@ _CLASS_BY_TYPE: dict[str, type[Any]] = {
     "interamericana": CopaInteramericana,
     "ligamx": LigaMX,
     "premier": PremierLeague,
+    "laliga": LaLiga,
     "liga1": Liga1Peru,
     "liga_argentina": LigaArgentina,
     BrasileiraoA.KEY: BrasileiraoA,
